@@ -1,0 +1,28 @@
+{
+  "brand": "Psoriatinin",
+  "nav": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "how": "How it works",
+    "ingredients": "Ingredients",
+    "results": "Results",
+    "brand": "About",
+    "use": "How to use",
+    "blog": "Blog",
+    "order": "Order",
+    "contacts": "Contacts",
+    "legal": "Legal"
+  },
+  "hero": {
+    "title": "Gentle care for psoriatic skin",
+    "subtitle": "A daily-use cream that helps soften skin, reduce dryness and support the skin barrier.",
+    "cta": "Buy now"
+  },
+  "order": {
+    "title": "Place an order",
+    "submit": "Submit"
+  },
+  "footer": {
+    "disclaimer": "This information does not replace medical advice. Individual results may vary."
+  }
+}
