@@ -1,7 +1,66 @@
 import type { Config } from 'tailwindcss'
 
 export default {
-  content: ['./app/**/*.{ts,tsx}','./components/**/*.{ts,tsx}'],
-  theme: { extend: {} },
+  content: [
+    './app/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './lib/**/*.{ts,tsx}'
+  ],
+  theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1.5rem',
+        sm: '2rem',
+        lg: '3rem',
+        xl: '4rem'
+      },
+      screens: {
+        '2xl': '1280px'
+      }
+    },
+    extend: {
+      colors: {
+        border: 'rgba(23, 42, 48, 0.12)',
+        brand: {
+          DEFAULT: '#3A6B78',
+          light: '#4F8896',
+          muted: '#EFF4F6',
+          dark: '#23444C'
+        },
+        neutral: {
+          50: '#FAFAFA',
+          100: '#F4F4F5',
+          200: '#E4E4E7',
+          300: '#D4D4D8',
+          400: '#A1A1AA',
+          500: '#71717A',
+          600: '#52525B',
+          700: '#3F3F46',
+          800: '#27272A',
+          900: '#18181B'
+        }
+      },
+      fontFamily: {
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        serif: ['"Merriweather"', 'serif']
+      },
+      boxShadow: {
+        soft: '0 10px 30px rgba(20,46,54,0.08)'
+      },
+      backgroundImage: {
+        'grid': 'linear-gradient(0deg, rgba(58,107,120,0.07) 1px, transparent 0), linear-gradient(90deg, rgba(58,107,120,0.07) 1px, transparent 0)'
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        }
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.6s ease-out'
+      }
+    }
+  },
   plugins: []
 } satisfies Config
