@@ -1,3 +1,6 @@
+
+'use client'
+
 import {PropsWithChildren, useState} from 'react'
 import {cn} from '@/lib/utils'
 

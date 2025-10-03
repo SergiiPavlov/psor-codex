@@ -3,7 +3,6 @@ import {getRequestConfig} from 'next-intl/server';
 
 // Перечень локалей держим как у тебя: uk / ru / en
 export default getRequestConfig(async ({locale}) => {
-  // Сообщения у тебя лежат в /messages/*.json
-  const messages = (await import(`../messages/${locale}.json`)).default;
+  const messages = (await import(`../messages/${locale}`)).default;
   return {messages};
 });
