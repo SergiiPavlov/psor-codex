@@ -67,12 +67,12 @@ button {
 }
 
 .shadow-grid::before {
-  content: '';
+  content: "";
   @apply absolute inset-0 bg-grid opacity-70;
 }
 
 .shadow-grid::after {
-  content: '';
+  content: "";
   @apply absolute inset-0 bg-gradient-to-br from-white via-white/80 to-brand-muted;
 }
 
@@ -110,7 +110,11 @@ button {
 }
 
 .gradient-border {
-  background: linear-gradient(120deg, rgba(58,107,120,0.3), rgba(79,136,150,0.3));
+  background: linear-gradient(
+    120deg,
+    rgba(58, 107, 120, 0.3),
+    rgba(79, 136, 150, 0.3)
+  );
   padding: 1px;
 }
 
@@ -192,7 +196,7 @@ button {
 }
 
 .timeline-item::before {
-  content: '';
+  content: "";
   @apply absolute left-2 top-1 h-3 w-3 rounded-full border-4 border-white bg-brand md:left-1/2;
   transform: translateX(-50%);
 }
@@ -214,4 +218,11 @@ button {
     left: 1.25rem !important;
     transform: translateX(-50%);
   }
+}
+
+:root {
+  --container-max: 1440px;
+}
+.container {
+  max-width: var(--container-max);
 }
