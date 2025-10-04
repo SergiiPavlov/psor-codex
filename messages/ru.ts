@@ -51,7 +51,18 @@ const ru = {
     }
   },
   nav: {
-    home: 'Главная',    catalog: 'Каталог',    how_it_works: 'Как это работает',    ingredients: 'Состав',    results: 'Результаты',    about: 'О нас',    how_to_use: 'Как применять',    care_notes: 'Памятка по уходу',    forum: 'Форум',    order_now: 'Заказать',
+   menuTitle: 'Меню',
+  close: 'Закрыть',
+  home: 'Главная',
+  catalog: 'Каталог',
+  how_it_works: 'Как это работает',
+  ingredients: 'Ингредиенты',
+  results: 'Результаты',
+  about: 'О бренде',
+  how_to_use: 'Как применять',
+  care_notes: 'Памятка по уходу',
+  forum: 'Форум',
+  order_now: 'Заказать',
     primary: [
       {href: '/', label: 'Главная'},
       {href: '/catalog', label: 'Каталог'},
