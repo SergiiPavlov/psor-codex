@@ -51,6 +51,7 @@ const en = {
     }
   },
   nav: {
+    home: 'Home',    catalog: 'Catalog',    how_it_works: 'How it works',    ingredients: 'Ingredients',    results: 'Results',    about: 'About',    how_to_use: 'How to use',    care_notes: 'Care notes',    forum: 'Forum',    order_now: 'Order now',
     primary: [
       {href: '/', label: 'Home'},
       {href: '/catalog', label: 'Catalog'},

@@ -50,7 +50,18 @@ const uk = {
       gaId: '{ga_id}'
     }
   },
-  nav: {
+  
+   nav: {
+  home: "Головна",
+  catalog: "Каталог",
+  how_it_works: "Як це працює",
+  ingredients: "Склад",
+  results: "Результати",
+  about: "Про нас",
+  how_to_use: "Як застосовувати",
+  care_notes: "Пам'ятка з догляду",
+  forum: "Форум",
+  order_now: "Замовити",
     primary: [
       {href: '/', label: 'Головна'},
       {href: '/catalog', label: 'Каталог'},
