@@ -22,7 +22,7 @@ export default function Header() {
             <span className="h-10 w-10 rounded-2xl bg-brand-muted/80" aria-hidden />
             <span> {common('brand')} </span>
           </Link>
-          <nav className="hidden items-center gap-6 text-sm font-medium text-neutral-700 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-6 text-sm font-medium text-neutral-700 xl:flex" aria-label="Primary">
             {primaryNav.map((item) => {
               const target = `/${locale}${item.href === '/' ? '' : item.href}`
               const isActive = item.href === '/' ? pathname === target : pathname?.startsWith(target)
@@ -64,7 +64,7 @@ export default function Header() {
           <Button
             href={`/${locale}/order`}
             variant="primary"
-            className="text-sm font-semibold lg:hidden"
+            className="text-sm font-semibold xl:hidden"
           >
             {common('cta.buy')}
           </Button>

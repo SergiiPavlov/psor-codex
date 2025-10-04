@@ -7,6 +7,7 @@ export default {
     './lib/**/*.{ts,tsx}'
   ],
   theme: {
+    // Контейнер центрируем, сохраняем твои отступы
     container: {
       center: true,
       padding: {
@@ -15,10 +16,19 @@ export default {
         lg: '3rem',
         xl: '4rem'
       },
+      // Контейнерная ширина для десктопа (1440)
       screens: {
-        '2xl': '1280px'
+        xl: '1440px'
       }
     },
+
+    // Переопределяем БРЕЙКПОИНТЫ: только md (768) и xl (1440).
+    // Базовая мобильная стилизация — без префиксов (320+).
+    screens: {
+      md: '768px',
+      xl: '1440px'
+    },
+
     extend: {
       colors: {
         border: 'rgba(23, 42, 48, 0.12)',
@@ -49,7 +59,9 @@ export default {
         soft: '0 10px 30px rgba(20,46,54,0.08)'
       },
       backgroundImage: {
-        'grid': 'linear-gradient(0deg, rgba(58,107,120,0.07) 1px, transparent 0), linear-gradient(90deg, rgba(58,107,120,0.07) 1px, transparent 0)'
+        grid:
+          'linear-gradient(0deg, rgba(58,107,120,0.07) 1px, transparent 0), ' +
+          'linear-gradient(90deg, rgba(58,107,120,0.07) 1px, transparent 0)'
       },
       keyframes: {
         fadeIn: {
