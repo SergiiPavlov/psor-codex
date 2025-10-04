@@ -1,7 +1,7 @@
 const ru = {
   common: {
     brand: 'Псориатинин',
-    domainPlaceholder: '{{domain}}',
+    domainPlaceholder: '{domain}',
     currency: 'UAH',
     tagline: 'Дерматологически протестированный уход для кожи, склонной к псориатическим проявлениям.',
     description: 'Псориатинин — косметическая линия, которая помогает смягчать кожу, поддерживать барьер и уменьшать выраженность шелушения.',
@@ -37,17 +37,17 @@ const ru = {
     },
     contact: {
       phone: '+380 XX XXX XX XX',
-      email: '{{order_endpoints}}',
-      telegram: '{{order_endpoints}}',
+      email: '{order_endpoints}',
+      telegram: '{order_endpoints}',
       office: 'Харьков, Украина',
       hours: 'Пн–Пт 10:00–18:00 (UTC+2)'
     },
     placeholders: {
-      sizesAndPrices: '{{sizes_and_prices}}',
-      inci: '{{inci_and_actives}}',
-      assets: '{{assets_links}}',
-      legalInfo: '{{legal_info}}',
-      gaId: '{{ga_id}}'
+      sizesAndPrices: '{sizes_and_prices}',
+      inci: '{inci_and_actives}',
+      assets: '{assets_links}',
+      legalInfo: '{legal_info}',
+      gaId: '{ga_id}'
     }
   },
   nav: {
@@ -75,7 +75,7 @@ const ru = {
   footer: {
     about: 'Псориатинин — линия поддерживающего ухода, созданная вместе с дерматологами. Формулы сфокусированы на смягчении, уменьшении видимого шелушения и защите кожного барьера без медицинских обещаний.',
     rights: '© Псориатинин. Все права защищены.',
-    registration: 'Юридические реквизиты: {{legal_info}}',
+    registration: 'Юридические реквизиты: {legal_info}',
     socialTitle: 'Будьте на связи',
     menuTitle: 'Быстрые ссылки',
     disclaimer: 'Опыт пользователей не является медицинской рекомендацией.'
@@ -87,7 +87,7 @@ const ru = {
     decline: 'Отклонить необязательные'
   },
   analytics: {
-    placeholder: 'Заглушка для Google Analytics 4. Укажите GA ID в переменной окружения {{ga_id}}.'
+    placeholder: 'Заглушка для Google Analytics 4. Укажите GA ID в переменной окружения {ga_id}.'
   },
   home: {
     hero: {
@@ -188,14 +188,14 @@ const ru = {
         name: 'Псориатинин Крем',
         description: 'Классический эмолентный уход с кератолитическим комплексом для смягчения и защиты.',
         highlights: ['Ежедневное применение', 'Плотная, но быстро впитывающаяся текстура', 'Протестировано дерматологами'],
-        price: '{{sizes_and_prices}}'
+        price: '{sizes_and_prices}'
       },
       {
         slug: 'psoriatinin-cool',
         name: 'Псориатинин Крем Cool',
         description: 'Все преимущества классической версии плюс лёгкое охлаждение для мгновенного комфорта.',
         highlights: ['Моментальное ощущение прохлады', 'Лёгкая текстура', 'Производное ментола в составе'],
-        price: '{{sizes_and_prices}}'
+        price: '{sizes_and_prices}'
       }
     ]
   },
@@ -216,14 +216,14 @@ const ru = {
         ]
       },
       gallery: [
-        {id: 'front', label: 'Заглушка продукта', description: 'Вид спереди — заменить финальным рендером.', url: '{{assets_links}}'},
-        {id: 'texture', label: 'Заглушка текстуры', description: 'Макро крема — заменить позже.', url: '{{assets_links}}'},
-        {id: 'lifestyle', label: 'Заглушка рутины', description: 'Фото применения появится позже.', url: '{{assets_links}}'}
+        {id: 'front', label: 'Заглушка продукта', description: 'Вид спереди — заменить финальным рендером.', url: '{assets_links}'},
+        {id: 'texture', label: 'Заглушка текстуры', description: 'Макро крема — заменить позже.', url: '{assets_links}'},
+        {id: 'lifestyle', label: 'Заглушка рутины', description: 'Фото применения появится позже.', url: '{assets_links}'}
       ],
       variantsTitle: 'Доступные форматы',
       variants: [
-        {id: 'classic-1', label: 'Тюбик — {{sizes_and_prices}}', price: '{{sizes_and_prices}}'},
-        {id: 'classic-2', label: 'Семейный формат — {{sizes_and_prices}}', price: '{{sizes_and_prices}}'}
+        {id: 'classic-1', label: 'Тюбик — {sizes_and_prices}', price: '{sizes_and_prices}'},
+        {id: 'classic-2', label: 'Семейный формат — {sizes_and_prices}', price: '{sizes_and_prices}'}
       ],
       highlights: {
         title: 'Ключевые преимущества',
@@ -256,7 +256,7 @@ const ru = {
       },
       composition: {
         title: 'Состав',
-        inci: '{{inci_and_actives}}',
+        inci: '{inci_and_actives}',
         description: 'Формула, одобренная дерматологами и сфокусированная на кератолитиках, эмолентах и поддержке барьера.',
         keyIngredients: [
           {name: 'Мочевина (10%)', description: 'Привлекает влагу и помогает разглаживать поверхность.'},
@@ -301,14 +301,14 @@ const ru = {
         ]
       },
       gallery: [
-        {id: 'front', label: 'Заглушка продукта', description: 'Вид спереди — заменить финальным рендером.', url: '{{assets_links}}'},
-        {id: 'texture', label: 'Заглушка текстуры', description: 'Лёгкая гелевая текстура — появится позже.', url: '{{assets_links}}'},
-        {id: 'lifestyle', label: 'Заглушка рутины', description: 'Фото охлаждающего ритуала появится позже.', url: '{{assets_links}}'}
+        {id: 'front', label: 'Заглушка продукта', description: 'Вид спереди — заменить финальным рендером.', url: '{assets_links}'},
+        {id: 'texture', label: 'Заглушка текстуры', description: 'Лёгкая гелевая текстура — появится позже.', url: '{assets_links}'},
+        {id: 'lifestyle', label: 'Заглушка рутины', description: 'Фото охлаждающего ритуала появится позже.', url: '{assets_links}'}
       ],
       variantsTitle: 'Доступные форматы',
       variants: [
-        {id: 'cool-1', label: 'Тюбик — {{sizes_and_prices}}', price: '{{sizes_and_prices}}'},
-        {id: 'cool-2', label: 'Семейный формат — {{sizes_and_prices}}', price: '{{sizes_and_prices}}'}
+        {id: 'cool-1', label: 'Тюбик — {sizes_and_prices}', price: '{sizes_and_prices}'},
+        {id: 'cool-2', label: 'Семейный формат — {sizes_and_prices}', price: '{sizes_and_prices}'}
       ],
       highlights: {
         title: 'Ключевые преимущества',
@@ -341,7 +341,7 @@ const ru = {
       },
       composition: {
         title: 'Состав',
-        inci: '{{inci_and_actives}}',
+        inci: '{inci_and_actives}',
         description: 'Сбалансированная формула с кератолитиками, эмолентами и освежающим компонентом для дополнительного комфорта.',
         keyIngredients: [
           {name: 'Ментил PCA', description: 'Обеспечивает мягкую прохладу и поддерживает увлажнение.'},
@@ -414,12 +414,12 @@ const ru = {
       subtitle: 'Познакомьтесь с ключевыми компонентами Псориатинин. Финальные проценты INCI будут добавлены после утверждения.'
     },
     cards: [
-      {name: 'Мочевина', short: 'Гумектант и кератолитик', description: 'Удерживает влагу и помогает разглаживать поверхность кожи.', note: 'Финальный процент: {{inci_and_actives}}'},
-      {name: 'Производное молочной кислоты', short: 'Мягкое отшелушивание', description: 'Способствует бережному удалению чешуек без раздражения.', note: 'Финальный процент: {{inci_and_actives}}'},
-      {name: 'Пантенол', short: 'Провитамин B5', description: 'Поддерживает комфорт и устойчивость кожи.', note: 'Финальный процент: {{inci_and_actives}}'},
-      {name: 'Ниацинамид', short: 'Поддержка барьера', description: 'Укрепляет защитные функции и выравнивает тон.', note: 'Финальный процент: {{inci_and_actives}}'},
-      {name: 'Ментил PCA', short: 'Охлаждающий компонент', description: 'Отвечает за лёгкую прохладу в версии Cool.', note: 'Финальный процент: {{inci_and_actives}}'},
-      {name: 'Масло ши', short: 'Эмолент', description: 'Богато жирными кислотами и защищает от потери влаги.', note: 'Финальный процент: {{inci_and_actives}}'}
+      {name: 'Мочевина', short: 'Гумектант и кератолитик', description: 'Удерживает влагу и помогает разглаживать поверхность кожи.', note: 'Финальный процент: {inci_and_actives}'},
+      {name: 'Производное молочной кислоты', short: 'Мягкое отшелушивание', description: 'Способствует бережному удалению чешуек без раздражения.', note: 'Финальный процент: {inci_and_actives}'},
+      {name: 'Пантенол', short: 'Провитамин B5', description: 'Поддерживает комфорт и устойчивость кожи.', note: 'Финальный процент: {inci_and_actives}'},
+      {name: 'Ниацинамид', short: 'Поддержка барьера', description: 'Укрепляет защитные функции и выравнивает тон.', note: 'Финальный процент: {inci_and_actives}'},
+      {name: 'Ментил PCA', short: 'Охлаждающий компонент', description: 'Отвечает за лёгкую прохладу в версии Cool.', note: 'Финальный процент: {inci_and_actives}'},
+      {name: 'Масло ши', short: 'Эмолент', description: 'Богато жирными кислотами и защищает от потери влаги.', note: 'Финальный процент: {inci_and_actives}'}
     ],
     note: 'Полные INCI и концентрации появятся позже. Все заглушки отмечены как TODO.'
   },
@@ -466,9 +466,9 @@ const ru = {
       title: 'Сертификаты и испытания',
       description: 'Скоро здесь появятся сканы протоколов Харьковского НИИ дерматологии и неврологии и другие документы. Сейчас размещены заглушки.',
       items: [
-        {title: 'Отчёт дерматологических испытаний', description: 'Результаты исследования переносимости на коже, склонной к псориазу.', file: '{{assets_links}}'},
-        {title: 'Сертификат микробиологической безопасности', description: 'Подтверждение соответствия санитарным нормам.', file: '{{assets_links}}'},
-        {title: 'Протокол стабильности', description: 'Данные о стабильности продукта при разных температурах.', file: '{{assets_links}}'}
+        {title: 'Отчёт дерматологических испытаний', description: 'Результаты исследования переносимости на коже, склонной к псориазу.', file: '{assets_links}'},
+        {title: 'Сертификат микробиологической безопасности', description: 'Подтверждение соответствия санитарным нормам.', file: '{assets_links}'},
+        {title: 'Протокол стабильности', description: 'Данные о стабильности продукта при разных температурах.', file: '{assets_links}'}
       ]
     },
     promise: {
@@ -547,8 +547,8 @@ const ru = {
     },
     channels: [
       {type: 'phone', label: 'Горячая линия', value: '+380 XX XXX XX XX'},
-      {type: 'email', label: 'Email', value: '{{order_endpoints}}'},
-      {type: 'telegram', label: 'Telegram', value: '{{order_endpoints}}'},
+      {type: 'email', label: 'Email', value: '{order_endpoints}'},
+      {type: 'telegram', label: 'Telegram', value: '{order_endpoints}'},
       {type: 'address', label: 'Офис', value: 'Харьков, Украина'}
     ],
     schedule: 'График поддержки: Пн–Пт 10:00–18:00 (UTC+2).',
@@ -561,13 +561,13 @@ const ru = {
       sections: [
         {title: 'Какие данные мы собираем', body: 'Имя, телефон, адрес доставки, комментарии, cookie-идентификаторы и аналитика.'},
         {title: 'Как используем данные', body: 'Для обработки заказов, поддержки клиентов, улучшения сайта и выполнения юридических обязанностей.'},
-        {title: 'Срок хранения', body: 'Информация о заказах хранится до 24 месяцев. Можно запросить удаление по адресу {{order_endpoints}}.'},
+        {title: 'Срок хранения', body: 'Информация о заказах хранится до 24 месяцев. Можно запросить удаление по адресу {order_endpoints}.'},
         {title: 'Ваши права', body: 'Вы можете запросить доступ, исправление или удаление данных в любой момент.'}
       ]
     },
     terms: {
       title: 'Условия использования',
-      intro: 'Используя {{domain}}, вы соглашаетесь с этими условиями. Псориатинин предоставляет косметические продукты и информационные материалы.',
+      intro: 'Используя {domain}, вы соглашаетесь с этими условиями. Псориатинин предоставляет косметические продукты и информационные материалы.',
       sections: [
         {title: 'Контент', body: 'Информация на сайте предназначена для образовательных целей и не заменяет консультацию специалиста.'},
         {title: 'Ответственность пользователя', body: 'Предоставляйте достоверные данные в формах и уважайте интеллектуальную собственность.'},

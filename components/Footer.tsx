@@ -58,7 +58,7 @@ export default function Footer() {
         <div className="container flex flex-col gap-3 py-6 text-xs text-neutral-500 md:flex-row md:items-center md:justify-between">
           <p>{tFooter('rights')}</p>
           <div className="space-y-1 md:text-right">
-            <p>{tFooter('registration')}</p>
+            <p>{tFooter('registration', { legal_info: process.env.NEXT_PUBLIC_LEGAL_INFO ?? '' })}</p>
             <p>
               {contacts.office} · {contacts.hours}
             </p>

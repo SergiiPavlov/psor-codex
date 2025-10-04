@@ -1,7 +1,7 @@
 const en = {
   common: {
     brand: 'Psoriatinin',
-    domainPlaceholder: '{{domain}}',
+    domainPlaceholder: '{domain}',
     currency: 'UAH',
     tagline: 'Dermatologist-tested care to comfort skin prone to psoriasis.',
     description: 'Psoriatinin is a cosmetic care line that helps soften, support barrier function and ease visible flaking.',
@@ -37,17 +37,17 @@ const en = {
     },
     contact: {
       phone: '+380 XX XXX XX XX',
-      email: '{{order_endpoints}}',
-      telegram: '{{order_endpoints}}',
+      email: '{order_endpoints}',
+      telegram: '{order_endpoints}',
       office: 'Kharkiv, Ukraine',
       hours: 'Monday–Friday 10:00–18:00 (UTC+2)'
     },
     placeholders: {
-      sizesAndPrices: '{{sizes_and_prices}}',
-      inci: '{{inci_and_actives}}',
-      assets: '{{assets_links}}',
-      legalInfo: '{{legal_info}}',
-      gaId: '{{ga_id}}'
+      sizesAndPrices: '{sizes_and_prices}',
+      inci: '{inci_and_actives}',
+      assets: '{assets_links}',
+      legalInfo: '{legal_info}',
+      gaId: '{ga_id}'
     }
   },
   nav: {
@@ -75,7 +75,7 @@ const en = {
   footer: {
     about: 'Psoriatinin is a supportive care line created together with dermatologists. Our formulas focus on softening, reducing visible flaking and protecting the skin barrier without promising medical outcomes.',
     rights: '© Psoriatinin. All rights reserved.',
-    registration: 'Legal details: {{legal_info}}',
+    registration: 'Legal details: {legal_info}',
     socialTitle: 'Stay connected',
     menuTitle: 'Quick links',
     disclaimer: 'Experience shared by users is not a medical recommendation.'
@@ -87,7 +87,7 @@ const en = {
     decline: 'Decline optional'
   },
   analytics: {
-    placeholder: 'Google Analytics 4 placeholder. Insert GA ID in environment variable {{ga_id}}.'
+    placeholder: 'Google Analytics 4 placeholder. Insert GA ID in environment variable {ga_id}.'
   },
   home: {
     hero: {
@@ -188,14 +188,14 @@ const en = {
         name: 'Psoriatinin Cream',
         description: 'Classic emollient care with keratolytic complex to soften and protect.',
         highlights: ['Daily maintenance', 'Rich yet fast-absorbing texture', 'Tested by dermatologists'],
-        price: '{{sizes_and_prices}}'
+        price: '{sizes_and_prices}'
       },
       {
         slug: 'psoriatinin-cool',
         name: 'Psoriatinin Cream Cool',
         description: 'All the care benefits plus a refreshing sensation for moments of heat or discomfort.',
         highlights: ['Instant comfort', 'Lightweight texture', 'Menthol derivative for cooling'],
-        price: '{{sizes_and_prices}}'
+        price: '{sizes_and_prices}'
       }
     ]
   },
@@ -216,14 +216,14 @@ const en = {
         ]
       },
       gallery: [
-        {id: 'front', label: 'Product placeholder', description: 'Front of pack — replace with final render.', url: '{{assets_links}}'},
-        {id: 'texture', label: 'Texture placeholder', description: 'Cream texture macro shot — replace later.', url: '{{assets_links}}'},
-        {id: 'lifestyle', label: 'Routine placeholder', description: 'Lifestyle usage photo to be added.', url: '{{assets_links}}'}
+        {id: 'front', label: 'Product placeholder', description: 'Front of pack — replace with final render.', url: '{assets_links}'},
+        {id: 'texture', label: 'Texture placeholder', description: 'Cream texture macro shot — replace later.', url: '{assets_links}'},
+        {id: 'lifestyle', label: 'Routine placeholder', description: 'Lifestyle usage photo to be added.', url: '{assets_links}'}
       ],
       variantsTitle: 'Available formats',
       variants: [
-        {id: 'classic-1', label: 'Tube — {{sizes_and_prices}}', price: '{{sizes_and_prices}}'},
-        {id: 'classic-2', label: 'Family size — {{sizes_and_prices}}', price: '{{sizes_and_prices}}'}
+        {id: 'classic-1', label: 'Tube — {sizes_and_prices}', price: '{sizes_and_prices}'},
+        {id: 'classic-2', label: 'Family size — {sizes_and_prices}', price: '{sizes_and_prices}'}
       ],
       highlights: {
         title: 'Key advantages',
@@ -256,7 +256,7 @@ const en = {
       },
       composition: {
         title: 'Composition',
-        inci: '{{inci_and_actives}}',
+        inci: '{inci_and_actives}',
         description: 'Dermatologist-reviewed formula focusing on keratolytics, emollients and barrier-supportive ingredients.',
         keyIngredients: [
           {name: 'Urea (10%)', description: 'Attracts water and loosens the outermost layer for smoother appearance.'},
@@ -301,14 +301,14 @@ const en = {
         ]
       },
       gallery: [
-        {id: 'front', label: 'Product placeholder', description: 'Front of pack — add final render later.', url: '{{assets_links}}'},
-        {id: 'texture', label: 'Texture placeholder', description: 'Lightweight gel-cream texture preview.', url: '{{assets_links}}'},
-        {id: 'lifestyle', label: 'Routine placeholder', description: 'Cooling ritual image to be added.', url: '{{assets_links}}'}
+        {id: 'front', label: 'Product placeholder', description: 'Front of pack — add final render later.', url: '{assets_links}'},
+        {id: 'texture', label: 'Texture placeholder', description: 'Lightweight gel-cream texture preview.', url: '{assets_links}'},
+        {id: 'lifestyle', label: 'Routine placeholder', description: 'Cooling ritual image to be added.', url: '{assets_links}'}
       ],
       variantsTitle: 'Available formats',
       variants: [
-        {id: 'cool-1', label: 'Tube — {{sizes_and_prices}}', price: '{{sizes_and_prices}}'},
-        {id: 'cool-2', label: 'Family size — {{sizes_and_prices}}', price: '{{sizes_and_prices}}'}
+        {id: 'cool-1', label: 'Tube — {sizes_and_prices}', price: '{sizes_and_prices}'},
+        {id: 'cool-2', label: 'Family size — {sizes_and_prices}', price: '{sizes_and_prices}'}
       ],
       highlights: {
         title: 'Key advantages',
@@ -341,7 +341,7 @@ const en = {
       },
       composition: {
         title: 'Composition',
-        inci: '{{inci_and_actives}}',
+        inci: '{inci_and_actives}',
         description: 'A balanced formula combining keratolytics, emollients and menthyl derivatives for refreshing comfort.',
         keyIngredients: [
           {name: 'Menthyl PCA', description: 'Provides mild cooling while supporting hydration.'},
@@ -414,12 +414,12 @@ const en = {
       subtitle: 'Explore the key ingredients behind Psoriatinin. Final INCI percentages will be added after regulatory approval.'
     },
     cards: [
-      {name: 'Urea', short: 'Humectant & keratolytic', description: 'Binds water to the skin and helps loosen surface build-up for smoother touch.', note: 'Final percentage: {{inci_and_actives}}'},
-      {name: 'Lactic Acid Derivative', short: 'Soft exfoliation', description: 'Helps detach flakes gently without irritation.', note: 'Final percentage: {{inci_and_actives}}'},
-      {name: 'Panthenol', short: 'Pro-vitamin B5', description: 'Supports comfort and resilience of the skin.', note: 'Final percentage: {{inci_and_actives}}'},
-      {name: 'Niacinamide', short: 'Barrier support', description: 'Strengthens protective functions and evens tone appearance.', note: 'Final percentage: {{inci_and_actives}}'},
-      {name: 'Menthyl PCA', short: 'Cooling agent', description: 'Delivers mild freshness in the Cool version.', note: 'Final percentage: {{inci_and_actives}}'},
-      {name: 'Shea Butter', short: 'Emollient', description: 'Rich in fatty acids to nourish and reduce moisture loss.', note: 'Final percentage: {{inci_and_actives}}'}
+      {name: 'Urea', short: 'Humectant & keratolytic', description: 'Binds water to the skin and helps loosen surface build-up for smoother touch.', note: 'Final percentage: {inci_and_actives}'},
+      {name: 'Lactic Acid Derivative', short: 'Soft exfoliation', description: 'Helps detach flakes gently without irritation.', note: 'Final percentage: {inci_and_actives}'},
+      {name: 'Panthenol', short: 'Pro-vitamin B5', description: 'Supports comfort and resilience of the skin.', note: 'Final percentage: {inci_and_actives}'},
+      {name: 'Niacinamide', short: 'Barrier support', description: 'Strengthens protective functions and evens tone appearance.', note: 'Final percentage: {inci_and_actives}'},
+      {name: 'Menthyl PCA', short: 'Cooling agent', description: 'Delivers mild freshness in the Cool version.', note: 'Final percentage: {inci_and_actives}'},
+      {name: 'Shea Butter', short: 'Emollient', description: 'Rich in fatty acids to nourish and reduce moisture loss.', note: 'Final percentage: {inci_and_actives}'}
     ],
     note: 'Full INCI lists with concentrations will be uploaded soon. Placeholders are marked with TODO.'
   },
@@ -466,9 +466,9 @@ const en = {
       title: 'Certificates & studies',
       description: 'Access protocol scans from the Kharkiv Institute of Dermatology and Neurology and other lab reports. Placeholder files will be replaced with originals soon.',
       items: [
-        {title: 'Dermatological testing report', description: 'Summary of tolerance study on volunteers with psoriasis-prone skin.', file: '{{assets_links}}'},
-        {title: 'Microbiological safety certificate', description: 'Laboratory confirmation of safety standards.', file: '{{assets_links}}'},
-        {title: 'Stability testing protocol', description: 'Demonstrates product stability across temperature ranges.', file: '{{assets_links}}'}
+        {title: 'Dermatological testing report', description: 'Summary of tolerance study on volunteers with psoriasis-prone skin.', file: '{assets_links}'},
+        {title: 'Microbiological safety certificate', description: 'Laboratory confirmation of safety standards.', file: '{assets_links}'},
+        {title: 'Stability testing protocol', description: 'Demonstrates product stability across temperature ranges.', file: '{assets_links}'}
       ]
     },
     promise: {
@@ -547,8 +547,8 @@ const en = {
     },
     channels: [
       {type: 'phone', label: 'Hotline', value: '+380 XX XXX XX XX'},
-      {type: 'email', label: 'Email', value: '{{order_endpoints}}'},
-      {type: 'telegram', label: 'Telegram', value: '{{order_endpoints}}'},
+      {type: 'email', label: 'Email', value: '{order_endpoints}'},
+      {type: 'telegram', label: 'Telegram', value: '{order_endpoints}'},
       {type: 'address', label: 'Office', value: 'Kharkiv, Ukraine'}
     ],
     schedule: 'Support hours: Monday–Friday 10:00–18:00 (UTC+2).',
@@ -561,13 +561,13 @@ const en = {
       sections: [
         {title: 'Data we collect', body: 'Name, phone, delivery address, comments, cookie identifiers and analytics data.'},
         {title: 'How we use data', body: 'To process orders, provide support, improve the site and comply with legal obligations.'},
-        {title: 'Data retention', body: 'Order information is stored for up to 24 months. You can request deletion via {{order_endpoints}}.'},
+        {title: 'Data retention', body: 'Order information is stored for up to 24 months. You can request deletion via {order_endpoints}.'},
         {title: 'Your rights', body: 'You can request access, correction or deletion of your data at any time.'}
       ]
     },
     terms: {
       title: 'Terms of use',
-      intro: 'By using {{domain}} you agree to follow these terms. Psoriatinin provides cosmetic products and informational materials.',
+      intro: 'By using {domain} you agree to follow these terms. Psoriatinin provides cosmetic products and informational materials.',
       sections: [
         {title: 'Content', body: 'Information on the site is for educational purposes and does not replace professional medical advice.'},
         {title: 'User responsibilities', body: 'Provide accurate data when submitting forms and respect intellectual property.'},
