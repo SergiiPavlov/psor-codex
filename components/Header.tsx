@@ -1,75 +1,87 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import {usePathname} from 'next/navigation'
-import {useLocale, useTranslations} from 'next-intl'
-import {cn} from '@/lib/utils'
-import LangSwitcher from './LangSwitcher'
-import {Button} from './ui/button'
+import {useState} from 'react';
+import Link from 'next/link';
+import {useLocale, useTranslations} from 'next-intl';
+import {usePathname} from 'next/navigation';
+import {Menu} from 'lucide-react';
+import LangSwitcher from './LangSwitcher';
+import MobileMenu from './MobileMenu';
 
 export default function Header() {
-  const t = useTranslations('nav')
-  const common = useTranslations('common')
-  const locale = useLocale()
-  const pathname = usePathname()
-  const primaryNav = t.raw('primary') as Array<{href: string; label: string; external?: boolean}>
+  const t = useTranslations('nav');
+  const locale = useLocale();
+  const pathname = usePathname() || '/';
+  const [open, setOpen] = useState(false);
+
+  const items: Array<{key: string; href: string}> = [
+    {key: 'home', href: '/'},
+    {key: 'catalog', href: '/catalog'},
+    {key: 'how_it_works', href: '/how-it-works'},
+    {key: 'ingredients', href: '/ingredients'},
+    {key: 'results', href: '/results'},
+    {key: 'about', href: '/about'},
+    {key: 'how_to_use', href: '/how-to-use'},
+    {key: 'care_notes', href: '/care-notes'},
+    {key: 'forum', href: '/forum'}
+  ];
+
+  const withLocale = (href: string) =>
+    href === '/' ? `/${locale}` : `/${locale}${href}`;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-white/90 backdrop-blur">
-      <div className="container flex items-center justify-between gap-4 py-4">
-        <div className="flex items-center gap-8">
-          <Link href={`/${locale}`} className="flex items-center gap-2 text-lg font-semibold text-brand-dark focus-outline">
-            <span className="h-10 w-10 rounded-2xl bg-brand-muted/80" aria-hidden />
-            <span> {common('brand')} </span>
-          </Link>
-          <nav className="hidden items-center gap-6 text-sm font-medium text-neutral-700 xl:flex" aria-label="Primary">
-            {primaryNav.map((item) => {
-              const target = `/${locale}${item.href === '/' ? '' : item.href}`
-              const isActive = item.href === '/' ? pathname === target : pathname?.startsWith(target)
-              const baseClasses = 'transition hover:text-brand-dark focus-outline'
-              if (item.external) {
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={cn(baseClasses, isActive && 'text-brand-dark font-semibold')}
-                  >
-                    {item.label}
-                  </a>
-                )
-              }
-              return (
-                <Link
-                  key={item.href}
-                  href={`/${locale}${item.href === '/' ? '' : item.href}`}
-                  className={cn(baseClasses, isActive && 'text-brand-dark font-semibold')}
-                >
-                  {item.label}
-                </Link>
-              )
-            })}
-          </nav>
-        </div>
-        <div className="flex items-center gap-3">
-          <LangSwitcher />
-          <Button
-            href={`/${locale}/order`}
-            variant="primary"
-            className="hidden text-sm font-semibold md:inline-flex"
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+      <div className="container flex h-16 items-center justify-between gap-3">
+        {/* ЛОГО */}
+        <Link href={`/${locale}`} className="text-xl font-bold">
+          Psoriatinin
+        </Link>
+
+        {/* Desktop-меню (только >= xl) */}
+        <nav className="hidden xl:flex items-center gap-4">
+          {items.map(({key, href}) => {
+            const url = withLocale(href);
+            const active = url === pathname;
+            return (
+              <Link
+                key={key}
+                href={url}
+                className={`rounded-lg px-3 py-2 text-sm ${
+                  active
+                    ? 'bg-brand/10 text-brand font-medium'
+                    : 'text-neutral-800 hover:bg-neutral-100'
+                }`}
+              >
+                {safeLabel(t, key)}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Правый блок: переключатель языка + бургер на моб/планшете */}
+        <div className="flex items-center gap-2">
+          <LangSwitcher size="sm" />
+          <button
+            className="xl:hidden inline-flex items-center justify-center rounded-xl p-2 border border-border/70 bg-white hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-brand"
+            onClick={() => setOpen(true)}
+            aria-label="Открыть меню"
           >
-            {common('cta.order')}
-          </Button>
-          <Button
-            href={`/${locale}/order`}
-            variant="primary"
-            className="text-sm font-semibold xl:hidden"
-          >
-            {common('cta.buy')}
-          </Button>
+            <Menu className="h-5 w-5" />
+          </button>
         </div>
       </div>
+
+      {/* Мобильное меню */}
+      <MobileMenu open={open} onClose={() => setOpen(false)} currentPath={pathname} />
     </header>
-  )
+  );
+}
+
+function safeLabel(t: ReturnType<typeof useTranslations>, key: string) {
+  try {
+    return t(key);
+  } catch {
+    // если ключа нет — показываем key, чтобы не падать
+    return key;
+  }
 }

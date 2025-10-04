@@ -1,62 +1,139 @@
-'use client'
-import Link from 'next/link'
-import {useEffect} from 'react'
-import {useLocale, useTranslations} from 'next-intl'
-import {cn} from '@/lib/utils'
+'use client';
 
-interface MobileMenuProps {
-  open: boolean
-  onClose: () => void
-  currentPath: string
+import Link from 'next/link';
+import {useEffect, useCallback} from 'react';
+import {useLocale, useTranslations} from 'next-intl';
+import {X} from 'lucide-react';
+
+export interface MobileMenuProps {
+  open: boolean;
+  onClose: () => void;
+  currentPath: string;
 }
 
-export default function MobileMenu({open, onClose, currentPath}: MobileMenuProps) {
-  const t = useTranslations('nav')
-  const common = useTranslations('common')
-  const locale = useLocale()
-  const primary = (t.raw('primary') as Array<{href: string; label: string; external?: boolean}>) || []
+// Оболочка без хуков (условный рендер)
+export default function MobileMenu({open, ...rest}: MobileMenuProps) {
+  if (!open) return null;
+  return <MobileMenuInner {...rest} />;
+}
 
+function MobileMenuInner({
+  onClose,
+  currentPath
+}: Omit<MobileMenuProps, 'open'>) {
+  const t = useTranslations('nav');
+  const locale = useLocale();
+
+  // Блокируем прокрутку body (и компенсируем исчезновение скроллбара)
   useEffect(() => {
-    const prev = document.body.style.overflow
-    if (open) document.body.style.overflow = 'hidden'
-    return () => { document.body.style.overflow = prev }
-  }, [open])
+    const body = document.body;
+    const prevOverflow = body.style.overflow;
+    const prevPr = body.style.paddingRight;
+    const sbw = window.innerWidth - document.documentElement.clientWidth;
+    body.style.overflow = 'hidden';
+    if (sbw > 0) body.style.paddingRight = `${sbw}px`;
+    return () => {
+      body.style.overflow = prevOverflow;
+      body.style.paddingRight = prevPr;
+    };
+  }, []);
 
-  if (!open) return null
+  // Закрытие по Esc
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  // Клик по подложке
+  const onOverlayClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation();
+      onClose();
+    },
+    [onClose]
+  );
+
+  const stop = (e: React.MouseEvent) => e.stopPropagation();
+
+  // Навигация (без «Заказ» — он есть отдельной кнопкой на сайте)
+  const items: Array<{key: string; href: string}> = [
+    {key: 'home', href: '/'},
+    {key: 'catalog', href: '/catalog'},
+    {key: 'how_it_works', href: '/how-it-works'},
+    {key: 'ingredients', href: '/ingredients'},
+    {key: 'results', href: '/results'},
+    {key: 'about', href: '/about'},
+    {key: 'how_to_use', href: '/how-to-use'},
+    {key: 'care_notes', href: '/care-notes'},
+    {key: 'forum', href: '/forum'}
+  ];
+
+  const withLocale = (href: string) =>
+    href === '/' ? `/${locale}` : `/${locale}${href}`;
 
   return (
-    <div role="dialog" aria-modal="true" aria-label={t('menu', {default: 'Menu'})} className="fixed inset-0 z-50 bg-white/95 backdrop-blur-sm xl:hidden" onClick={onClose}>
-      <div className="container relative mx-auto max-w-screen-md p-6" onClick={(e) => e.stopPropagation()}>
-        <div className="mb-6 flex items-center justify-between">
-          <span className="text-xl font-bold">Psoriatinin</span>
-          <button onClick={onClose} className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--border)]" aria-label={common('actions.close', {default: 'Close'})}>
-            <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true"><path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+    <div
+      className="fixed inset-0 z-[1000] flex"
+      role="dialog"
+      aria-modal="true"
+      onClick={onOverlayClick}
+    >
+      {/* Непрозрачный фон */}
+      <div aria-hidden="true" className="absolute inset-0 bg-black" />
+
+      {/* Сайдпанель */}
+      <div
+        className="ml-auto h-full w-[88%] max-w-[420px] bg-white shadow-2xl animate-in slide-in-from-right duration-200"
+        onClick={stop}
+      >
+        <div className="flex items-center justify-between gap-4 border-b border-border/60 p-4">
+          <span className="text-lg font-semibold">
+            {safeTranslate(t, 'menuTitle', 'Меню')}
+          </span>
+          <button
+            onClick={onClose}
+            aria-label={safeTranslate(t, 'close', 'Закрыть')}
+            className="rounded-lg p-2 text-neutral-700 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-brand"
+          >
+            <X className="h-5 w-5" />
           </button>
         </div>
-        <nav className="space-y-2">
-          {primary.map((item) => {
-            const href = `/${locale}${item.href}`
-            const active = currentPath === href
-            return item.external ? (
-              <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer"
-                 className={cn('block rounded-xl px-4 py-3 text-lg font-medium', active ? 'bg-[var(--muted)] text-[var(--text-strong)]' : 'text-[var(--text)] hover:bg-[var(--muted)]')}
-                 onClick={onClose}>
-                {item.label}
-              </a>
-            ) : (
-              <Link key={item.href} href={href}
-                    className={cn('block rounded-xl px-4 py-3 text-lg font-medium', active ? 'bg-[var(--muted)] text-[var(--text-strong)]' : 'text-[var(--text)] hover:bg-[var(--muted)]')}
-                    onClick={onClose}>
-                {item.label}
+
+        <nav className="p-4 space-y-2">
+          {items.map(({key, href}) => {
+            const url = withLocale(href);
+            const active = url === currentPath;
+            return (
+              <Link
+                key={key}
+                href={url}
+                onClick={onClose}
+                className={`block rounded-lg px-3 py-2 text-base ${
+                  active
+                    ? 'bg-brand/10 text-brand font-medium'
+                    : 'text-neutral-800 hover:bg-neutral-100'
+                }`}
+              >
+                {safeTranslate(t, key, key)}
               </Link>
-            )
+            );
           })}
         </nav>
-        <div className="mt-6 grid grid-cols-2 gap-3">
-          <Link href={`/${locale}/order`} className="inline-flex items-center justify-center rounded-xl border border-[var(--border)] px-4 py-3 text-base font-semibold" onClick={onClose}>{common('cta.order')}</Link>
-          <Link href={`/${locale}/order`} className="inline-flex items-center justify-center rounded-xl bg-brand text-white px-4 py-3 text-base font-semibold" onClick={onClose}>{common('cta.buy')}</Link>
-        </div>
       </div>
     </div>
-  )
+  );
+}
+
+// Безопасный перевод: если ключа нет — используем fallback, чтобы не ронять рендер
+function safeTranslate(
+  t: ReturnType<typeof useTranslations>,
+  key: string,
+  fallback: string
+) {
+  try {
+    return t(key);
+  } catch {
+    return fallback;
+  }
 }
