@@ -1,70 +1,61 @@
-'use client'
+// components/ui/toast-provider.tsx
+'use client';
 
-import {createContext, PropsWithChildren, useCallback, useContext, useMemo, useState} from 'react'
-import {cn} from '@/lib/utils'
+import { createContext, PropsWithChildren, useCallback, useContext, useMemo, useState } from 'react';
+import { cn } from '@/lib/utils';
 
-type Toast = {
-  id: number
-  title: string
-  description?: string
-  variant?: 'success' | 'error'
-}
+type Toast = { id: number; title: string; description?: string; variant?: 'success' | 'error' };
+type ToastContextValue = { toasts: Toast[]; push: (t: Omit<Toast, 'id'>) => void; dismiss: (id: number) => void };
 
-type ToastContextValue = {
-  toasts: Toast[]
-  push: (toast: Omit<Toast, 'id'>) => void
-  dismiss: (id: number) => void
-}
+const ToastContext = createContext<ToastContextValue | null>(null);
 
-const ToastContext = createContext<ToastContextValue | undefined>(undefined)
-
-export function ToastProvider({children}: PropsWithChildren) {
-  const [toasts, setToasts] = useState<Toast[]>([])
+export function ToastProvider({ children }: PropsWithChildren) {
+  const [toasts, setToasts] = useState<Toast[]>([]);
 
   const push = useCallback((toast: Omit<Toast, 'id'>) => {
-    setToasts((prev) => {
-      const id = Date.now()
-      return [...prev, {id, ...toast}]
-    })
-  }, [])
+    setToasts((prev) => [...prev, { ...toast, id: Date.now() + Math.random() }]);
+  }, []);
 
   const dismiss = useCallback((id: number) => {
-    setToasts((prev) => prev.filter((toast) => toast.id !== id))
-  }, [])
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  }, []);
 
-  const value = useMemo(() => ({toasts, push, dismiss}), [toasts, push, dismiss])
+  const value = useMemo(() => ({ toasts, push, dismiss }), [toasts, push, dismiss]);
 
   return (
     <ToastContext.Provider value={value}>
       {children}
-      <div aria-live="assertive" className="fixed bottom-6 right-6 z-50 flex w-full max-w-sm flex-col gap-3">
-        {toasts.map((toast) => (
+      {/* контейнер всплывашек */}
+      <div className="fixed bottom-4 right-4 z-[100] flex w-full max-w-sm flex-col gap-2">
+        {toasts.map((t) => (
           <div
-            key={toast.id}
-            className={cn('toast', toast.variant === 'success' && 'toast-success', toast.variant === 'error' && 'toast-error')}
+            key={t.id}
+            role="status"
+            aria-live="polite"
+            className={cn(
+              'rounded-lg border px-4 py-3 shadow-sm bg-white',
+              t.variant === 'success' && 'border-emerald-300',
+              t.variant === 'error' && 'border-rose-300'
+            )}
           >
-            <div className="flex-1">
-              <p className="font-semibold">{toast.title}</p>
-              {toast.description ? <p className="mt-1 text-sm opacity-80">{toast.description}</p> : null}
-            </div>
+            <div className="text-sm font-medium">{t.title}</div>
+            {t.description && <div className="text-xs text-neutral-600 mt-1">{t.description}</div>}
             <button
-              type="button"
-              onClick={() => dismiss(toast.id)}
-              className="text-xs font-semibold uppercase text-neutral-500"
+              className="mt-2 text-xs text-neutral-500 underline"
+              onClick={() => dismiss(t.id)}
+              aria-label="Закрыть уведомление"
             >
-              ×
+              Закрыть
             </button>
           </div>
         ))}
       </div>
     </ToastContext.Provider>
-  )
+  );
 }
 
 export function useToast() {
-  const ctx = useContext(ToastContext)
-  if (!ctx) {
-    throw new Error('useToast must be used within ToastProvider')
-  }
-  return ctx
+  const ctx = useContext(ToastContext);
+  if (!ctx) throw new Error('useToast must be used within ToastProvider');
+  return ctx;
 }
