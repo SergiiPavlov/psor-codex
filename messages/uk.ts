@@ -153,7 +153,7 @@ const uk = {
         'При стійкому подразненні припиніть використання та зверніться до лікаря.'
       ]
     ,
-      docs: { open: '/docs/instruction-uk.pdf', download: '/docs/instruction-uk.pdf' }
+      docs: { open: '/docs/instruction-uk.pdf', download: '/docs/instruction-uk.pdf' , openLabel: 'Відкрити інструкцію (PDF)', downloadLabel: 'Завантажити PDF' }
     },
     beforeAfter: {
       title: 'Реальні історії догляду',
