@@ -1,12 +1,12 @@
 const en = {
   common: {
-    brand: 'Psoriatinin',
+    brand: 'Psoriatynin',
     domainPlaceholder: '{domain}',
     currency: 'UAH',
     tagline: 'Dermatologist-tested care to comfort skin prone to psoriasis.',
-    description: 'Psoriatinin is a cosmetic care line that helps soften, support barrier function and ease visible flaking.',
+    description: 'Psoriatynin is a cosmetic care line that helps soften, support barrier function and ease visible flaking.',
     disclaimer: 'Information on the site does not replace a consultation with a doctor. Individual results vary.',
-    nonMedical: 'Psoriatinin is a cosmetic product, not a medicine.',
+    nonMedical: 'Psoriatynin is a cosmetic product, not a medicine.',
     cta: {
       buy: 'Buy now',
       order: 'Place an order',
@@ -44,7 +44,7 @@ const en = {
     },
     placeholders: {
       sizesAndPrices: '{sizes_and_prices}',
-      inci: '{inci_and_actives}',
+      inci: 'Chelidonium Majus Extract; Calendula Officinalis Extract; Bidens Tripartita Extract; Mentha Piperita Oil; Eucalyptus Globulus Leaf Oil; Glycerin; Petrolatum; Aqua; Emulsifiers',
       assets: '{assets_links}',
       legalInfo: '{legal_info}',
       gaId: '{ga_id}'
@@ -58,10 +58,8 @@ const en = {
   how_it_works: 'How it works',
   ingredients: 'Ingredients',
   results: 'Results',
-  about: 'About',
+  about: 'Clinical tests',
   how_to_use: 'How to use',
-  care_notes: 'Care notes',
-  forum: 'Forum',
   order_now: 'Order now',
     primary: [
       {href: '/', label: 'Home'},
@@ -69,11 +67,9 @@ const en = {
       {href: '/how-it-works', label: 'How it works'},
       {href: '/ingredients', label: 'Ingredients'},
       {href: '/results', label: 'Results'},
-      {href: '/brand', label: 'About the brand'},
+      {href: '/brand', label: 'Clinical tests'},
       {href: '/use-safely', label: 'How to use'},
-      {href: '/blog', label: 'Care notes'},
       {href: '/order', label: 'Order'},
-      {href: 'https://forum.psoriatinin.com', label: 'Forum', external: true}
     ],
     secondary: [
       {href: '/contacts', label: 'Contacts'},
@@ -85,8 +81,8 @@ const en = {
     ]
   },
   footer: {
-    about: 'Psoriatinin is a supportive care line created together with dermatologists. Our formulas focus on softening, reducing visible flaking and protecting the skin barrier without promising medical outcomes.',
-    rights: '© Psoriatinin. All rights reserved.',
+    about: 'Psoriatynin is a supportive care line created together with dermatologists. Our formulas focus on softening, reducing visible flaking and protecting the skin barrier without promising medical outcomes.',
+    rights: '© Psoriatynin. All rights reserved.',
     registration: 'Legal details: {legal_info}',
     socialTitle: 'Stay connected',
     menuTitle: 'Quick links',
@@ -105,11 +101,11 @@ const en = {
     hero: {
       eyebrow: 'Cosmetic care for sensitive, flaky skin',
       title: 'Comfort-focused formulas for skin that deserves gentle support',
-      subtitle: 'Psoriatinin helps soften visible plaques, reduce feelings of tightness and support the skin barrier between dermatologist visits.',
+      subtitle: 'Psoriatynin helps soften visible plaques, reduce feelings of tightness and support the skin barrier between dermatologist visits.',
       primaryCta: 'Order with cash on delivery',
       secondaryCta: 'Explore the catalog',
       checklist: [
-        'Clinically tested at the Kharkiv Institute of Dermatology and Neurology',
+        'Clinically tested at the Kharkiv Institute of Dermatology and venereology',
         'Keratolytic + emollient complex for daily maintenance',
         'Cooling option for instant comfort during flare-ups'
       ]
@@ -120,11 +116,11 @@ const en = {
         {title: 'Supports the barrier', description: 'Ceramide-like lipids and emollients help reinforce the moisture barrier and reduce discomfort.'},
         {title: 'Softens visible scaling', description: 'Gentle keratolytics assist with the removal of surface flakes without aggressive peeling.'},
         {title: 'Maintains moisture', description: 'Humectants provide lasting hydration to ease the feeling of tightness throughout the day.'},
-        {title: 'Calms the senses', description: 'Fragrance-free textures reduce risk of irritation and support everyday routines.'}
+        {title: 'Calms the senses', description: 'Fragrance-free textures reduce risk of irritation and support everyday daily cares.'}
       ]
     },
     howItWorks: {
-      title: 'How Psoriatinin works',
+      title: 'How Psoriatynin works',
       subtitle: 'Three complementary actions for comprehensive comfort',
       steps: [
         {title: 'Keratolytic renewal', description: 'Lactic acid derivatives gently loosen dry build-up so active emollients can reach the surface.'},
@@ -157,7 +153,7 @@ const en = {
       ]
     },
     beforeAfter: {
-      title: 'Real routine snapshots',
+      title: 'Real daily care snapshots',
       subtitle: 'Photos provided by users with consent. Lighting and skin type may influence the visual outcome.',
       items: [
         {id: 'case-1', label: 'Before care', description: 'Dry plaques with visible scaling on elbows before 14 days of use.'},
@@ -178,15 +174,15 @@ const en = {
     faq: {
       title: 'Frequently asked questions',
       items: [
-        {question: 'Is Psoriatinin a medicine?', answer: 'No. Psoriatinin products are cosmetic. They are designed to support comfort of skin prone to psoriasis but do not treat or cure diseases.'},
-        {question: 'When can I expect to see results?', answer: 'Softening and less noticeable flaking can be felt within the first weeks of consistent use. The pace depends on skin condition and routine.'},
-        {question: 'Can I combine the cream with prescribed therapy?', answer: 'Yes, but consult your dermatologist. Psoriatinin is formulated to complement medical treatment plans, not replace them.'},
+        {question: 'Is Psoriatynin a medicine?', answer: 'No. Psoriatynin products are cosmetic. They are designed to support comfort of skin prone to psoriasis but do not treat or cure diseases.'},
+        {question: 'When can I expect to see results?', answer: 'Softening and less noticeable flaking can be felt within the first weeks of consistent use. The pace depends on skin condition and daily care.'},
+        {question: 'Can I combine the cream with prescribed therapy?', answer: 'Yes, but consult your dermatologist. Psoriatynin is formulated to complement medical treatment plans, not replace them.'},
         {question: 'Is there fragrance or coloring?', answer: 'The formulas are fragrance-free and without artificial dyes to minimize potential irritation.'},
-        {question: 'How is the product tested?', answer: 'Each batch passes laboratory quality control and dermatological testing at the Kharkiv Institute of Dermatology and Neurology.'}
+        {question: 'How is the product tested?', answer: 'Each batch passes laboratory quality control and dermatological testing at the Kharkiv Institute of Dermatology and venereology.'}
       ]
     },
     ctaStrip: {
-      title: 'Ready to add Psoriatinin to your routine?',
+      title: 'Ready to order Psoriatynin?',
       subtitle: 'Order now with cash on delivery and receive guidance on how to make the most of your ritual.',
       primaryCta: 'Go to order form'
     }
@@ -197,14 +193,14 @@ const en = {
     products: [
       {
         slug: 'psoriatinin-cream',
-        name: 'Psoriatinin Cream',
+        name: 'Psoriatynin Cream',
         description: 'Classic emollient care with keratolytic complex to soften and protect.',
         highlights: ['Daily maintenance', 'Rich yet fast-absorbing texture', 'Tested by dermatologists'],
         price: '{sizes_and_prices}'
       },
       {
         slug: 'psoriatinin-cool',
-        name: 'Psoriatinin Cream Cool',
+        name: 'Psoriatynin Cream Cool',
         description: 'All the care benefits plus a refreshing sensation for moments of heat or discomfort.',
         highlights: ['Instant comfort', 'Lightweight texture', 'Menthol derivative for cooling'],
         price: '{sizes_and_prices}'
@@ -213,7 +209,7 @@ const en = {
   },
   products: {
     'psoriatinin-cream': {
-      name: 'Psoriatinin Cream',
+      name: 'Psoriatynin Cream',
       hero: {
         label: 'Classic formula',
         description: 'A rich, fragrance-free cream that combines keratolytics and emollients to keep skin supple between dermatologist appointments.',
@@ -268,22 +264,17 @@ const en = {
       },
       composition: {
         title: 'Composition',
-        inci: '{inci_and_actives}',
+        inci: 'Chelidonium Majus Extract; Calendula Officinalis Extract; Bidens Tripartita Extract; Mentha Piperita Oil; Eucalyptus Globulus Leaf Oil; Glycerin; Petrolatum; Aqua; Emulsifiers',
         description: 'Dermatologist-reviewed formula focusing on keratolytics, emollients and barrier-supportive ingredients.',
-        keyIngredients: [
-          {name: 'Urea (10%)', description: 'Attracts water and loosens the outermost layer for smoother appearance.'},
-          {name: 'Lactic acid derivative', description: 'Provides mild keratolytic action suitable for daily use.'},
-          {name: 'Shea butter', description: 'Intensively nourishes and prevents moisture loss.'},
-          {name: 'Niacinamide', description: 'Helps support skin tone uniformity and reinforce the barrier.'}
-        ]
+        keyIngredients: [{ name: 'Chelidonium, Calendula, Bidens extracts', description: 'Keratolytic, softening care for thick plaques.' },{ name: 'Menthol & Eucalyptus', description: 'Cooling comfort.' },{ name: 'Glycerin & emollients (petrolatum)', description: 'Hydration and protective occlusion.' }]
       },
       faq: [
-        {question: 'Can I use Psoriatinin Cream on the face?', answer: 'Yes, apply carefully avoiding the eye area. Start with a small amount and consult your dermatologist for personal recommendations.'},
+        {question: 'Can I use Psoriatynin Cream on the face?', answer: 'Yes, apply carefully avoiding the eye area. Start with a small amount and consult your dermatologist for personal recommendations.'},
         {question: 'Is it safe during pregnancy or breastfeeding?', answer: 'There are no specific contraindications, but we advise consulting your healthcare provider before use.'},
         {question: 'Does it stain clothing?', answer: 'The cream absorbs quickly and does not leave greasy traces when used as directed.'}
       ],
       reviews: [
-        {name: 'Kateryna', text: 'The texture is rich yet absorbs fast. Works well for nightly maintenance routines.'},
+        {name: 'Kateryna', text: 'The texture is rich yet absorbs fast. Works well for nightly maintenance daily cares.'},
         {name: 'Serhii', text: 'I use it on knees and elbows. Helps maintain softness between doctor-prescribed treatments.'}
       ],
       logistics: {
@@ -298,7 +289,7 @@ const en = {
       }
     },
     'psoriatinin-cool': {
-      name: 'Psoriatinin Cream Cool',
+      name: 'Psoriatynin Cream Cool',
       hero: {
         label: 'Cooling comfort',
         description: 'All the benefits of the classic cream with an added mild cooling sensation for moments when skin feels overheated.',
@@ -343,7 +334,7 @@ const en = {
         steps: [
           {title: 'Patch test', description: 'Test on a small area 24 hours before first full use.'},
           {title: 'Daytime relief', description: 'Apply in the morning or whenever skin feels overheated.'},
-          {title: 'Layer smart', description: 'Can be used with the classic cream at night for an intensive routine.'}
+          {title: 'Layer smart', description: 'Can be used with the classic cream at night for an intensive daily care.'}
         ],
         warnings: [
           'Cooling sensation is mild; discontinue if you feel burning.',
@@ -353,14 +344,9 @@ const en = {
       },
       composition: {
         title: 'Composition',
-        inci: '{inci_and_actives}',
+        inci: 'Chelidonium Majus Extract; Calendula Officinalis Extract; Bidens Tripartita Extract; Mentha Piperita Oil; Eucalyptus Globulus Leaf Oil; Glycerin; Petrolatum; Aqua; Emulsifiers',
         description: 'A balanced formula combining keratolytics, emollients and menthyl derivatives for refreshing comfort.',
-        keyIngredients: [
-          {name: 'Menthyl PCA', description: 'Provides mild cooling while supporting hydration.'},
-          {name: 'Urea complex', description: 'Helps with softening and moisture retention.'},
-          {name: 'Panthenol', description: 'Supports skin comfort and resilience.'},
-          {name: 'Niacinamide', description: 'Reinforces barrier and reduces visible redness.'}
-        ]
+        keyIngredients: [{ name: 'Chelidonium, Calendula, Bidens extracts', description: 'Keratolytic, softening care for thick plaques.' },{ name: 'Menthol & Eucalyptus', description: 'Cooling comfort.' },{ name: 'Glycerin & emollients (petrolatum)', description: 'Hydration and protective occlusion.' }]
       },
       faq: [
         {question: 'How strong is the cooling effect?', answer: 'It is a subtle, refreshing sensation designed for sensitive skin. There is no strong menthol scent.'},
@@ -385,7 +371,7 @@ const en = {
   },
   howItWorks: {
     hero: {
-      title: 'The cosmetic logic behind Psoriatinin',
+      title: 'The cosmetic logic behind Psoriatynin',
       subtitle: 'We combine keratolytic, emollient and barrier-support actions to support skin prone to psoriasis discomfort without making medical claims.'
     },
     sections: [
@@ -403,11 +389,11 @@ const en = {
       },
       {
         title: 'Laboratory validation',
-        body: 'Formulas are tested in independent laboratories and pass dermatological evaluation at the Kharkiv Institute of Dermatology and Neurology.'
+        body: 'Formulas are tested in independent laboratories and pass dermatological evaluation at the Kharkiv Institute of Dermatology and venereology.'
       }
     ],
     timeline: {
-      title: 'Suggested routine timeline',
+      title: 'Suggested daily care timeline',
       items: [
         {title: 'Days 1–3', description: 'Patch test and start once-daily application on smaller areas.'},
         {title: 'Days 4–14', description: 'Increase to twice daily. Monitor softness and comfort levels.'},
@@ -423,7 +409,7 @@ const en = {
   ingredientsPage: {
     hero: {
       title: 'Ingredient library',
-      subtitle: 'Explore the key ingredients behind Psoriatinin. Final INCI percentages will be added after regulatory approval.'
+      subtitle: 'Explore the key ingredients behind Psoriatynin. Final INCI percentages will be added after regulatory approval.'
     },
     cards: [
       {name: 'Urea', short: 'Humectant & keratolytic', description: 'Binds water to the skin and helps loosen surface build-up for smoother touch.', note: 'Final percentage: {inci_and_actives}'},
@@ -442,7 +428,7 @@ const en = {
     },
     beforeAfter: {
       title: 'Before & after gallery',
-      description: 'Uploaded with user consent. Lighting, routine adherence and additional treatments influence outcomes.',
+      description: 'Uploaded with user consent. Lighting, daily care adherence and additional treatments influence outcomes.',
       items: [
         {id: 'ba1', title: 'Elbows — 2 weeks', description: 'Reduced flaking and smoother texture.'},
         {id: 'ba2', title: 'Knees — 1 month', description: 'Less visible dryness and improved flexibility.'}
@@ -453,17 +439,17 @@ const en = {
       disclaimer: 'All reviews are pre-moderated. Experiences do not guarantee similar results.',
       form: {
         title: 'Submit your review',
-        description: 'Share balanced feedback to help others build their care routine.'
+        description: 'Share balanced feedback to help others build their care daily care.'
       }
     },
     guarantee: {
       title: 'Guarantee program',
-      description: 'If Psoriatinin does not meet your expectations, we will refund 100% of the product cost. Submit a request within 14 days, attach order number and photos, and our support will respond within 48 hours.'
+      description: 'If Psoriatynin does not meet your expectations, we will refund 100% of the product cost. Submit a request within 14 days, attach order number and photos, and our support will respond within 48 hours.'
     }
   },
   brand: {
     hero: {
-      title: 'About Psoriatinin',
+      title: 'About Psoriatynin',
       subtitle: 'A Ukrainian brand created in partnership with dermatologists and cosmetologists to support people living with psoriasis.'
     },
     mission: {
@@ -476,7 +462,7 @@ const en = {
     },
     certifications: {
       title: 'Certificates & studies',
-      description: 'Access protocol scans from the Kharkiv Institute of Dermatology and Neurology and other lab reports. Placeholder files will be replaced with originals soon.',
+      description: 'Access protocol scans from the Kharkiv Institute of Dermatology and venereology and other lab reports. Placeholder files will be replaced with originals soon.',
       items: [
         {title: 'Dermatological testing report', description: 'Summary of tolerance study on volunteers with psoriasis-prone skin.', file: '{assets_links}'},
         {title: 'Microbiological safety certificate', description: 'Laboratory confirmation of safety standards.', file: '{assets_links}'},
@@ -485,17 +471,17 @@ const en = {
     },
     promise: {
       title: 'Our promise',
-      body: 'We respect your routine, your doctor and your time. Psoriatinin will always stay in the cosmetic field, supporting — not replacing — professional treatment.'
+      body: 'We respect your daily care, your doctor and your time. Psoriatynin will always stay in the cosmetic field, supporting — not replacing — professional treatment.'
     }
   },
   useSafely: {
     hero: {
-      title: 'Use Psoriatinin safely',
-      subtitle: 'Follow these tips to integrate the products into your daily care routine.'
+      title: 'Use Psoriatynin safely',
+      subtitle: 'Follow these tips to integrate the products into your daily care daily care.'
     },
     steps: [
       {title: 'Start with a patch test', description: 'Apply to a small area for 24 hours. If there is no adverse reaction, proceed with broader application.'},
-      {title: 'Layer with prescribed care', description: 'Leave a 15-minute gap between Psoriatinin and medical treatments unless otherwise directed.'},
+      {title: 'Layer with prescribed care', description: 'Leave a 15-minute gap between Psoriatynin and medical treatments unless otherwise directed.'},
       {title: 'Monitor the skin', description: 'Track comfort levels and visible changes in a diary to discuss with your dermatologist.'}
     ],
     precautions: [
@@ -510,7 +496,7 @@ const en = {
   },
   order: {
     hero: {
-      title: 'Order Psoriatinin with cash on delivery',
+      title: 'Order Psoriatynin with cash on delivery',
       subtitle: 'Fill in the form below. We will confirm details via phone or messenger before shipping.'
     },
     form: {
@@ -543,7 +529,7 @@ const en = {
       title: 'Money-back guarantee',
       items: [
         'Valid for 14 days after receiving the parcel.',
-        'Provide clear photos before and after, plus description of routine.',
+        'Provide clear photos before and after, plus description of daily care.',
         'Refund issued after reviewing the request within 5 business days.'
       ]
     },
@@ -555,7 +541,7 @@ const en = {
   contacts: {
     hero: {
       title: 'Contacts & support',
-      subtitle: 'We are here to answer questions about the cosmetic routine.'
+      subtitle: 'We are here to answer questions about the cosmetic daily care.'
     },
     channels: [
       {type: 'phone', label: 'Hotline', value: '+380 XX XXX XX XX'},
@@ -569,7 +555,7 @@ const en = {
   legal: {
     privacy: {
       title: 'Privacy policy',
-      intro: 'This policy explains how Psoriatinin processes personal data received via order forms, contacts and cookies. The document is compliant with Ukrainian law and GDPR principles.',
+      intro: 'This policy explains how Psoriatynin processes personal data received via order forms, contacts and cookies. The document is compliant with Ukrainian law and GDPR principles.',
       sections: [
         {title: 'Data we collect', body: 'Name, phone, delivery address, comments, cookie identifiers and analytics data.'},
         {title: 'How we use data', body: 'To process orders, provide support, improve the site and comply with legal obligations.'},
@@ -579,7 +565,7 @@ const en = {
     },
     terms: {
       title: 'Terms of use',
-      intro: 'By using {domain} you agree to follow these terms. Psoriatinin provides cosmetic products and informational materials.',
+      intro: 'By using {domain} you agree to follow these terms. Psoriatynin provides cosmetic products and informational materials.',
       sections: [
         {title: 'Content', body: 'Information on the site is for educational purposes and does not replace professional medical advice.'},
         {title: 'User responsibilities', body: 'Provide accurate data when submitting forms and respect intellectual property.'},
@@ -620,8 +606,8 @@ const en = {
     },
     posts: [
       {
-        slug: 'build-a-gentle-routine',
-        title: 'How to build a gentle daily routine',
+        slug: 'build-a-gentle-daily care',
+        title: 'How to build a gentle daily daily care',
         description: 'Step-by-step guide to cleansing, moisturizing and protecting skin without overloading it.',
         date: '2024-04-12',
         readingTime: '6 min',
