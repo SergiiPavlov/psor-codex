@@ -68,7 +68,7 @@ const en = {
       {href: '/ingredients', label: 'Ingredients'},
       {href: '/results', label: 'Results'},
       {href: '/brand', label: 'Clinical tests'},
-      {href: '/use-safely', label: 'How to use'},
+      {href: '/#how-to-apply', label: 'How to use'},
       {href: '/order', label: 'Order'},
     ],
     secondary: [
@@ -123,20 +123,20 @@ const en = {
       title: 'How Psoriatynin works',
       subtitle: 'Three complementary actions for comprehensive comfort',
       steps: [
-        {title: 'Keratolytic renewal', description: 'Lactic acid derivatives gently loosen dry build-up so active emollients can reach the surface.'},
-        {title: 'Intensive softening', description: 'Shea butter, panthenol and oils help soften rough patches and improve skin suppleness.'},
-        {title: 'Barrier support', description: 'Niacinamide and lipids strengthen the skin’s natural shield against external stressors.'}
+        {title: 'Keratolytic renewal', description: 'Chelidonium, Calendula and Bidens extracts gently soften thick, dry areas and support natural skin renewal.'},
+        {title: 'Intensive softening', description: 'Glycerin with emollients provides hydration and softness, reducing tightness.'},
+        {title: 'Barrier support', description: 'Occlusive emollients (incl. petrolatum) help lock in moisture and protect the barrier; peppermint and eucalyptus oils add cooling comfort.'}
       ]
     },
     ingredients: {
       title: 'Highlighted ingredients',
       subtitle: 'Balanced to comfort the skin without over-promising',
       items: [
-        {name: 'Chelidonium, Calendula, Bidens extracts', description: 'Keratolytic, softening effect for thick plaques.'},
+              {name: 'Chelidonium, Calendula & Bidens extracts', description: 'Keratolytic, softening effect for thick plaques.'},
         {name: 'Peppermint & Eucalyptus oils', description: 'Cooling freshness and comfort.'},
         {name: 'Glycerin', description: 'Hydration and comfort.'},
         {name: 'Emollients (petrolatum)', description: 'Occlusion and barrier protection.'}
-      ]
+    ]
     },
     application: {
       title: 'How to apply',

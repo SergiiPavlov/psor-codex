@@ -21,7 +21,7 @@ export default function Header() {
     {key: 'ingredients', href: '/ingredients'},
     {key: 'results', href: '/results'},
     {key: 'about', href: '/brand'},
-    {key: 'how_to_use', href: '/how-to-use'},
+    {key: 'how_to_use', href: '/#how-to-apply'},
   ];
 
   const withLocale = (href: string) =>

@@ -226,3 +226,7 @@ button {
 .container {
   max-width: var(--container-max);
 }
+
+
+/* Smooth scrolling for all in-page anchor jumps */
+html { scroll-behavior: smooth; }
