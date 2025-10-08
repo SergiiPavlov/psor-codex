@@ -152,7 +152,7 @@ const en = {
         'Stop use if persistent irritation occurs and consult a doctor.'
       ]
     ,
-      docs: { open: '/docs/instruction-uk.pdf', download: '/docs/instruction-uk.pdf' }
+      docs: { open: '/docs/instruction-en.pdf', download: '/docs/instruction-en.pdf' , openLabel: 'Open instruction (PDF)', downloadLabel: 'Download PDF' }
     },
     beforeAfter: {
       title: 'Real daily care snapshots',

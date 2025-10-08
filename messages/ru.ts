@@ -152,7 +152,7 @@ const ru = {
         'При стойком раздражении прекратите использование и обратитесь к врачу.'
       ]
     ,
-      docs: { open: '/docs/instruction-ru.pdf', download: '/docs/instruction-ru.pdf' }
+      docs: { open: '/docs/instruction-ru.pdf', download: '/docs/instruction-ru.pdf' , openLabel: 'Открыть инструкцию (PDF)', downloadLabel: 'Скачать PDF' }
     },
     beforeAfter: {
       title: 'Реальные истории ухода',
