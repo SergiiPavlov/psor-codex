@@ -20,10 +20,8 @@ export default function Header() {
     {key: 'how_it_works', href: '/how-it-works'},
     {key: 'ingredients', href: '/ingredients'},
     {key: 'results', href: '/results'},
-    {key: 'about', href: '/about'},
+    {key: 'about', href: '/brand'},
     {key: 'how_to_use', href: '/how-to-use'},
-    {key: 'care_notes', href: '/care-notes'},
-    {key: 'forum', href: '/forum'}
   ];
 
   const withLocale = (href: string) =>
@@ -34,7 +32,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between gap-3">
         {/* ЛОГО */}
         <Link href={`/${locale}`} className="text-xl font-bold">
-          Psoriatinin
+          Psoriatynin
         </Link>
 
         {/* Desktop-меню (только >= xl) */}

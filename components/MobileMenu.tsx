@@ -20,10 +20,8 @@ const NAV_ITEMS: Array<{ key: string; path: string }> = [
   {key: 'how_it_works', path: '/how-it-works'},
   {key: 'ingredients', path: '/ingredients'},
   {key: 'results', path: '/results'},
-  {key: 'about', path: '/about'},
+  {key: 'about', path: '/brand'},
   {key: 'how_to_use', path: '/how-to-use'},
-  {key: 'care_notes', path: '/care-notes'},
-  {key: 'forum', path: '/forum'},
   // ВАЖНО: пункта "order" здесь нет — по твоему требованию
 ];
 
