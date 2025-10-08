@@ -177,10 +177,10 @@ const en = {
       title: 'Frequently asked questions',
       items: [
         {question: 'Is Psoriatynin a medicine?', answer: 'No. Psoriatynin products are cosmetic. They are designed to support comfort of skin prone to psoriasis but do not treat or cure diseases.'},
-        {question: 'When can I expect to see results?', answer: 'Softening and less noticeable flaking can be felt within the first weeks of consistent use. The pace depends on skin condition and daily care.'},
+        {question: 'When can I expect to see results?', answer: 'Softening and less noticeable flaking can be felt within the first 2 weeks of consistent use. The pace depends on skin condition and daily care.'},
         {question: 'Can I combine the cream with prescribed therapy?', answer: 'Yes, but consult your dermatologist. Psoriatynin is formulated to complement medical treatment plans, not replace them.'},
         {question: 'Is there fragrance or coloring?', answer: 'The formulas are fragrance-free and without artificial dyes to minimize potential irritation.'},
-        {question: 'How is the product tested?', answer: 'Each batch passes laboratory quality control and dermatological testing at the Kharkiv Institute of Dermatology and venereology.'}
+        {question: 'How is the product tested?', answer: 'Dermatological evaluations were carried out at the Kharkiv Research Institute of Dermatology and Venereology. The results were published in a peer-reviewed specialty journal; you can read the article on our website.'}
       ]
     },
     ctaStrip: {
