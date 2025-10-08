@@ -103,7 +103,7 @@ const en = {
       title: 'Comfort-focused formulas for skin that deserves gentle support',
       subtitle: 'Psoriatynin helps soften visible plaques, reduce feelings of tightness and support the skin barrier between dermatologist visits.',
       primaryCta: 'Order with cash on delivery',
-      secondaryCta: 'Explore the catalog',
+      secondaryCta: 'How to use',
       checklist: [
         'Clinically tested at the Kharkiv Institute of Dermatology and venereology',
         'Keratolytic + emollient complex for daily maintenance',
@@ -132,10 +132,10 @@ const en = {
       title: 'Highlighted ingredients',
       subtitle: 'Balanced to comfort the skin without over-promising',
       items: [
-        {name: 'Urea complex', description: 'Helps retain moisture while gently exfoliating surface flakes for smoother feel.'},
-        {name: 'Panthenol', description: 'Supports skin resilience and soothes sensations of dryness.'},
-        {name: 'Niacinamide', description: 'Helps reduce visible redness and reinforces the skin barrier.'},
-        {name: 'Menthol derivative', description: 'Delivers a mild cooling touch in the Cool version for extra comfort.'}
+        {name: 'Chelidonium, Calendula, Bidens extracts', description: 'Keratolytic, softening effect for thick plaques.'},
+        {name: 'Peppermint & Eucalyptus oils', description: 'Cooling freshness and comfort.'},
+        {name: 'Glycerin', description: 'Hydration and comfort.'},
+        {name: 'Emollients (petrolatum)', description: 'Occlusion and barrier protection.'}
       ]
     },
     application: {
@@ -151,6 +151,8 @@ const en = {
         'Do not apply to open wounds or actively bleeding areas.',
         'Stop use if persistent irritation occurs and consult a doctor.'
       ]
+    ,
+      docs: { open: '/docs/instruction-uk.pdf', download: '/docs/instruction-uk.pdf' }
     },
     beforeAfter: {
       title: 'Real daily care snapshots',
@@ -532,6 +534,8 @@ const en = {
         'Provide clear photos before and after, plus description of daily care.',
         'Refund issued after reviewing the request within 5 business days.'
       ]
+    ,
+      docs: { open: '/docs/instruction-uk.pdf', download: '/docs/instruction-uk.pdf' }
     },
     logistics: {
       delivery: 'Delivery 2–3 days across Ukraine.',

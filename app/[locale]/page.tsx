@@ -35,12 +35,7 @@ export default async function HomePage({params}: {params: {locale: Locale}}) {
   const benefits = tHome.raw('benefits') as {title: string; items: Array<{title: string; description: string}>}
   const howItWorks = tHome.raw('howItWorks') as {title: string; subtitle: string; steps: Array<{title: string; description: string}>}
   const ingredients = tHome.raw('ingredients') as {title: string; subtitle: string; items: Array<{name: string; description: string}>}
-  const application = tHome.raw('application') as {
-    title: string
-    disclaimer: string
-    steps: Array<{title: string; description: string}>
-    cautions: string[]
-  }
+  const application = tHome.raw('application') as { title: string; disclaimer: string; steps: Array<{title: string; description: string}>; cautions: string[]; docs?: {open: string; download: string} }
   const beforeAfter = tHome.raw('beforeAfter') as {
     title: string
     subtitle: string
@@ -65,14 +60,14 @@ export default async function HomePage({params}: {params: {locale: Locale}}) {
         title={hero.title}
         subtitle={hero.subtitle}
         primaryCta={{label: hero.primaryCta, href: `${basePath}/order`}}
-        secondaryCta={{label: hero.secondaryCta, href: `${basePath}/catalog`}}
+        secondaryCta={{label: hero.secondaryCta, href: '#how-to-apply'}}
         checklist={hero.checklist}
         imageAlt={tCommon('nonMedical')}
       />
       <FeatureGrid title={benefits.title} items={benefits.items} />
       <HowItWorks title={howItWorks.title} subtitle={howItWorks.subtitle} steps={howItWorks.steps} />
       <IngredientHighlights title={ingredients.title} subtitle={ingredients.subtitle} items={ingredients.items} />
-      <ApplicationGuide
+      <ApplicationGuide id="how-to-apply" docs={application.docs}
         title={application.title}
         disclaimer={application.disclaimer}
         steps={application.steps}

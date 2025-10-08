@@ -3,52 +3,68 @@ export type ApplicationStep = {
   description: string
 }
 
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+
 export function ApplicationGuide({
   title,
   disclaimer,
   steps,
   cautions,
-  cautionTitle
+  cautionTitle,
+  id,
+  docs
 }: {
   title: string
   disclaimer?: string
   steps: ApplicationStep[]
   cautions?: string[]
   cautionTitle?: string
+  id?: string
+  docs?: { open: string; download: string }
 }) {
   return (
-    <section className="section bg-neutral-50/60">
-      <div className="container space-y-10">
-        <div className="max-w-2xl space-y-4">
-          <h2 className="text-3xl font-semibold text-neutral-900 md:text-4xl">{title}</h2>
-          {disclaimer ? <p className="text-sm text-neutral-500">{disclaimer}</p> : null}
-        </div>
-        <div className="grid gap-8 md:grid-cols-[1fr_0.8fr]">
-          <ol className="space-y-5">
-            {steps.map((step, index) => (
-              <li key={step.title} className="rounded-3xl border border-brand/20 bg-white p-6 shadow-soft">
-                <div className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand/10 text-sm font-semibold text-brand-dark">
-                  {index + 1}
-                </div>
-                <h3 className="text-lg font-semibold text-neutral-900">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">{step.description}</p>
-              </li>
+    <section id={id ?? 'how-to-apply'} className="section">
+      <div className="container">
+        <h2 className="section__title">{title}</h2>
+        {disclaimer ? (
+          <p className="mt-2 text-sm text-muted-foreground">{disclaimer}</p>
+        ) : null}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="space-y-4">
+            {steps.map((step, idx) => (
+              <div key={idx} className="rounded-2xl border bg-background p-4 shadow-sm">
+                <h3 className="font-medium">{step.title}</h3>
+                <p className="mt-1 text-muted-foreground">{step.description}</p>
+              </div>
             ))}
-          </ol>
-          {cautions && cautions.length > 0 ? (
-            <div className="card-layered h-full space-y-4">
-              <h3 className="text-lg font-semibold text-neutral-900">{cautionTitle ?? 'Safety reminders'}</h3>
-              <ul className="space-y-3 text-sm leading-relaxed text-neutral-600">
-                {cautions.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1 inline-flex h-2.5 w-2.5 shrink-0 rounded-full bg-brand-dark" aria-hidden />
-                    <span>{item}</span>
-                  </li>
+          </div>
+          {cautions?.length ? (
+            <div className="rounded-2xl border bg-background p-4 shadow-sm">
+              <h3 className="font-medium">{cautionTitle}</h3>
+              <ul className="mt-2 list-disc space-y-1 pl-6 text-muted-foreground">
+                {cautions.map((c, i) => (
+                  <li key={i}>{c}</li>
                 ))}
               </ul>
             </div>
           ) : null}
         </div>
+
+        {docs ? (
+          <div className="mt-6 flex flex-wrap gap-4">
+            <Button asChild>
+              <Link href={docs.open} target="_blank" rel="noopener">
+                Открыть инструкцию (PDF)
+              </Link>
+            </Button>
+            <Button variant="secondary" asChild>
+              <a href={docs.download} download>
+                Скачать PDF
+              </a>
+            </Button>
+          </div>
+        ) : null}
       </div>
     </section>
   )
