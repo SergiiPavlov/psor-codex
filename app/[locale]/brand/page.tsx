@@ -1,71 +1,91 @@
+// app/[locale]/brand/page.tsx
+import Link from 'next/link'
 import {getTranslations} from 'next-intl/server'
 import type {Locale} from '@/i18n'
 
+export const revalidate = 3600
+
 export async function generateMetadata({params}: {params: {locale: Locale}}) {
-  const tCommon = await getTranslations({locale: params.locale, namespace: 'common'})
-  const tPage = await getTranslations({locale: params.locale, namespace: 'brand'})
+  const locale = params.locale
+  const tCommon = await getTranslations({locale, namespace: 'common'})
+  const tBrand  = await getTranslations({locale, namespace: 'brand'})
+  const hero    = tBrand.raw('hero') as {title: string; subtitle: string}
+
   return {
-    title: `${tCommon('brand')} — ${tPage('hero.title')}`,
-    description: tPage('hero.subtitle')
+    title: `${tCommon('brand')} — ${hero.title}`,
+    description: hero.subtitle
   }
 }
 
+type CertItem = {
+  title: string
+  description: string
+  summary?: string
+  file: string
+  // thumb?: string // больше не нужен
+}
+
 export default async function BrandPage({params}: {params: {locale: Locale}}) {
-  const locale = params.locale
-  const tPage = await getTranslations({locale, namespace: 'brand'})
-  const hero = tPage.raw('hero') as {title: string; subtitle: string}
-  const mission = tPage.raw('mission') as {title: string; body: string}
-  const production = tPage.raw('production') as {title: string; body: string}
-  const certifications = tPage.raw('certifications') as {
+  const locale   = params.locale
+  const tBrand   = await getTranslations({locale, namespace: 'brand'})
+  const tDocs    = await getTranslations({locale, namespace: 'home.application.docs'})
+
+  const hero     = tBrand.raw('hero') as {title: string; subtitle: string}
+  const certs    = tBrand.raw('certifications') as {
     title: string
-    description: string
-    items: Array<{title: string; description: string; file: string}>
+    subtitle: string
+    items: CertItem[]
   }
-  const promise = tPage.raw('promise') as {title: string; body: string}
+
+  const openLabel     = tDocs('openLabel')
+  const downloadLabel = tDocs('downloadLabel')
 
   return (
-    <div className="space-y-0">
-      <section className="section">
-        <div className="container space-y-4">
-          <h1 className="text-4xl font-semibold text-neutral-900 md:text-5xl">{hero.title}</h1>
-          <p className="max-w-2xl text-lg text-neutral-600">{hero.subtitle}</p>
-        </div>
-      </section>
-      <section className="section bg-neutral-50/60">
-        <div className="container grid gap-6 md:grid-cols-2">
-          {[mission, production].map((block) => (
-            <article key={block.title} className="card-layered space-y-3">
-              <h2 className="text-2xl font-semibold text-neutral-900">{block.title}</h2>
-              <p className="text-sm leading-relaxed text-neutral-600">{block.body}</p>
+    <main className="container mx-auto px-4 py-12">
+      <h1 className="text-4xl font-semibold mb-4">{hero.title}</h1>
+      <p className="text-lg text-muted-foreground mb-10">{hero.subtitle}</p>
+
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-2">{certs.title}</h2>
+        <p className="text-muted-foreground mb-6">{certs.subtitle}</p>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {certs.items.map((item, idx) => (
+            <article
+              key={idx}
+              className="rounded-2xl border p-5 bg-card shadow-sm flex flex-col"
+            >
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-sm text-muted-foreground mb-2">
+                {item.description}
+              </p>
+              {item.summary && (
+                <p className="text-sm text-muted-foreground mb-4">
+                  {item.summary}
+                </p>
+              )}
+
+              <div className="mt-auto flex items-center gap-3 pt-2">
+                <Link
+                  href={item.file}
+                  target="_blank"
+                  className="inline-flex items-center rounded-lg border px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                >
+                  {openLabel}
+                </Link>
+                <a
+                  href={item.file}
+                  download
+                  className="inline-flex items-center rounded-lg bg-primary text-primary-foreground px-3 py-2 text-sm hover:opacity-90"
+                >
+                  {downloadLabel}
+                </a>
+              </div>
             </article>
           ))}
         </div>
       </section>
-      <section className="section">
-        <div className="container space-y-6">
-          <div className="space-y-3">
-            <h2 className="text-3xl font-semibold text-neutral-900 md:text-4xl">{certifications.title}</h2>
-            <p className="text-sm text-neutral-600">{certifications.description}</p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {certifications.items.map((item) => (
-              <article key={item.title} className="card-layered space-y-3">
-                <h3 className="text-lg font-semibold text-neutral-900">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-neutral-600">{item.description}</p>
-                <a href={item.file} className="text-sm font-semibold text-brand underline">
-                  {item.file}
-                </a>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-      <section className="section pb-20">
-        <div className="container card-layered space-y-3">
-          <h2 className="text-2xl font-semibold text-neutral-900">{promise.title}</h2>
-          <p className="text-sm leading-relaxed text-neutral-600">{promise.body}</p>
-        </div>
-      </section>
-    </div>
+    </main>
   )
 }
+
