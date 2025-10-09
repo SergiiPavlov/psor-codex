@@ -468,10 +468,11 @@ cards: [
       title: 'Certificates & studies',
       description: 'Access protocol scans from the Kharkiv Institute of Dermatology and venereology and other lab reports. Placeholder files will be replaced with originals soon.',
       items: [
-        {title: 'Dermatology & Venereology Institute publication', description: 'Article reporting the dermatological testing results.', file: '/docs/brand/dermatology-study.pdf'},
-        {title: 'Full journal issue', description: 'Original journal issue with the complete layout and article.', file: '/docs/brand/journal-full-issue.pdf'},
-        {title: 'Laboratory heavy metals analysis (Belgium)', description: 'RIC report on trace heavy metals screening.', file: '/docs/brand/lab-ric-report-1.pdf'},
-        {title: 'Trademark registration certificate', description: 'Two‑page certificate as a single PDF.', file: '/docs/brand/trademark-certificate.pdf'}
+        {title: 'Dermatology study', description: 'Publication from the Institute of Dermatology & Venereology: tolerance on flake‑prone skin.', summary: 'Journal article; available as a standalone PDF and full issue.', file: '/docs/brand/dermatology-study.pdf', thumb: ''},
+        {title: 'Full journal issue', description: 'Original issue with the complete layout and our article.', summary: 'Handy for printing and archival storage.', file: '/docs/brand/journal-full-issue.pdf', thumb: ''},
+        {title: 'Elemental analysis (SEM‑EDS)', description: 'RIC laboratory report with energy‑dispersive X‑ray spectroscopy data.', summary: 'Spectra show common elements (Ca, K, Fe, Zn, etc.). No Pb, Hg, Cd detected above the method’s detection limits.', file: '/docs/brand/lab-ric-report-1.pdf', thumb: '/images/brand/eds-spectrum-2-thumb.webp'},
+        {title: 'EDS spectrum (preview)', description: 'Illustrative spectrum from the measurement (SEM‑EDS).', summary: 'Quick view and a single‑page PDF for download.', file: '/docs/brand/eds-spectrum-2.pdf', thumb: '/images/brand/eds-spectrum-2-thumb.webp'},
+        {title: 'Trademark registration certificate', description: 'Two‑page certificate (PDF).', summary: 'Proof of trademark registration in Ukraine.', file: '/docs/brand/trademark-certificate.pdf', thumb: '/images/brand/tm-cert-page1.webp'}
       ]
     },
     promise: {

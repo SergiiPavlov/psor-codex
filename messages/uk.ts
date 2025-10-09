@@ -469,10 +469,11 @@ cards: [
       title: 'Сертифікати та випробування',
       description: 'Невдовзі тут з’являться скани протоколів Харківського НДІ дерматології та венерологии та інші документи. Поки що розміщено заглушки.',
       items: [
-        {title: 'Публікація ХНДІ дерматології та венерології', description: 'Стаття з результатами дерматологічних випробувань крему.', file: '/docs/brand/dermatology-study.pdf'},
-        {title: 'Повний випуск журналу', description: 'Оригінальний номер журналу з повною версткою та статтею.', file: '/docs/brand/journal-full-issue.pdf'},
-        {title: 'Лабораторний аналіз важких металів (Бельгія)', description: 'Звіт RIC щодо контролю вмісту важких металів.', file: '/docs/brand/lab-ric-report-1.pdf'},
-        {title: 'Свідоцтво про реєстрацію торговельної марки', description: 'PDF-версія свідоцтва (2 сторінки).', file: '/docs/brand/trademark-certificate.pdf'}
+        {title: 'Дерматологічне дослідження', description: 'Публікація ХНДІ дерматології та венерології: переносимість при схильності до лущення.', summary: 'Стаття у журналі; доступний окремий PDF та повний випуск.', file: '/docs/brand/dermatology-study.pdf', thumb: ''},
+        {title: 'Повний випуск журналу', description: 'Оригінальний номер з повною версткою та нашою публікацією.', summary: 'Зручно для друку та архівного зберігання.', file: '/docs/brand/journal-full-issue.pdf', thumb: ''},
+        {title: 'Елементний аналіз (SEM‑EDS)', description: 'Звіт бельгійської лабораторії RIC з даними енергодисперсійної рентгеноспектроскопії.', summary: 'У спектрах присутні поширені елементи (Ca, K, Fe, Zn тощо). Токсичні метали (Pb, Hg, Cd) не виявлені вище межі методу.', file: '/docs/brand/lab-ric-report-1.pdf', thumb: '/images/brand/eds-spectrum-2-thumb.webp'},
+        {title: 'Спектр EDS (приклад)', description: 'Ілюстративний спектрограм вимірювання (SEM‑EDS).', summary: 'Можна швидко переглянути та завантажити як PDF одну сторінку.', file: '/docs/brand/eds-spectrum-2.pdf', thumb: '/images/brand/eds-spectrum-2-thumb.webp'},
+        {title: 'Свідоцтво про реєстрацію торговельної марки', description: 'PDF-версія свідоцтва (2 сторінки).', summary: 'Підтвердження реєстрації ТМ в Україні.', file: '/docs/brand/trademark-certificate.pdf', thumb: '/images/brand/tm-cert-page1.webp'}
       ]
     },
     promise: {

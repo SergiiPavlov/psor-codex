@@ -468,10 +468,11 @@ cards: [
       title: 'Сертификаты и испытания',
       description: 'Скоро здесь появятся сканы протоколов Харьковского НИИ дерматологии и венерологи и другие документы. Сейчас размещены заглушки.',
       items: [
-        {title: 'Публикация НИИ дерматологии и венерологии', description: 'Статья с результатами дерматологических испытаний крема.', file: '/docs/brand/dermatology-study.pdf'},
-        {title: 'Полный выпуск журнала', description: 'Оригинальный номер журнала с полной версткой и статьей.', file: '/docs/brand/journal-full-issue.pdf'},
-        {title: 'Лабораторный анализ тяжёлых металлов (Бельгия)', description: 'Отчёт RIC по контролю содержания тяжёлых металлов.', file: '/docs/brand/lab-ric-report-1.pdf'},
-        {title: 'Свидетельство о регистрации торговой марки', description: 'PDF-версия свидетельства (2 страницы).', file: '/docs/brand/trademark-certificate.pdf'}
+        {title: 'Дерматологическое исследование', description: 'Публикация НИИ дерматологии и венерологии: переносимость при склонности к шелушению.', summary: 'Статья в журнале; доступна как отдельный PDF, а также полный номер.', file: '/docs/brand/dermatology-study.pdf', thumb: ''},
+        {title: 'Полный выпуск журнала', description: 'Оригинальный номер с полной версткой и нашей публикацией.', summary: 'Удобно для распечатки и архивного хранения.', file: '/docs/brand/journal-full-issue.pdf', thumb: ''},
+        {title: 'Элементный анализ (SEM‑EDS)', description: 'Отчёт бельгийской лаборатории RIC с данными энергодисперсионной рентгеноспектроскопии.', summary: 'В спектрах видны распространённые элементы (Ca, K, Fe, Zn и др.). Токсичные металлы (Pb, Hg, Cd) не обнаружены выше предела метода.', file: '/docs/brand/lab-ric-report-1.pdf', thumb: '/images/brand/eds-spectrum-2-thumb.webp'},
+        {title: 'Спектр EDS (превью)', description: 'Иллюстративный спектрограммы измерения (SEM‑EDS).', summary: 'Можно быстро просмотреть и скачать как PDF один разворот.', file: '/docs/brand/eds-spectrum-2.pdf', thumb: '/images/brand/eds-spectrum-2-thumb.webp'},
+        {title: 'Свидетельство о регистрации торговой марки', description: 'PDF-версия свидетельства (2 страницы).', summary: 'Подтверждение регистрации ТМ в Украине.', file: '/docs/brand/trademark-certificate.pdf', thumb: '/images/brand/tm-cert-page1.webp'}
       ]
     },
     promise: {
