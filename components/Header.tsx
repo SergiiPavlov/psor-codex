@@ -10,6 +10,7 @@ import MobileMenu from './MobileMenu';
 
 export default function Header() {
   const t = useTranslations('nav');
+  const tCommon = useTranslations('common');
   const locale = useLocale();
   const pathname = usePathname() || '/';
   const [open, setOpen] = useState(false);
@@ -31,8 +32,9 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
       <div className="container flex h-16 items-center justify-between gap-3">
         {/* ЛОГО */}
-        <Link href={`/${locale}`} className="text-xl font-bold">
-          Psoriatynin
+        <Link href={`/${locale}`} className="flex items-center gap-2 text-xl font-bold">
+          <img src="/icons/psoriatynin-logo.svg" alt="Псориатинин" className="h-6 w-6" />
+          <span>{tCommon('brand')}</span>
         </Link>
 
         {/* Desktop-меню (только >= xl) */}
