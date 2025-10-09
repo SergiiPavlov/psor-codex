@@ -199,14 +199,14 @@ const uk = {
         name: 'Псоріатинін Крем',
         description: 'Класичний емолентний догляд із кератолітичним комплексом для пом’якшення та захисту.',
         highlights: ['Щоденний догляд', 'Насичена, але швидко вбирається', 'Протестовано дерматологами'],
-        price: '{sizes_and_prices}'
+        price: '20 г — 140 грн · 50 г — 250 грн · 100 г — 450 грн'
       },
       {
         slug: 'psoriatinin-cool',
         name: 'Псоріатинін Крем Cool',
         description: 'Усі переваги класичної версії плюс легка прохолода для миттєвого комфорту.',
         highlights: ['Моментальна свіжість', 'Легка текстура', 'Похідна ментолу'],
-        price: '{sizes_and_prices}'
+        price: '20 г — 150 грн · 50 г — 270 грн · 100 г — 470 грн'
       }
     ]
   },
@@ -233,8 +233,8 @@ const uk = {
       ],
       variantsTitle: 'Доступні формати',
       variants: [
-        {id: 'classic-1', label: 'Тюбик — {sizes_and_prices}', price: '{sizes_and_prices}'},
-        {id: 'classic-2', label: 'Сімейний формат — {sizes_and_prices}', price: '{sizes_and_prices}'}
+        {id: 'classic-1', label: 'Тюбик — 20 г — 140 грн · 50 г — 250 грн · 100 г — 450 грн', price: '20 г — 140 грн · 50 г — 250 грн · 100 г — 450 грн'},
+        {id: 'classic-2', label: 'Сімейний формат — 20 г — 140 грн · 50 г — 250 грн · 100 г — 450 грн', price: '20 г — 140 грн · 50 г — 250 грн · 100 г — 450 грн'}
       ],
       highlights: {
         title: 'Ключові переваги',
@@ -313,8 +313,8 @@ const uk = {
       ],
       variantsTitle: 'Доступні формати',
       variants: [
-        {id: 'cool-1', label: 'Тюбик — {sizes_and_prices}', price: '{sizes_and_prices}'},
-        {id: 'cool-2', label: 'Сімейний формат — {sizes_and_prices}', price: '{sizes_and_prices}'}
+        {id: 'cool-1', label: 'Тюбик — 20 г — 150 грн · 50 г — 270 грн · 100 г — 470 грн', price: '20 г — 150 грн · 50 г — 270 грн · 100 г — 470 грн'},
+        {id: 'cool-2', label: 'Сімейний формат — 20 г — 150 грн · 50 г — 270 грн · 100 г — 470 грн', price: '20 г — 150 грн · 50 г — 270 грн · 100 г — 470 грн'}
       ],
       highlights: {
         title: 'Ключові переваги',

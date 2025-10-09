@@ -198,14 +198,14 @@ const en = {
         name: 'Psoriatynin Cream',
         description: 'Classic emollient care with keratolytic complex to soften and protect.',
         highlights: ['Daily maintenance', 'Rich yet fast-absorbing texture', 'Tested by dermatologists'],
-        price: '{sizes_and_prices}'
+        price: '20 g — 140 UAH · 50 g — 250 UAH · 100 g — 450 UAH'
       },
       {
         slug: 'psoriatinin-cool',
         name: 'Psoriatynin Cream Cool',
         description: 'All the care benefits plus a refreshing sensation for moments of heat or discomfort.',
         highlights: ['Instant comfort', 'Lightweight texture', 'Menthol derivative for cooling'],
-        price: '{sizes_and_prices}'
+        price: '20 g — 150 UAH · 50 g — 270 UAH · 100 g — 470 UAH'
       }
     ]
   },
@@ -232,8 +232,8 @@ const en = {
       ],
       variantsTitle: 'Available formats',
       variants: [
-        {id: 'classic-1', label: 'Tube — {sizes_and_prices}', price: '{sizes_and_prices}'},
-        {id: 'classic-2', label: 'Family size — {sizes_and_prices}', price: '{sizes_and_prices}'}
+        {id: 'classic-1', label: 'Tube — 20 g — 140 UAH · 50 g — 250 UAH · 100 g — 450 UAH', price: '20 g — 140 UAH · 50 g — 250 UAH · 100 g — 450 UAH'},
+        {id: 'classic-2', label: 'Family size — 20 g — 140 UAH · 50 g — 250 UAH · 100 g — 450 UAH', price: '20 g — 140 UAH · 50 g — 250 UAH · 100 g — 450 UAH'}
       ],
       highlights: {
         title: 'Key advantages',
@@ -312,8 +312,8 @@ const en = {
       ],
       variantsTitle: 'Available formats',
       variants: [
-        {id: 'cool-1', label: 'Tube — {sizes_and_prices}', price: '{sizes_and_prices}'},
-        {id: 'cool-2', label: 'Family size — {sizes_and_prices}', price: '{sizes_and_prices}'}
+        {id: 'cool-1', label: 'Tube — 20 g — 150 UAH · 50 g — 270 UAH · 100 g — 470 UAH', price: '20 g — 150 UAH · 50 g — 270 UAH · 100 g — 470 UAH'},
+        {id: 'cool-2', label: 'Family size — 20 g — 150 UAH · 50 g — 270 UAH · 100 g — 470 UAH', price: '20 g — 150 UAH · 50 g — 270 UAH · 100 g — 470 UAH'}
       ],
       highlights: {
         title: 'Key advantages',
