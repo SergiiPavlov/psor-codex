@@ -12,7 +12,7 @@ export default function Footer() {
   const contacts = tCommon.raw('contact') as Record<string, string>
 
   return (
-    <footer className="border-t border-border bg-neutral-50/80">
+    <footer id="contacts" className="border-t border-border bg-neutral-50/80 scroll-mt-24">
       <div className="container grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-6">
           <Link href={`/${locale}`} className="text-xl font-semibold text-brand-dark">
