@@ -413,15 +413,17 @@ const en = {
       title: 'Ingredient library',
       subtitle: 'Explore the key ingredients behind Psoriatynin. Final INCI percentages will be added after regulatory approval.'
     },
-    cards: [
-      {name: 'Urea', short: 'Humectant & keratolytic', description: 'Binds water to the skin and helps loosen surface build-up for smoother touch.', note: 'Final percentage: {inci_and_actives}'},
-      {name: 'Lactic Acid Derivative', short: 'Soft exfoliation', description: 'Helps detach flakes gently without irritation.', note: 'Final percentage: {inci_and_actives}'},
-      {name: 'Panthenol', short: 'Pro-vitamin B5', description: 'Supports comfort and resilience of the skin.', note: 'Final percentage: {inci_and_actives}'},
-      {name: 'Niacinamide', short: 'Barrier support', description: 'Strengthens protective functions and evens tone appearance.', note: 'Final percentage: {inci_and_actives}'},
-      {name: 'Menthyl PCA', short: 'Cooling agent', description: 'Delivers mild freshness in the Cool version.', note: 'Final percentage: {inci_and_actives}'},
-      {name: 'Shea Butter', short: 'Emollient', description: 'Rich in fatty acids to nourish and reduce moisture loss.', note: 'Final percentage: {inci_and_actives}'}
-    ],
-    note: 'Full INCI lists with concentrations will be uploaded soon. Placeholders are marked with TODO.'
+    
+cards: [
+  {name: 'Celandine extract', short: 'Keratolytic support', description: 'Gently helps loosen compact dry areas and surface build-up, enabling delicate flake lift-off.'},
+  {name: 'Calendula extract', short: 'Calming extract', description: 'Supports comfort and recovery while reducing the feeling of irritation.'},
+  {name: 'Bidens extract', short: 'Balance & comfort', description: 'Traditional softening ingredient that helps with dryness and supports an even appearance.'},
+  {name: 'Peppermint & eucalyptus oils', short: 'Cooling oils', description: 'Provide a fresh cooling sensation, enhancing perceived comfort.'},
+  {name: 'Glycerin', short: 'Humectant', description: 'Attracts and holds water in the stratum corneum, reducing tightness.'},
+  {name: 'Purified solidol (base)', short: 'Occlusive emollient (base)', description: 'Forms a protective film and limits transepidermal water loss.'}
+]
+,
+    note: 'Fragrance-free and dye-free to help reduce the chance of irritation for sensitive skin. Any smell is incidental to the active ingredients.'
   },
   results: {
     hero: {
