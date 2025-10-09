@@ -16,7 +16,7 @@ export default function Footer() {
       <div className="container grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-6">
           <Link href={`/${locale}`} className="text-xl font-semibold text-brand-dark">
-            {tCommon('brand')}
+            <span className="inline-flex items-center gap-2"><img src="/icons/psoriatynin-logo.svg" alt="Псориатинин" className="h-5 w-5" />{tCommon('brand')}</span>
           </Link>
           <p className="text-sm text-neutral-600">{tFooter('about')}</p>
           <p className="text-xs text-neutral-500">{tFooter('disclaimer')}</p>
