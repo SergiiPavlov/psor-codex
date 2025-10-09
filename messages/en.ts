@@ -468,9 +468,10 @@ cards: [
       title: 'Certificates & studies',
       description: 'Access protocol scans from the Kharkiv Institute of Dermatology and venereology and other lab reports. Placeholder files will be replaced with originals soon.',
       items: [
-        {title: 'Dermatological testing report', description: 'Summary of tolerance study on volunteers with psoriasis-prone skin.', file: '{assets_links}'},
-        {title: 'Microbiological safety certificate', description: 'Laboratory confirmation of safety standards.', file: '{assets_links}'},
-        {title: 'Stability testing protocol', description: 'Demonstrates product stability across temperature ranges.', file: '{assets_links}'}
+        {title: 'Dermatology & Venereology Institute publication', description: 'Article reporting the dermatological testing results.', file: '/docs/brand/dermatology-study.pdf'},
+        {title: 'Full journal issue', description: 'Original journal issue with the complete layout and article.', file: '/docs/brand/journal-full-issue.pdf'},
+        {title: 'Laboratory heavy metals analysis (Belgium)', description: 'RIC report on trace heavy metals screening.', file: '/docs/brand/lab-ric-report-1.pdf'},
+        {title: 'Trademark registration certificate', description: 'Two‑page certificate as a single PDF.', file: '/docs/brand/trademark-certificate.pdf'}
       ]
     },
     promise: {
