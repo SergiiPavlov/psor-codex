@@ -36,9 +36,9 @@ const uk = {
       guarantee: 'Гарантія'
     },
     contact: {
-      phone: '+380667213166',
-      email: 'psoriatynin@gmail.com',
-      telegram: 'tg://resolve?phone=380667213166',
+      phone: '+380 XX XXX XX XX',
+      email: '{order_endpoints}',
+      telegram: '{order_endpoints}',
       office: 'Харків, Україна',
       hours: 'Пн–Пт 10:00–18:00 (UTC+2)'
     },
@@ -61,9 +61,7 @@ const uk = {
   results: 'Результати',
   about: 'Клінічні тести',
   how_to_use: 'Як застосовувати',
-  
-  faq: 'FAQ',
-  contacts: 'Контакти',order_now: 'Замовити',
+  order_now: 'Замовити',
     primary: [
       {href: '/', label: 'Головна'},
       {href: '/catalog', label: 'Каталог'},
@@ -555,9 +553,9 @@ cards: [
       subtitle: 'Ми відповімо на запитання про косметичний догляд.'
     },
     channels: [
-      {type: 'phone', label: 'Гаряча лінія', value: '+380667213166'},
-      {type: 'email', label: 'Email', value: 'psoriatynin@gmail.com'},
-      {type: 'telegram', label: 'Telegram / WhatsApp / Viber', value: '+380667213166'},
+      {type: 'phone', label: 'Гаряча лінія', value: '+380 XX XXX XX XX'},
+      {type: 'email', label: 'Email', value: '{order_endpoints}'},
+      {type: 'telegram', label: 'Telegram', value: '{order_endpoints}'},
       {type: 'address', label: 'Офіс', value: 'Харків, Україна'}
     ],
     schedule: 'Графік підтримки: Пн–Пт 10:00–18:00 (UTC+2).',

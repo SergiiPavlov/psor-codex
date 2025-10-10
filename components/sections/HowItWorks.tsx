@@ -8,7 +8,7 @@ export function HowItWorks({title, subtitle, steps}: {title: string; subtitle?: 
     <section className="section">
       <div className="container space-y-10">
         <div className="max-w-2xl space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-wide text-brand">{subtitle}</p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-brand-dark">{subtitle}</p>
           <h2 className="text-3xl font-semibold text-neutral-900 md:text-4xl">{title}</h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">

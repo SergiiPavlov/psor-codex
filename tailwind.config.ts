@@ -32,7 +32,12 @@ export default {
     extend: {
       colors: {
         border: 'rgba(23, 42, 48, 0.12)',
-        brand: { DEFAULT: '#268C96', light: '#46AAB4', muted: '#E6F4F5', dark: '#1E6E76' },
+        brand: {
+          DEFAULT: '#3A6B78',
+          light: '#4F8896',
+          muted: '#EFF4F6',
+          dark: '#23444C'
+        },
         neutral: {
           50: '#FAFAFA',
           100: '#F4F4F5',

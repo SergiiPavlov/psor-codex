@@ -36,9 +36,9 @@ const en = {
       guarantee: 'Guarantee'
     },
     contact: {
-      phone: '+380667213166',
-      email: 'psoriatynin@gmail.com',
-      telegram: 'tg://resolve?phone=380667213166',
+      phone: '+380 XX XXX XX XX',
+      email: '{order_endpoints}',
+      telegram: '{order_endpoints}',
       office: 'Kharkiv, Ukraine',
       hours: 'Monday–Friday 10:00–18:00 (UTC+2)'
     },
@@ -60,9 +60,7 @@ const en = {
   results: 'Results',
   about: 'Clinical tests',
   how_to_use: 'How to use',
-  
-  faq: 'FAQ',
-  contacts: 'Contacts',order_now: 'Order now',
+  order_now: 'Order now',
     primary: [
       {href: '/', label: 'Home'},
       {href: '/catalog', label: 'Catalog'},
@@ -554,9 +552,9 @@ cards: [
       subtitle: 'We are here to answer questions about the cosmetic daily care.'
     },
     channels: [
-      {type: 'phone', label: 'Hotline', value: '+380667213166'},
-      {type: 'email', label: 'Email', value: 'psoriatynin@gmail.com'},
-      {type: 'telegram', label: 'Telegram / WhatsApp / Viber', value: '+380667213166'},
+      {type: 'phone', label: 'Hotline', value: '+380 XX XXX XX XX'},
+      {type: 'email', label: 'Email', value: '{order_endpoints}'},
+      {type: 'telegram', label: 'Telegram', value: '{order_endpoints}'},
       {type: 'address', label: 'Office', value: 'Kharkiv, Ukraine'}
     ],
     schedule: 'Support hours: Monday–Friday 10:00–18:00 (UTC+2).',
