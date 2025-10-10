@@ -1,6 +1,6 @@
 'use client';
 
-import {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 import {useLocale, useTranslations} from 'next-intl';
 import {usePathname} from 'next/navigation';
@@ -14,6 +14,14 @@ export default function Header() {
   const locale = useLocale();
   const pathname = usePathname() || '/';
   const [open, setOpen] = useState(false);
+  const [hash, setHash] = useState<string>(() => (typeof window !== 'undefined' ? window.location.hash : ''));
+  // следим за якорем URL, чтобы подсветка меню работала для #faq/#contacts
+  useEffect(() => {
+    const handler = () => setHash(window.location.hash);
+    handler(); // первичная синхронизация
+    window.addEventListener('hashchange', handler);
+    return () => window.removeEventListener('hashchange', handler);
+  }, []);
 
   const items: Array<{key: string; href: string}> = [
     {key: 'home', href: '/'},
@@ -23,7 +31,53 @@ export default function Header() {
     {key: 'results', href: '/results'},
     {key: 'about', href: '/brand'},
     {key: 'how_to_use', href: '/#how-to-apply'},
+    {key: 'faq', href: '/#faq'},
+    {key: 'contacts', href: '/#contacts'},
   ];
+
+  // Определяем один-единственный активный пункт
+  const getCurrentActive = () => {
+    // anchors we care about on home
+    const anchorMap: Record<string, string> = {
+      '/#how-to-apply': '#how-to-apply',
+      '/#faq': '#faq',
+      '/#contacts': '#contacts',
+    };
+    const rootPath = `/${locale}`;
+    const onRoot = pathname === rootPath || pathname === `${rootPath}/`;
+    if (onRoot) {
+      // при наличии якоря подсвечиваем только соответствующий пункт
+      if (hash && Object.values(anchorMap).includes(hash)) {
+        switch (hash) {
+          case '#how-to-apply':
+            return 'how_to_use';
+          case '#faq':
+            return 'faq';
+          case '#contacts':
+            return 'contacts';
+        }
+      }
+      // иначе — главная
+      return 'home';
+    }
+    // для остальных страниц — по совпадению пути
+    for (const {key, href} of items) {
+      const mk = (p: string) => (p === '/' ? `/${locale}` : `/${locale}${p}`);
+      if (!href.startsWith('/#') && mk(href) === pathname) return key;
+    }
+    return null;
+  };
+
+  const currentActive = getCurrentActive();
+
+  const handleAnchorClick = (href: string) => () => {
+    const target = href.replace('/', '');
+    setHash(target);
+    if (typeof window !== 'undefined' && window.location.hash != target) {
+      try { history.replaceState(null, '', target); } catch {}
+    }
+  };
+
 
   const withLocale = (href: string) =>
     href === '/' ? `/${locale}` : `/${locale}${href}`;
@@ -41,7 +95,7 @@ export default function Header() {
         <nav className="hidden xl:flex items-center gap-4">
           {items.map(({key, href}) => {
             const url = withLocale(href);
-            const active = url === pathname;
+            const active = key === currentActive;
             return (
               <Link
                 key={key}

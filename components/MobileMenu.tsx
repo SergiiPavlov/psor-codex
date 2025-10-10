@@ -22,6 +22,8 @@ const NAV_ITEMS: Array<{ key: string; path: string }> = [
   {key: 'results', path: '/results'},
   {key: 'about', path: '/brand'},
   {key: 'how_to_use', path: '/#how-to-apply'},
+  {key: 'faq', path: '/#faq'},
+  {key: 'contacts', path: '/#contacts'},
   // ВАЖНО: пункта "order" здесь нет — по твоему требованию
 ];
 
