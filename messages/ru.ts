@@ -60,9 +60,9 @@ const ru = {
   results: 'Результаты',
   about: 'Клинические тесты',
   how_to_use: 'Как применять',
+  
   faq: 'FAQ',
-  contacts: 'Контакты',
-  order_now: 'Заказать',
+  contacts: 'Контакты',order_now: 'Заказать',
     primary: [
       {href: '/', label: 'Главная'},
       {href: '/catalog', label: 'Каталог'},
@@ -71,8 +71,6 @@ const ru = {
       {href: '/results', label: 'Результаты'},
       {href: '/brand', label: 'Клинические тесты'},
       {href: '/#how-to-apply', label: 'Как применять'},
-      {href: '/#faq', label: 'FAQ'},
-      {href: '/#contacts', label: 'Контакты'},
       {href: '/order', label: 'Заказ'},
     ],
     secondary: [

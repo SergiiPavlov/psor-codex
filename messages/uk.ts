@@ -61,9 +61,9 @@ const uk = {
   results: 'Результати',
   about: 'Клінічні тести',
   how_to_use: 'Як застосовувати',
+  
   faq: 'FAQ',
-  contacts: 'Контакти',
-  order_now: 'Замовити',
+  contacts: 'Контакти',order_now: 'Замовити',
     primary: [
       {href: '/', label: 'Головна'},
       {href: '/catalog', label: 'Каталог'},
@@ -72,8 +72,6 @@ const uk = {
       {href: '/results', label: 'Результати'},
       {href: '/brand', label: 'Клінічні тести'},
       {href: '/#how-to-apply', label: 'Як застосовувати'},
-      {href: '/#faq', label: 'FAQ'},
-      {href: '/#contacts', label: 'Контакти'},
       {href: '/order', label: 'Замовлення'},
     ],
     secondary: [

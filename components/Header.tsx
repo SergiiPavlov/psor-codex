@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useState, useEffect} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import Link from 'next/link';
 import {useLocale, useTranslations} from 'next-intl';
 import {usePathname} from 'next/navigation';
@@ -8,82 +8,70 @@ import {Menu} from 'lucide-react';
 import LangSwitcher from './LangSwitcher';
 import MobileMenu from './MobileMenu';
 
+type NavItem = {key: string; href: string};
+
 export default function Header() {
   const t = useTranslations('nav');
   const tCommon = useTranslations('common');
   const locale = useLocale();
   const pathname = usePathname() || '/';
   const [open, setOpen] = useState(false);
-  const [hash, setHash] = useState<string>(() => (typeof window !== 'undefined' ? window.location.hash : ''));
-  // следим за якорем URL, чтобы подсветка меню работала для #faq/#contacts
-  useEffect(() => {
-    const handler = () => setHash(window.location.hash);
-    handler(); // первичная синхронизация
-    window.addEventListener('hashchange', handler);
-    return () => window.removeEventListener('hashchange', handler);
-  }, []);
 
-  const items: Array<{key: string; href: string}> = [
+  // Добавили недостающие пункты и якорь-страницы.
+  const items: NavItem[] = [
     {key: 'home', href: '/'},
     {key: 'catalog', href: '/catalog'},
     {key: 'how_it_works', href: '/how-it-works'},
     {key: 'ingredients', href: '/ingredients'},
     {key: 'results', href: '/results'},
     {key: 'about', href: '/brand'},
-    {key: 'how_to_use', href: '/#how-to-apply'},
-    {key: 'faq', href: '/#faq'},
-    {key: 'contacts', href: '/#contacts'},
+    {key: 'how_to_use', href: '/#how-to-apply'}, // якорь на главной
+    {key: 'faq', href: '/#faq'},                 // якорь на главной
+    {key: 'contacts', href: '/contacts'},        // отдельная страница
   ];
-
-  // Определяем один-единственный активный пункт
-  const getCurrentActive = () => {
-    // anchors we care about on home
-    const anchorMap: Record<string, string> = {
-      '/#how-to-apply': '#how-to-apply',
-      '/#faq': '#faq',
-      '/#contacts': '#contacts',
-    };
-    const rootPath = `/${locale}`;
-    const onRoot = pathname === rootPath || pathname === `${rootPath}/`;
-    if (onRoot) {
-      // при наличии якоря подсвечиваем только соответствующий пункт
-      if (hash && Object.values(anchorMap).includes(hash)) {
-        switch (hash) {
-          case '#how-to-apply':
-            return 'how_to_use';
-          case '#faq':
-            return 'faq';
-          case '#contacts':
-            return 'contacts';
-        }
-      }
-      // иначе — главная
-      return 'home';
-    }
-    // для остальных страниц — по совпадению пути
-    for (const {key, href} of items) {
-      const mk = (p: string) => (p === '/' ? `/${locale}` : `/${locale}${p}`);
-      if (!href.startsWith('/#') && mk(href) === pathname) return key;
-    }
-    return null;
-  };
-
-  const currentActive = getCurrentActive();
-
-  const handleAnchorClick = (href: string) => () => {
-    const target = href.replace('/', '');
-    setHash(target);
-    if (typeof window !== 'undefined' && window.location.hash != target) {
-      try { history.replaceState(null, '', target); } catch {}
-    }
-  };
-
 
   const withLocale = (href: string) =>
     href === '/' ? `/${locale}` : `/${locale}${href}`;
 
+  // Следим за hash, чтобы корректно подсвечивать якорные разделы на главной.
+  const [hash, setHash] = useState<string>('');
+  useEffect(() => {
+    const set = () => setHash(window.location.hash || '');
+    set();
+    window.addEventListener('hashchange', set);
+    window.addEventListener('popstate', set);
+    return () => {
+      window.removeEventListener('hashchange', set);
+      window.removeEventListener('popstate', set);
+    };
+  }, []);
+
+  // Вычисляем текущий активный ключ с учётом pathname и hash (для якорей).
+  const activeKey = useMemo(() => {
+    // Нормализуем путь без locale префикса: /ru/contacts -> /contacts
+    const normalized = pathname.replace(/^\/[a-z]{2}(?=\/|$)/i, '').replace(/^$/, '/');
+
+    // Маршруты-страницы:
+    if (normalized === '/catalog') return 'catalog';
+    if (normalized === '/how-it-works') return 'how_it_works';
+    if (normalized === '/ingredients') return 'ingredients';
+    if (normalized === '/results') return 'results';
+    if (normalized === '/brand') return 'about';
+    if (normalized === '/contacts') return 'contacts';
+
+    // Главная страница + якоря:
+    if (normalized === '/') {
+      if (hash === '#how-to-apply') return 'how_to_use';
+      if (hash === '#faq') return 'faq';
+      return 'home';
+    }
+
+    // Фолбэк
+    return 'home';
+  }, [pathname, hash]);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+    <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
       <div className="container flex h-16 items-center justify-between gap-3">
         {/* ЛОГО */}
         <Link href={`/${locale}`} className="flex items-center gap-2 text-xl font-bold">
@@ -92,15 +80,15 @@ export default function Header() {
         </Link>
 
         {/* Desktop-меню (только >= xl) */}
-        <nav className="hidden xl:flex items-center gap-4">
+        <nav className="hidden xl:flex items-center gap-2">
           {items.map(({key, href}) => {
             const url = withLocale(href);
-            const active = key === currentActive;
+            const active = key === activeKey;
             return (
               <Link
                 key={key}
                 href={url}
-                className={`rounded-lg px-3 py-2 text-sm ${
+                className={`rounded-lg px-3 py-2 text-sm transition-colors ${
                   active
                     ? 'bg-brand/10 text-brand font-medium'
                     : 'text-neutral-800 hover:bg-neutral-100'
@@ -112,12 +100,21 @@ export default function Header() {
           })}
         </nav>
 
-        {/* Правый блок: переключатель языка + бургер на моб/планшете */}
-        <div className="flex items-center gap-2">
-          <LangSwitcher size="sm" />
+        {/* Правый блок: «Заказать» + переключатель языка + бургер */}
+        <div className="ml-auto flex items-center gap-2">
+          <Link
+            href={`/${locale}/order`}
+            className="hidden md:inline-flex rounded-lg bg-brand px-4 py-2 text-sm font-medium text-white hover:opacity-90"
+          >
+            {t('order_now')}
+          </Link>
+
+          <LangSwitcher />
+
           <button
-            className="xl:hidden inline-flex items-center justify-center rounded-xl p-2 border border-border/70 bg-white hover:bg-neutral-50 focus:outline-none focus:ring-2 focus:ring-brand"
+            type="button"
             onClick={() => setOpen(true)}
+            className="inline-flex items-center gap-2 rounded-lg p-2 text-neutral-700 hover:bg-neutral-100 xl:hidden"
             aria-label="Открыть меню"
           >
             <Menu className="h-5 w-5" />

@@ -60,9 +60,9 @@ const en = {
   results: 'Results',
   about: 'Clinical tests',
   how_to_use: 'How to use',
+  
   faq: 'FAQ',
-  contacts: 'Contacts',
-  order_now: 'Order now',
+  contacts: 'Contacts',order_now: 'Order now',
     primary: [
       {href: '/', label: 'Home'},
       {href: '/catalog', label: 'Catalog'},
@@ -71,8 +71,6 @@ const en = {
       {href: '/results', label: 'Results'},
       {href: '/brand', label: 'Clinical tests'},
       {href: '/#how-to-apply', label: 'How to use'},
-      {href: '/#faq', label: 'FAQ'},
-      {href: '/#contacts', label: 'Contacts'},
       {href: '/order', label: 'Order'},
     ],
     secondary: [
