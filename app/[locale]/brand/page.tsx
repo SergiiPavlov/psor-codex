@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import {getTranslations} from 'next-intl/server'
 import type {Locale} from '@/i18n'
+import { Button } from '@/components/ui/button'
 
 export const revalidate = 3600
 
@@ -81,21 +82,9 @@ export default async function BrandPage({params}:{params:{locale:Locale}}) {
               <p className="text-sm text-muted-foreground mb-2">{item.description}</p>
               {item.summary && <p className="text-sm text-muted-foreground mb-4">{item.summary}</p>}
               <div className="mt-auto flex items-center gap-3 pt-2">
-                <Link
-                  href={item.file}
-                  target="_blank"
-                  className="inline-flex items-center rounded-lg border px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
-                >
-                  {labels.open}
-                </Link>
-                <a
-                  href={item.file}
-                  download
-                  className="inline-flex items-center rounded-lg bg-primary text-primary-foreground px-3 py-2 text-sm hover:opacity-90"
-                >
-                  {labels.download}
-                </a>
-              </div>
+  <Button href={item.file} target="_blank" className="px-3 py-2 text-sm">{labels.open}</Button>
+  <Button href={item.file} variant="ghost" className="px-3 py-2 text-sm">{labels.download}</Button>
+</div>
             </article>
           ))}
         </div>
