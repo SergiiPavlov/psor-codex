@@ -46,12 +46,12 @@ export function Hero({eyebrow, title, subtitle, primaryCta, secondaryCta, checkl
           <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-brand-muted/40 to-brand/10" aria-hidden />
           <div className="relative flex h-full flex-col items-center justify-center gap-4 text-center">
             <span className="badge-soft">{imageAlt ?? 'Visual coming soon'}</span>
-            <div className="h-64 w-full rounded-2xl bg-white/70 shadow-inner">
+            <div className="relative w-full rounded-2xl bg-white/70 shadow-inner h-72 sm:h-80 md:h-[28rem] lg:h-[34rem] xl:h-[40rem]">
               <Image
-                src="/images/hero/psoriatynin-duo-1024.webp"
-                alt={imageAlt ?? 'Placeholder illustration'} sizes="(max-width: 640px) 100vw, 512px"
-                width={512}
-                height={512}
+                src="/images/hero/psoriatynin-duo-2048.webp"
+                alt={imageAlt ?? 'Placeholder illustration'} sizes="(max-width: 640px) 100vw, (max-width: 1280px) 90vw, 1280px"
+                fill
+                priority
                 className="h-full w-full object-contain"
               />
             </div>

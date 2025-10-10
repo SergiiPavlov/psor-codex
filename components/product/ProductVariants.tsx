@@ -16,7 +16,7 @@ export function ProductVariants({title, variants}: {title: string; variants: Pro
               <div>
                 <p className="text-sm font-semibold text-neutral-900">{variant.label}</p>
               </div>
-              <p className="text-sm font-semibold text-brand-dark">{variant.price}</p>
+              <p className="text-sm font-semibold text-brand">{variant.price}</p>
             </div>
           ))}
         </div>
