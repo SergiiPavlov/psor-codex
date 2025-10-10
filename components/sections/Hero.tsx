@@ -80,9 +80,9 @@ export function Hero({
           />
 
           <div className="relative flex flex-col items-center justify-center gap-3 text-center">
-            <span className="badge-soft">
-              {imageAlt ?? 'Visual coming soon'}
-            </span>
+              <span className="badge-soft">
+    {'Рекомендовано НИИ дерматологии и венерологии, г. Харьков'}
+  </span>
 
             {/* Больше НИКАКОЙ фиксированной высоты/аспекта! */}
             <div className="w-full rounded-2xl bg-white/70 shadow-inner">
