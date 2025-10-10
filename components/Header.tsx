@@ -74,7 +74,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
       <div className="container flex h-16 items-center justify-between gap-3">
         {/* ЛОГО */}
-        <Link href={`/${locale}`} className="flex items-center gap-2 text-xl font-bold">
+        <Link href={`/${locale}`} className="flex items-center gap-2 text-xl font-bold mr-2 md:mr-3">
           <img src="/icons/psoriatynin-logo.svg" alt="Псориатинин" className="h-6 w-6" />
           <span>{tCommon('brand')}</span>
         </Link>
