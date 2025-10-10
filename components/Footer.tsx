@@ -25,20 +25,14 @@ export default function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-700">{tFooter('socialTitle')}</h3>
           <ul className="mt-4 space-y-2 text-sm text-neutral-600">
             <li>
-              <a href={contacts.telegram} className="transition hover:text-brand">
-                Telegram
-              </a>
+              <a href="tg://resolve?phone=380667213166">Telegram</a><span className="mx-2">·</span><a href="https://wa.me/380667213166">WhatsApp</a><span className="mx-2">·</span><a href="viber://chat?number=%2B380667213166">Viber</a>
             </li>
             <li>
               <a href={`mailto:${contacts.email}`} className="transition hover:text-brand">
                 Email
               </a>
             </li>
-            <li>
-              <a href="https://forum.psoriatinin.com" className="transition hover:text-brand">
-                Forum
-              </a>
-            </li>
+           
           </ul>
         </div>
         <div>
