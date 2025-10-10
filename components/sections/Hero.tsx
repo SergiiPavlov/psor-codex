@@ -16,7 +16,7 @@ export function Hero({eyebrow, title, subtitle, primaryCta, secondaryCta, checkl
     <section className="section">
       <div className="container grid gap-12 md:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6">
-          {eyebrow ? <p className="text-sm font-semibold uppercase tracking-wide text-brand">{eyebrow}</p> : null}
+          {eyebrow ? <p className="text-sm font-semibold uppercase tracking-wide text-brand-dark">{eyebrow}</p> : null}
           <h1 className="text-4xl font-semibold leading-tight text-neutral-900 md:text-5xl">{title}</h1>
           <p className="text-lg text-neutral-600 md:text-xl">{subtitle}</p>
           <div className="flex flex-wrap items-center gap-3">
@@ -48,11 +48,11 @@ export function Hero({eyebrow, title, subtitle, primaryCta, secondaryCta, checkl
             <span className="badge-soft">{imageAlt ?? 'Visual coming soon'}</span>
             <div className="h-64 w-full rounded-2xl bg-white/70 shadow-inner">
               <Image
-                src="/placeholder.svg"
-                alt={imageAlt ?? 'Placeholder illustration'}
+                src="/images/hero/psoriatynin-duo-1024.webp"
+                alt={imageAlt ?? 'Placeholder illustration'} sizes="(max-width: 640px) 100vw, 512px"
                 width={512}
                 height={512}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-contain"
               />
             </div>
             <p className="text-xs text-neutral-500">{imageAlt ?? 'TODO: replace with brand visuals — {{assets_links}}'}</p>
