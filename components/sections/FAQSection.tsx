@@ -5,9 +5,9 @@ export type FAQItem = {
   answer: string
 }
 
-export function FAQSection({title, items}: {title: string; items: FAQItem[]}) {
+export function FAQSection({title, items, id = 'faq'}: {title: string; items: FAQItem[]; id?: string}) {
   return (
-    <section className="section">
+    <section id={id} className="section scroll-mt-24">
       <div className="container space-y-8">
         <div className="max-w-2xl space-y-4">
           <h2 className="text-3xl font-semibold text-neutral-900 md:text-4xl">{title}</h2>

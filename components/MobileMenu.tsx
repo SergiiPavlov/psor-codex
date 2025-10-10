@@ -9,6 +9,7 @@ import {X} from 'lucide-react';
 type MobileMenuProps = {
   open: boolean;
   onClose: () => void;
+  currentPath?: string; // допустим проп, если его передают
 };
 
 const buildHref = (locale: string, path: string) =>
@@ -22,6 +23,8 @@ const NAV_ITEMS: Array<{ key: string; path: string }> = [
   {key: 'results', path: '/results'},
   {key: 'about', path: '/brand'},
   {key: 'how_to_use', path: '/#how-to-apply'},
+  {key: 'faq', path: '/#faq'},
+  {key: 'contacts', path: '/contacts'},
   // ВАЖНО: пункта "order" здесь нет — по твоему требованию
 ];
 
@@ -40,7 +43,7 @@ export default function MobileMenu({open, onClose}: MobileMenuProps) {
     [tNav]
   );
 
-  // Блокируем прокрутку страницы, пока открыто меню
+  // Блокируем скролл страницы, пока меню открыто
   useEffect(() => {
     if (!open) return;
 
@@ -71,27 +74,19 @@ export default function MobileMenu({open, onClose}: MobileMenuProps) {
   }, [open, onClose]);
 
   const content = useMemo(() => {
-    if (!open) return null;
-
     return (
-      <div className="fixed inset-0 z-[100]">
-        {/* Затемнённый фон — клик по нему закрывает меню */}
+      <div className="fixed inset-0 z-[60]">
+        {/* Подложка */}
         <div
-          className="absolute inset-0 bg-black/80"
-          aria-hidden
+          className="absolute inset-0 bg-black/40"
           onClick={onClose}
+          aria-hidden="true"
         />
-
-        {/* Панель меню */}
-        <aside
-          className="absolute right-0 top-0 h-full w-full max-w-[420px] bg-white shadow-xl flex flex-col"
-          role="dialog"
-          aria-modal="true"
-        >
-          <header className="flex items-center justify-between p-4 border-b border-neutral-200">
-            <h3 className="text-lg font-semibold">
-              {safeT('menuTitle', 'Меню')}
-            </h3>
+        {/* Шторка */}
+        <aside className="absolute right-0 top-0 flex h-full w-[min(92vw,380px)] flex-col bg-white shadow-xl">
+          {/* Шапка меню */}
+          <header className="flex items-center justify-between border-b border-neutral-200 p-4">
+            <h3 className="text-base font-medium">{safeT('menuTitle', 'Меню')}</h3>
             <button
               type="button"
               onClick={onClose}
@@ -122,8 +117,8 @@ export default function MobileMenu({open, onClose}: MobileMenuProps) {
           {/* CTA «Оформить заказ» */}
           <div className="p-4 mt-auto border-t border-neutral-200">
             <Link
-              href={buildHref(locale, '/order')}
-              className="inline-flex h-11 w-full items-center justify-center rounded-xl bg-brand px-5 font-medium text-white transition hover:bg-brand-light focus:outline-none focus:ring-2 focus:ring-brand-light"
+              href={`/${locale}/order`}
+              className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-4 py-2 text-sm font-medium text-white hover:opacity-90"
               onClick={onClose}
             >
               {safeT('order_now', 'Оформить заказ')}
