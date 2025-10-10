@@ -60,7 +60,9 @@ const en = {
   results: 'Results',
   about: 'Clinical tests',
   how_to_use: 'How to use',
-  order_now: 'Order now',
+  
+  faq: 'FAQ',
+  contacts: 'Contacts',order_now: 'Order now',
     primary: [
       {href: '/', label: 'Home'},
       {href: '/catalog', label: 'Catalog'},

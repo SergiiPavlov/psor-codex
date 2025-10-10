@@ -31,7 +31,7 @@ export function Accordion({items, defaultOpenId}: AccordionProps) {
               onClick={() => setOpenItem(isOpen ? null : item.id)}
               className={cn(
                 'flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-semibold text-neutral-900 transition',
-                isOpen ? 'bg-brand-muted/60 text-brand-dark' : 'hover:bg-neutral-100'
+                isOpen ? 'bg-brand-muted/60 text-brand' : 'hover:bg-neutral-100'
               )}
             >
               <span>{item.title}</span>

@@ -20,8 +20,8 @@ type LinkButtonProps = BaseProps & AnchorHTMLAttributes<HTMLAnchorElement>
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: 'bg-brand text-white hover:bg-brand-dark focus-visible:ring-brand-dark',
-  secondary: 'bg-white text-brand-dark border border-brand/40 hover:bg-brand-muted/60',
-  ghost: 'bg-transparent text-brand-dark hover:bg-brand-muted/40'
+  secondary: 'bg-white text-brand border border-brand/50 hover:bg-brand-muted/60',
+  ghost: 'bg-transparent text-brand hover:bg-brand-muted/40'
 }
 
 export function Button({variant = 'primary', className, href, asChild, ...props}: ButtonProps & LinkButtonProps) {

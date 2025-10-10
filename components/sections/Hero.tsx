@@ -16,7 +16,7 @@ export function Hero({eyebrow, title, subtitle, primaryCta, secondaryCta, checkl
     <section className="section">
       <div className="container grid gap-12 md:grid-cols-[1.2fr_1fr]">
         <div className="space-y-6">
-          {eyebrow ? <p className="text-sm font-semibold uppercase tracking-wide text-brand-dark">{eyebrow}</p> : null}
+          {eyebrow ? <p className="text-sm font-semibold uppercase tracking-wide text-brand">{eyebrow}</p> : null}
           <h1 className="text-4xl font-semibold leading-tight text-neutral-900 md:text-5xl">{title}</h1>
           <p className="text-lg text-neutral-600 md:text-xl">{subtitle}</p>
           <div className="flex flex-wrap items-center gap-3">

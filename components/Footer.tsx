@@ -12,10 +12,10 @@ export default function Footer() {
   const contacts = tCommon.raw('contact') as Record<string, string>
 
   return (
-    <footer className="border-t border-border bg-neutral-50/80">
+    <footer id="contacts" className="border-t border-border bg-neutral-50/80">
       <div className="container grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-6">
-          <Link href={`/${locale}`} className="text-xl font-semibold text-brand-dark">
+          <Link href={`/${locale}`} className="text-xl font-semibold text-brand">
             <span className="inline-flex items-center gap-2"><img src="/icons/psoriatynin-logo.svg" alt="Псориатинин" className="h-5 w-5" />{tCommon('brand')}</span>
           </Link>
           <p className="text-sm text-neutral-600">{tFooter('about')}</p>
@@ -25,17 +25,17 @@ export default function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-700">{tFooter('socialTitle')}</h3>
           <ul className="mt-4 space-y-2 text-sm text-neutral-600">
             <li>
-              <a href={contacts.telegram} className="transition hover:text-brand-dark">
+              <a href={contacts.telegram} className="transition hover:text-brand">
                 Telegram
               </a>
             </li>
             <li>
-              <a href={`mailto:${contacts.email}`} className="transition hover:text-brand-dark">
+              <a href={`mailto:${contacts.email}`} className="transition hover:text-brand">
                 Email
               </a>
             </li>
             <li>
-              <a href="https://forum.psoriatinin.com" className="transition hover:text-brand-dark">
+              <a href="https://forum.psoriatinin.com" className="transition hover:text-brand">
                 Forum
               </a>
             </li>
@@ -46,7 +46,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-neutral-600">
             {secondaryNav.map((item) => (
               <li key={item.href}>
-                <Link href={`/${locale}${item.href}`} className="transition hover:text-brand-dark">
+                <Link href={`/${locale}${item.href}`} className="transition hover:text-brand">
                   {item.label}
                 </Link>
               </li>
