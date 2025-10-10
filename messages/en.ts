@@ -26,13 +26,13 @@ const en = {
     },
     logistics: {
       delivery: 'Delivery across Ukraine within 2–3 days via Nova Poshta or Ukrposhta.',
-      payment: 'Payment upon receipt (cash on delivery). No prepayment is required.',
+      payment: 'Payment: by bank transfer (prepayment) or cash on delivery. Carrier COD fees are paid per carrier rates.',
       returns: 'Formal returns are not provided. If the product does not suit you, we will refund 100% within 14 days after review.',
       guarantee: 'To request a refund, fill in the guarantee form with order number, photos and comments.'
     },
     logisticsLabels: {
       delivery: 'Delivery',
-      payment: 'Payment',
+      payment: 'Payment: by bank transfer (prepayment) or cash on delivery. Carrier COD fees are paid per carrier rates.',
       guarantee: 'Guarantee'
     },
     contact: {
@@ -284,7 +284,7 @@ const en = {
       logistics: {
         title: 'Payment & delivery',
         delivery: 'Nova Poshta or Ukrposhta, 2–3 business days across Ukraine.',
-        payment: 'Cash on delivery. Check the parcel before paying.',
+        payment: 'Payment: by bank transfer (prepayment) or cash on delivery. Carrier COD fees are paid per carrier rates.',
         guarantee: 'If the product does not meet expectations, request a refund within 14 days by filling in the guarantee form.'
       },
       jsonLd: {
@@ -364,7 +364,7 @@ const en = {
       logistics: {
         title: 'Payment & delivery',
         delivery: 'Delivery within Ukraine 2–3 days with Nova Poshta or Ukrposhta.',
-        payment: 'Cash on delivery — pay after checking the parcel.',
+        payment: 'Payment: by bank transfer (prepayment) or cash on delivery. Carrier COD fees are paid per carrier rates.',
         guarantee: 'Money-back guarantee within 14 days if you submit a request with evidence.'
       },
       jsonLd: {
@@ -545,7 +545,7 @@ cards: [
     },
     logistics: {
       delivery: 'Delivery 2–3 days across Ukraine.',
-      payment: 'Payment upon receipt. Courier service fee according to carrier rates.'
+      payment: 'Payment: by bank transfer (prepayment) or cash on delivery. Carrier COD fees are paid per carrier rates.'
     }
   },
   contacts: {
@@ -595,7 +595,7 @@ cards: [
       intro: 'Orders are shipped across Ukraine within 2–3 business days after confirmation.',
       sections: [
         {title: 'Delivery services', body: 'Nova Poshta or Ukrposhta. Tracking number is provided after shipment.'},
-        {title: 'Payment', body: 'Cash on delivery only. Carrier fees apply according to service rates.'},
+        {title: 'Payment', body: 'You can pay by bank transfer (prepayment) or Cash on Delivery at pickup. Any COD service fees are charged by the carrier.'},
         {title: 'Order confirmation', body: 'Our manager contacts you via phone or messenger to confirm data before shipment.'}
       ]
     },
