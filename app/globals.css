@@ -7,6 +7,10 @@
   --bg: #ffffff;
   --fg: #18181b;
   --border: rgba(23, 42, 48, 0.1);
+  /* site-wide gradient (subtle) */
+  --bg-grad-top:  #ECF6F5; /* pale blue-green */
+  --bg-grad-mid:  #F7F9F8; /* near white */
+  --bg-grad-bot:  #FFF4E9; /* pale warm */
 }
 
 * {
@@ -230,3 +234,11 @@ button {
 
 /* Smooth scrolling for all in-page anchor jumps */
 html { scroll-behavior: smooth; }
+
+/* === Site-wide subtle gradient background === */
+body {
+  background-image: linear-gradient(180deg, var(--bg-grad-top) 0%, var(--bg-grad-mid) 50%, var(--bg-grad-bot) 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}

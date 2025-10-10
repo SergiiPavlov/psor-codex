@@ -86,7 +86,7 @@ export default async function HomePage({params}: {params: {locale: Locale}}) {
         items={reviews.items}
         invitation={reviews.invitation}
       />
-      <FAQSection id="faq" title={faq.title} items={faq.items} />
+      <FAQSection title={faq.title} items={faq.items} />
       <CallToActionStrip
         title={ctaStrip.title}
         subtitle={ctaStrip.subtitle}

@@ -31,11 +31,15 @@ export default async function ContactsPage({params}: {params: {locale: Locale}})
           <article key={channel.type} className="card-layered space-y-2">
             <h2 className="text-xl font-semibold text-neutral-900">{channel.label}</h2>
             {channel.type === 'email' ? (
-              <a href={`mailto:psoriatynin@gmail.com?subject=Вопрос%20о%20Псориатинин&body=Здравствуйте%2C%20хочу%20уточнить...`} className="text-sm text-brand underline">
+              <a href={`mailto:${channel.value}`} className="text-sm text-brand underline">
                 {channel.value}
               </a>
-            ) : channel.type === 'telegram' ? (<p className="text-sm text-neutral-600 flex flex-wrap gap-3"><a href="tg://resolve?phone=380667213166">Telegram</a><span>·</span><a href="https://wa.me/380667213166">WhatsApp</a><span>·</span><a href="viber://chat?number=%2B380667213166">Viber</a></p>) : (
-              <>{channel.type === 'telegram' ? (<p className="text-sm text-neutral-600 flex flex-wrap gap-3"><a href="tg://resolve?phone=380667213166">Telegram</a><span>·</span><a href="https://wa.me/380667213166">WhatsApp</a><span>·</span><a href="viber://chat?number=%2B380667213166">Viber</a></p>) : (<p className="text-sm text-neutral-600">{channel.value}</p>)}</>
+            ) : channel.type === 'telegram' ? (
+              <a href={channel.value} className="text-sm text-brand underline">
+                {channel.value}
+              </a>
+            ) : (
+              <p className="text-sm text-neutral-600">{channel.value}</p>
             )}
           </article>
         ))}

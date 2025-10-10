@@ -36,7 +36,7 @@ export function BeforeAfterGallery({
             <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-white shadow-soft">
               <Image src="/placeholder.svg" alt={activeItem?.label ?? 'Placeholder'} width={720} height={480} className="h-full w-full object-cover" />
               <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/90 px-4 py-3 text-sm shadow-soft">
-                <p className="font-semibold text-brand">{activeItem?.label}</p>
+                <p className="font-semibold text-brand-dark">{activeItem?.label}</p>
                 <p className="text-xs text-neutral-600">{activeItem?.description}</p>
               </div>
             </div>
@@ -50,7 +50,7 @@ export function BeforeAfterGallery({
                   key={item.id}
                   type="button"
                   onClick={() => setActiveId(item.id)}
-                  className={`w-full rounded-2xl border px-5 py-4 text-left transition ${isActive ? 'border-brand bg-brand-muted/70 text-brand' : 'border-brand/20 bg-white hover:border-brand/60'}`}
+                  className={`w-full rounded-2xl border px-5 py-4 text-left transition ${isActive ? 'border-brand bg-brand-muted/70 text-brand-dark' : 'border-brand/20 bg-white hover:border-brand/60'}`}
                 >
                   <p className="text-sm font-semibold">{item.title ?? item.label}</p>
                   <p className="text-xs text-neutral-600">{item.description}</p>

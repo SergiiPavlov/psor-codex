@@ -12,10 +12,10 @@ export default function Footer() {
   const contacts = tCommon.raw('contact') as Record<string, string>
 
   return (
-    <footer id="contacts" className="border-t border-border bg-neutral-50/80">
+    <footer className="border-t border-border bg-neutral-50/80">
       <div className="container grid gap-12 py-16 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-6">
-          <Link href={`/${locale}`} className="text-xl font-semibold text-brand">
+          <Link href={`/${locale}`} className="text-xl font-semibold text-brand-dark">
             <span className="inline-flex items-center gap-2"><img src="/icons/psoriatynin-logo.svg" alt="Псориатинин" className="h-5 w-5" />{tCommon('brand')}</span>
           </Link>
           <p className="text-sm text-neutral-600">{tFooter('about')}</p>
@@ -25,14 +25,20 @@ export default function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-700">{tFooter('socialTitle')}</h3>
           <ul className="mt-4 space-y-2 text-sm text-neutral-600">
             <li>
-              <a href="tg://resolve?phone=380667213166">Telegram</a><span className="mx-2">·</span><a href="https://wa.me/380667213166">WhatsApp</a><span className="mx-2">·</span><a href="viber://chat?number=%2B380667213166">Viber</a>
+              <a href={contacts.telegram} className="transition hover:text-brand-dark">
+                Telegram
+              </a>
             </li>
             <li>
-              <a href={`mailto:${contacts.email}`} className="transition hover:text-brand">
+              <a href={`mailto:${contacts.email}`} className="transition hover:text-brand-dark">
                 Email
               </a>
             </li>
-           
+            <li>
+              <a href="https://forum.psoriatinin.com" className="transition hover:text-brand-dark">
+                Forum
+              </a>
+            </li>
           </ul>
         </div>
         <div>
@@ -40,7 +46,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-neutral-600">
             {secondaryNav.map((item) => (
               <li key={item.href}>
-                <Link href={`/${locale}${item.href}`} className="transition hover:text-brand">
+                <Link href={`/${locale}${item.href}`} className="transition hover:text-brand-dark">
                   {item.label}
                 </Link>
               </li>
