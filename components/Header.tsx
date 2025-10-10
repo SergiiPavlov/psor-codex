@@ -109,7 +109,7 @@ export default function Header() {
             {t('order_now')}
           </Link>
 
-          <LangSwitcher />
+          <LangSwitcher size="sm" />
 
           <button
             type="button"

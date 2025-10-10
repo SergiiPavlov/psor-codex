@@ -9,9 +9,9 @@ import {Languages, ChevronDown} from 'lucide-react';
 type Locale = 'uk' | 'ru' | 'en';
 
 const LOCALES: Array<{code: Locale; label: string}> = [
-  {code: 'uk', label: 'Українська'},
-  {code: 'ru', label: 'Русский'},
-  {code: 'en', label: 'English'}
+  {code: 'uk', label: 'uk'},
+  {code: 'ru', label: 'ru'},
+  {code: 'en', label: 'en'}
 ];
 
 interface LangSwitcherProps {
@@ -19,7 +19,7 @@ interface LangSwitcherProps {
   size?: 'sm' | 'md';
 }
 
-export default function LangSwitcher({size = 'md'}: LangSwitcherProps) {
+export default function LangSwitcher({size = 'sm'}: LangSwitcherProps) {
   const current = useLocale() as Locale;
   const pathname = usePathname() || '/';
   const [open, setOpen] = useState(false);
@@ -60,8 +60,7 @@ export default function LangSwitcher({size = 'md'}: LangSwitcherProps) {
         aria-expanded={open}
         className={btnBase + (size === 'sm' ? ' text-xs py-1 px-2' : '')}
       >
-        <Languages className="h-4 w-4" />
-        <span className="min-w-[90px] text-left">
+        <span className="text-xs lowercase">
           {LOCALES.find((l) => l.code === current)?.label ?? current}
         </span>
         <ChevronDown className="h-4 w-4" />
@@ -71,7 +70,7 @@ export default function LangSwitcher({size = 'md'}: LangSwitcherProps) {
         <div
           ref={menuRef}
           role="menu"
-          className="absolute left-0 mt-2 w-44 overflow-hidden rounded-xl border border-border/70 bg-white shadow-soft z-[60]"
+          className="absolute left-0 mt-2 w-24 overflow-hidden rounded-xl border border-border/70 bg-white shadow-soft z-[60]"
         >
           {LOCALES.map(({code, label}) => {
             // Перекладываем префикс локали в URL
