@@ -1,12 +1,12 @@
 'use client'
 
-import {FormEvent, useState} from 'react'
-import {Input} from '@/components/ui/input'
-import {Textarea} from '@/components/ui/textarea'
-import {Select} from '@/components/ui/select'
-import {Checkbox} from '@/components/ui/checkbox'
-import {Button} from '@/components/ui/button'
-import {useToast} from '@/components/ui/toast-provider'
+import { FormEvent, useState } from 'react'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Select } from '@/components/ui/select'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@/components/ui/button'
+import { useToast } from '@/components/ui/toast-provider'
 
 export type OrderFormContent = {
   title: string
@@ -23,11 +23,11 @@ export type OrderFormContent = {
     consent: string
     guarantee: string
   }
-  products: Array<{value: string; label: string}>
-  quantityOptions: string[]
+  products: Array<{ value: string; label: string }>
+  quantityOptions: string[] // оставил в типе, но в компоненте больше не используется
   submit: string
-  success: {title: string; description: string}
-  error: {title: string; description: string}
+  success: { title: string; description: string }
+  error: { title: string; description: string }
 }
 
 const INITIAL_STATE = {
@@ -44,29 +44,39 @@ const INITIAL_STATE = {
 }
 
 type FormState = typeof INITIAL_STATE
-
 type Errors = Partial<Record<keyof FormState, string>>
 
 function validate(values: FormState, content: OrderFormContent): Errors {
   const errors: Errors = {}
+
   if (!values.name.trim()) errors.name = content.fields.name
-  if (!values.phone.trim() || values.phone.replace(/[^\d+]/g, '').length < 10) errors.phone = content.fields.phone
+  if (!values.phone.trim() || values.phone.replace(/[^\d+]/g, '').length < 10) {
+    errors.phone = content.fields.phone
+  }
   if (!values.city.trim()) errors.city = content.fields.city
   if (!values.warehouse.trim()) errors.warehouse = content.fields.warehouse
   if (!values.product) errors.product = content.fields.product
+
+  // простая проверка количества: минимум 1
+  const qty = Number(values.quantity)
+  if (!Number.isFinite(qty) || qty < 1) {
+    errors.quantity = content.fields.quantity
+  }
+
   if (!values.consent) errors.consent = content.fields.consent
   if (!values.guarantee) errors.guarantee = content.fields.guarantee
+
   return errors
 }
 
-export function OrderForm({content}: {content: OrderFormContent}) {
+export function OrderForm({ content }: { content: OrderFormContent }) {
   const [values, setValues] = useState<FormState>(INITIAL_STATE)
   const [errors, setErrors] = useState<Errors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast()
 
   const handleChange = (field: keyof FormState, value: string | boolean) => {
-    setValues((prev) => ({...prev, [field]: value}))
+    setValues((prev) => ({ ...prev, [field]: value }))
   }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -79,7 +89,7 @@ export function OrderForm({content}: {content: OrderFormContent}) {
     try {
       const response = await fetch('/api/order', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(values)
       })
 
@@ -87,10 +97,18 @@ export function OrderForm({content}: {content: OrderFormContent}) {
         throw new Error('Failed request')
       }
 
-      toast.push({title: content.success.title, description: content.success.description, variant: 'success'})
+      toast.push({
+        title: content.success.title,
+        description: content.success.description,
+        variant: 'success'
+      })
       setValues(INITIAL_STATE)
-    } catch (error) {
-      toast.push({title: content.error.title, description: content.error.description, variant: 'error'})
+    } catch {
+      toast.push({
+        title: content.error.title,
+        description: content.error.description,
+        variant: 'error'
+      })
     } finally {
       setIsSubmitting(false)
     }
@@ -100,8 +118,11 @@ export function OrderForm({content}: {content: OrderFormContent}) {
     <form className="space-y-6" onSubmit={handleSubmit} noValidate>
       <div className="space-y-2">
         <h2 className="text-2xl font-semibold text-neutral-900">{content.title}</h2>
-        {content.description ? <p className="text-sm text-neutral-600">{content.description}</p> : null}
+        {content.description ? (
+          <p className="text-sm text-neutral-600">{content.description}</p>
+        ) : null}
       </div>
+
       <div className="grid gap-6 md:grid-cols-2">
         <div>
           <label className="form-label" htmlFor="name">
@@ -110,11 +131,12 @@ export function OrderForm({content}: {content: OrderFormContent}) {
           <Input
             id="name"
             value={values.name}
-            onChange={(event) => handleChange('name', event.target.value)}
+            onChange={(e) => handleChange('name', e.target.value)}
             required
           />
           {errors.name ? <p className="form-error">{errors.name}</p> : null}
         </div>
+
         <div>
           <label className="form-label" htmlFor="phone">
             {content.fields.phone}
@@ -122,18 +144,25 @@ export function OrderForm({content}: {content: OrderFormContent}) {
           <Input
             id="phone"
             value={values.phone}
-            onChange={(event) => handleChange('phone', event.target.value)}
+            onChange={(e) => handleChange('phone', e.target.value)}
             required
           />
           {errors.phone ? <p className="form-error">{errors.phone}</p> : null}
         </div>
+
         <div>
           <label className="form-label" htmlFor="city">
             {content.fields.city}
           </label>
-          <Input id="city" value={values.city} onChange={(event) => handleChange('city', event.target.value)} required />
+          <Input
+            id="city"
+            value={values.city}
+            onChange={(e) => handleChange('city', e.target.value)}
+            required
+          />
           {errors.city ? <p className="form-error">{errors.city}</p> : null}
         </div>
+
         <div>
           <label className="form-label" htmlFor="warehouse">
             {content.fields.warehouse}
@@ -141,11 +170,12 @@ export function OrderForm({content}: {content: OrderFormContent}) {
           <Input
             id="warehouse"
             value={values.warehouse}
-            onChange={(event) => handleChange('warehouse', event.target.value)}
+            onChange={(e) => handleChange('warehouse', e.target.value)}
             required
           />
           {errors.warehouse ? <p className="form-error">{errors.warehouse}</p> : null}
         </div>
+
         <div>
           <label className="form-label" htmlFor="product">
             {content.fields.product}
@@ -153,7 +183,7 @@ export function OrderForm({content}: {content: OrderFormContent}) {
           <Select
             id="product"
             value={values.product}
-            onChange={(event) => handleChange('product', event.target.value)}
+            onChange={(e) => handleChange('product', e.target.value)}
             required
           >
             <option value="" disabled>
@@ -167,53 +197,78 @@ export function OrderForm({content}: {content: OrderFormContent}) {
           </Select>
           {errors.product ? <p className="form-error">{errors.product}</p> : null}
         </div>
+
         <div>
           <label className="form-label" htmlFor="volume">
             {content.fields.volume}
           </label>
-          <Input id="volume" value={values.volume} onChange={(event) => handleChange('volume', event.target.value)} />
+          <Select
+            id="volume"
+            value={values.volume}
+            onChange={(e) => handleChange('volume', e.target.value)}
+          >
+            <option value="">--</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </Select>
         </div>
+
         <div>
           <label className="form-label" htmlFor="quantity">
             {content.fields.quantity}
           </label>
-          <Select
+          <Input
             id="quantity"
+            type="number"
+            inputMode="numeric"
+            pattern="\d*"
+            min={1}
+            step={1}
+            className="w-28"
             value={values.quantity}
-            onChange={(event) => handleChange('quantity', event.target.value)}
-          >
-            {content.quantityOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </Select>
+            onChange={(e) => {
+              // разрешаем только цифры; пустое значение допускаем, чтобы пользователь мог стереть и ввести заново
+              const onlyDigits = e.target.value.replace(/[^\d]/g, '')
+              handleChange('quantity', onlyDigits)
+            }}
+            required
+          />
+          {errors.quantity ? <p className="form-error">{errors.quantity}</p> : null}
         </div>
+
         <div className="md:col-span-2">
           <label className="form-label" htmlFor="comment">
             {content.fields.comment}
           </label>
-          <Textarea id="comment" value={values.comment} onChange={(event) => handleChange('comment', event.target.value)} />
+          <Textarea
+            id="comment"
+            value={values.comment}
+            onChange={(e) => handleChange('comment', e.target.value)}
+          />
         </div>
       </div>
+
       <div className="space-y-4">
         <label className="flex items-start gap-3 text-sm text-neutral-700">
           <Checkbox
             checked={values.consent}
-            onChange={(event) => handleChange('consent', event.target.checked)}
+            onChange={(e) => handleChange('consent', e.target.checked)}
           />
           <span>{content.fields.consent}</span>
         </label>
         {errors.consent ? <p className="form-error">{errors.consent}</p> : null}
+
         <label className="flex items-start gap-3 text-sm text-neutral-700">
           <Checkbox
             checked={values.guarantee}
-            onChange={(event) => handleChange('guarantee', event.target.checked)}
+            onChange={(e) => handleChange('guarantee', e.target.checked)}
           />
           <span>{content.fields.guarantee}</span>
         </label>
         {errors.guarantee ? <p className="form-error">{errors.guarantee}</p> : null}
       </div>
+
       <Button type="submit" disabled={isSubmitting} className="px-8 py-3 text-base">
         {isSubmitting ? '…' : content.submit}
       </Button>
