@@ -1,61 +1,96 @@
 // components/ui/toast-provider.tsx
-'use client';
+'use client'
 
-import { createContext, PropsWithChildren, useCallback, useContext, useMemo, useState } from 'react';
-import { cn } from '@/lib/utils';
+import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { useTranslations } from 'next-intl'
+import { cn } from '@/lib/utils'
 
-type Toast = { id: number; title: string; description?: string; variant?: 'success' | 'error' };
-type ToastContextValue = { toasts: Toast[]; push: (t: Omit<Toast, 'id'>) => void; dismiss: (id: number) => void };
+type Toast = { id: number; title: string; description?: string; variant?: 'success' | 'error' }
+type ToastContextValue = { toasts: Toast[]; push: (t: Omit<Toast, 'id'>) => void; dismiss: (id: number) => void }
 
-const ToastContext = createContext<ToastContextValue | null>(null);
+const ToastContext = createContext<ToastContextValue | null>(null)
 
 export function ToastProvider({ children }: PropsWithChildren) {
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [toasts, setToasts] = useState<Toast[]>([])
+  const tNav = useTranslations('nav')
 
   const push = useCallback((toast: Omit<Toast, 'id'>) => {
-    setToasts((prev) => [...prev, { ...toast, id: Date.now() + Math.random() }]);
-  }, []);
+    setToasts((prev) => [...prev, { ...toast, id: Date.now() + Math.random() }])
+  }, [])
 
   const dismiss = useCallback((id: number) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
-  }, []);
+    setToasts((prev) => prev.filter((t) => t.id !== id))
+  }, [])
 
-  const value = useMemo(() => ({ toasts, push, dismiss }), [toasts, push, dismiss]);
+  const value = useMemo<ToastContextValue>(() => ({ toasts, push, dismiss }), [toasts, push, dismiss])
 
   return (
     <ToastContext.Provider value={value}>
       {children}
-      {/* контейнер всплывашек */}
-      <div className="fixed bottom-4 right-4 z-[100] flex w-full max-w-sm flex-col gap-2">
-        {toasts.map((t) => (
-          <div
-            key={t.id}
-            role="status"
-            aria-live="polite"
-            className={cn(
-              'rounded-lg border px-4 py-3 shadow-sm bg-white',
-              t.variant === 'success' && 'border-emerald-300',
-              t.variant === 'error' && 'border-rose-300'
-            )}
-          >
-            <div className="text-sm font-medium">{t.title}</div>
-            {t.description && <div className="text-xs text-neutral-600 mt-1">{t.description}</div>}
-            <button
-              className="mt-2 text-xs text-neutral-500 underline"
-              onClick={() => dismiss(t.id)}
-              aria-label="Закрыть уведомление"
-            >
-              Закрыть
-            </button>
-          </div>
-        ))}
+      {/* Overlay container — centered */}
+      <div
+        className={cn(
+          'fixed inset-0 z-50 flex items-center justify-center p-4',
+          toasts.length ? 'pointer-events-auto' : 'pointer-events-none'
+        )}
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        {/* semi-transparent backdrop to focus attention; click-through disabled so buttons work */}
+        {toasts.length > 0 && (
+          <div className="absolute inset-0 bg-black/30" />
+        )}
+
+        {/* Stack of toasts in the center */}
+        <div className="relative flex w-full max-w-lg flex-col items-stretch gap-4">
+          {toasts.map((toast) => {
+            const isSuccess = toast.variant !== 'error'
+            return (
+              <div
+                key={toast.id}
+                className={cn(
+                  // card base
+                  'relative mx-auto w-full animate-fadeIn rounded-2xl border shadow-xl',
+                  'p-6 sm:p-7',
+                  // mint success vs soft red error
+                  isSuccess
+                    ? 'bg-[#d7f5ea] border-[#b6ebd9] text-emerald-900'
+                    : 'bg-[#fee2e2] border-[#fecaca] text-red-900'
+                )}
+                role="status"
+              >
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-xl font-semibold leading-tight">{toast.title}</h3>
+                  {toast.description ? (
+                    <p className="text-base/6 opacity-90">{toast.description}</p>
+                  ) : null}
+                </div>
+
+                <div className="mt-5 flex items-center justify-end gap-3">
+                  <button
+                    type="button"
+                    onClick={() => dismiss(toast.id)}
+                    className={cn(
+                      'inline-flex min-w-24 items-center justify-center rounded-xl px-4 py-2 text-base font-medium',
+                      isSuccess
+                        ? 'bg-white/70 hover:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500'
+                        : 'bg-white/80 hover:bg-white focus:outline-none focus:ring-2 focus:ring-red-500'
+                    )}
+                  >
+                    {tNav('close')}
+                  </button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </ToastContext.Provider>
-  );
+  )
 }
 
 export function useToast() {
-  const ctx = useContext(ToastContext);
-  if (!ctx) throw new Error('useToast must be used within ToastProvider');
-  return ctx;
+  const ctx = useContext(ToastContext)
+  if (!ctx) throw new Error('useToast must be used within ToastProvider')
+  return ctx
 }
