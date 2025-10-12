@@ -128,11 +128,6 @@ export default function Header() {
   );
 }
 
-function safeLabel(t: ReturnType<typeof useTranslations>, key: string) {
-  try {
-    return t(key);
-  } catch {
-    // если ключа нет — показываем key, чтобы не падать
-    return key;
-  }
+function safeLabel(t: (k: string) => string, key: string) {
+  try { return t(key); } catch { return key; }
 }
