@@ -104,7 +104,7 @@ const en = {
       eyebrow: 'Cosmetic care for sensitive, flaky skin',
       title: 'Comfort-focused formulas for skin that deserves gentle support',
       subtitle: 'Psoriatynin helps soften visible plaques, reduce feelings of tightness and support the skin barrier between dermatologist visits.',
-      primaryCta: 'Order with cash on delivery',
+      primaryCta: 'Order',
       secondaryCta: 'How to use',
       checklist: [
         'Clinically tested at the Kharkiv Institute of Dermatology and venereology',
@@ -504,7 +504,7 @@ cards: [
   },
   order: {
     hero: {
-      title: 'Order Psoriatynin with cash on delivery',
+      title: 'Order Psoriatinin cream',
       subtitle: 'Fill in the form below. We will confirm details via phone or messenger before shipping.'
     },
     form: {
