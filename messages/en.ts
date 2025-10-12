@@ -158,7 +158,7 @@ const en = {
     },
     beforeAfter: {
       title: 'Real daily care snapshots',
-      subtitle: 'Photos provided by users with consent. Lighting and skin type may influence the visual outcome.',
+      subtitle: 'Photos provided by users with consent.',
       items: [
         {id: 'case-1', label: 'Before care', description: 'Dry plaques with visible scaling on elbows before 14 days of use.'},
         {id: 'case-2', label: 'After 14 days', description: 'Smoother appearance and reduced flaking after twice-daily application.'}
