@@ -24,7 +24,8 @@ export type OrderFormContent = {
     guarantee: string
   }
   products: Array<{ value: string; label: string }>
-  quantityOptions: string[] // оставил в типе, но в компоненте больше не используется
+  // оставляю в типе для совместимости, но в UI больше не используем
+  quantityOptions: string[]
   submit: string
   success: { title: string; description: string }
   error: { title: string; description: string }
@@ -48,24 +49,13 @@ type Errors = Partial<Record<keyof FormState, string>>
 
 function validate(values: FormState, content: OrderFormContent): Errors {
   const errors: Errors = {}
-
   if (!values.name.trim()) errors.name = content.fields.name
-  if (!values.phone.trim() || values.phone.replace(/[^\d+]/g, '').length < 10) {
-    errors.phone = content.fields.phone
-  }
+  if (!values.phone.trim() || values.phone.replace(/[^\d+]/g, '').length < 10) errors.phone = content.fields.phone
   if (!values.city.trim()) errors.city = content.fields.city
   if (!values.warehouse.trim()) errors.warehouse = content.fields.warehouse
   if (!values.product) errors.product = content.fields.product
-
-  // простая проверка количества: минимум 1
-  const qty = Number(values.quantity)
-  if (!Number.isFinite(qty) || qty < 1) {
-    errors.quantity = content.fields.quantity
-  }
-
   if (!values.consent) errors.consent = content.fields.consent
   if (!values.guarantee) errors.guarantee = content.fields.guarantee
-
   return errors
 }
 
@@ -93,22 +83,12 @@ export function OrderForm({ content }: { content: OrderFormContent }) {
         body: JSON.stringify(values)
       })
 
-      if (!response.ok) {
-        throw new Error('Failed request')
-      }
+      if (!response.ok) throw new Error('Failed request')
 
-      toast.push({
-        title: content.success.title,
-        description: content.success.description,
-        variant: 'success'
-      })
+      toast.push({ title: content.success.title, description: content.success.description, variant: 'success' })
       setValues(INITIAL_STATE)
-    } catch {
-      toast.push({
-        title: content.error.title,
-        description: content.error.description,
-        variant: 'error'
-      })
+    } catch (_err) {
+      toast.push({ title: content.error.title, description: content.error.description, variant: 'error' })
     } finally {
       setIsSubmitting(false)
     }
@@ -118,9 +98,7 @@ export function OrderForm({ content }: { content: OrderFormContent }) {
     <form className="space-y-6" onSubmit={handleSubmit} noValidate>
       <div className="space-y-2">
         <h2 className="text-2xl font-semibold text-neutral-900">{content.title}</h2>
-        {content.description ? (
-          <p className="text-sm text-neutral-600">{content.description}</p>
-        ) : null}
+        {content.description ? <p className="text-sm text-neutral-600">{content.description}</p> : null}
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -186,13 +164,9 @@ export function OrderForm({ content }: { content: OrderFormContent }) {
             onChange={(e) => handleChange('product', e.target.value)}
             required
           >
-            <option value="" disabled>
-              --
-            </option>
-            {content.products.map((product) => (
-              <option key={product.value} value={product.value}>
-                {product.label}
-              </option>
+            <option value="" disabled>--</option>
+            {content.products.map((p) => (
+              <option key={p.value} value={p.value}>{p.label}</option>
             ))}
           </Select>
           {errors.product ? <p className="form-error">{errors.product}</p> : null}
@@ -218,23 +192,25 @@ export function OrderForm({ content }: { content: OrderFormContent }) {
           <label className="form-label" htmlFor="quantity">
             {content.fields.quantity}
           </label>
+          {/* ОСТАВЛЯЕМ ТОЛЬКО РУЧНОЙ ВВОД КОЛИЧЕСТВА */}
           <Input
             id="quantity"
             type="number"
-            inputMode="numeric"
-            pattern="\d*"
             min={1}
             step={1}
-            className="w-28"
+            className="w-32"
             value={values.quantity}
             onChange={(e) => {
-              // разрешаем только цифры; пустое значение допускаем, чтобы пользователь мог стереть и ввести заново
-              const onlyDigits = e.target.value.replace(/[^\d]/g, '')
-              handleChange('quantity', onlyDigits)
+              const v = e.target.value
+              // не даём уйти в пустую/некорректную строку
+              if (v === '') {
+                handleChange('quantity', '1')
+                return
+              }
+              const n = Math.max(1, Number(v))
+              handleChange('quantity', String(n))
             }}
-            required
           />
-          {errors.quantity ? <p className="form-error">{errors.quantity}</p> : null}
         </div>
 
         <div className="md:col-span-2">
