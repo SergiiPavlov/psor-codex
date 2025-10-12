@@ -242,3 +242,15 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
+
+/* Defensive: hide any legacy bottom-right toaster if present (sonner/react-hot-toast) */
+[data-sonner-toaster],
+#toast-root,
+.toaster,
+.react-hot-toast,
+.react-hot-toast > div {
+  bottom: auto !important;
+  right: auto !important;
+  display: none !important;
+}

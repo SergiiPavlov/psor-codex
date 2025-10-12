@@ -35,9 +35,7 @@ export async function POST(req: Request) {
     const EMAIL_WEBHOOK = process.env.ORDER_EMAIL_WEBHOOK
     const TG_WEBHOOK = process.env.ORDER_TELEGRAM_WEBHOOK
 
-    const TG_ENABLED =
-      (process.env.ORDER_TELEGRAM_ENABLED ?? process.env.ORDER_TELEGRAM_ENABLED)?.toString().toLowerCase() === 'true'
-
+    const TG_ENABLED = (process.env.ORDER_TELEGRAM_ENABLED ?? '').toString().toLowerCase() === 'true'
     const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN
     const CHAT_ID = process.env.TELEGRAM_CHAT_ID
 
@@ -91,8 +89,12 @@ export async function POST(req: Request) {
       )
     }
 
-    // Если ничего не настроено — отвечаем ошибкой конфигурации
+    // Если ничего не настроено — отвечаем ошибкой конфигурации (в DEV можно включить байпас)
     if (requests.length === 0) {
+      // Dev bypass: разрешить локальную проверку успеха без настроенных эндпоинтов
+      if (process.env.NODE_ENV !== 'production' || process.env.ORDER_DEV_ALLOW_OK === '1') {
+        return NextResponse.json({ ok: true, devBypass: true })
+      }
       return NextResponse.json(
         { ok: false, error: 'No order endpoints configured (ORDER_* envs are empty).' },
         { status: 500 }

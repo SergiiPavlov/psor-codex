@@ -1,7 +1,7 @@
 // components/ui/toast-provider.tsx
 'use client'
 
-import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, PropsWithChildren, useCallback, useContext, useMemo, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { cn } from '@/lib/utils'
 
@@ -27,32 +27,28 @@ export function ToastProvider({ children }: PropsWithChildren) {
   return (
     <ToastContext.Provider value={value}>
       {children}
-      {/* Overlay container — centered */}
+      {/* Centered overlay container */}
       <div
         className={cn(
-          'fixed inset-0 z-50 flex items-center justify-center p-4',
+          'fixed inset-0 z-[9999] flex items-center justify-center p-4',
           toasts.length ? 'pointer-events-auto' : 'pointer-events-none'
         )}
         aria-live="polite"
         aria-atomic="true"
+        data-test-id="centered-toast-overlay"
       >
-        {/* semi-transparent backdrop to focus attention; click-through disabled so buttons work */}
-        {toasts.length > 0 && (
-          <div className="absolute inset-0 bg-black/30" />
-        )}
+        {/* backdrop */}
+        {toasts.length > 0 && <div className="absolute inset-0 bg-black/30" />}
 
-        {/* Stack of toasts in the center */}
-        <div className="relative flex w-full max-w-lg flex-col items-stretch gap-4">
+        {/* toasts stack */}
+        <div className="relative flex w-full max-w-xl flex-col items-stretch gap-4">
           {toasts.map((toast) => {
             const isSuccess = toast.variant !== 'error'
             return (
               <div
                 key={toast.id}
                 className={cn(
-                  // card base
-                  'relative mx-auto w-full animate-fadeIn rounded-2xl border shadow-xl',
-                  'p-6 sm:p-7',
-                  // mint success vs soft red error
+                  'relative mx-auto w-full rounded-2xl border shadow-xl p-6 sm:p-7',
                   isSuccess
                     ? 'bg-[#d7f5ea] border-[#b6ebd9] text-emerald-900'
                     : 'bg-[#fee2e2] border-[#fecaca] text-red-900'
@@ -61,9 +57,7 @@ export function ToastProvider({ children }: PropsWithChildren) {
               >
                 <div className="flex flex-col gap-2">
                   <h3 className="text-xl font-semibold leading-tight">{toast.title}</h3>
-                  {toast.description ? (
-                    <p className="text-base/6 opacity-90">{toast.description}</p>
-                  ) : null}
+                  {toast.description ? <p className="text-base/6 opacity-90">{toast.description}</p> : null}
                 </div>
 
                 <div className="mt-5 flex items-center justify-end gap-3">
@@ -76,6 +70,7 @@ export function ToastProvider({ children }: PropsWithChildren) {
                         ? 'bg-white/70 hover:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500'
                         : 'bg-white/80 hover:bg-white focus:outline-none focus:ring-2 focus:ring-red-500'
                     )}
+                    aria-label={tNav('close')}
                   >
                     {tNav('close')}
                   </button>
