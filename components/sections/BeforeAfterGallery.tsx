@@ -10,17 +10,7 @@ export type BeforeAfterItem = {
   description: string
 }
 
-export function BeforeAfterGallery({
-  title,
-  subtitle,
-  disclaimer,
-  items
-}: {
-  title: string
-  subtitle?: string
-  disclaimer?: string
-  items: BeforeAfterItem[]
-}) {
+export function BeforeAfterGallery({ title, subtitle, disclaimer, items, priority = false }: { title: string; subtitle?: string; disclaimer?: string; items: BeforeAfterItem[]; priority?: boolean }) {
   const [index, setIndex] = useState(0)
 
   const safeItems = items?.length ? items : []
@@ -54,7 +44,8 @@ export function BeforeAfterGallery({
               width={1200}
               height={800}
               className="h-full w-full object-cover"
-              priority={false}
+              priority={priority}
+              fetchPriority={priority ? 'high' : undefined}
             />
 
             {/* arrows */}

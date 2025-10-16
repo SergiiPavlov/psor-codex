@@ -434,11 +434,12 @@ cards: [
       subtitle: 'Realistic expectations and moderated community feedback.'
     },
     beforeAfter: {
-      title: 'Before & after gallery',
-      description: 'Uploaded with user consent. Lighting, daily care adherence and additional treatments influence outcomes.',
+      title: 'Before/After',
+      description: 'Photos are published with user consent. Results vary due to lighting, care routine and additional remedies.',
       items: [
-        {id: 'ba1', title: 'Elbows — 2 weeks', description: 'Reduced flaking and smoother texture.'},
-        {id: 'ba2', title: 'Knees — 1 month', description: 'Less visible dryness and improved flexibility.'}
+        {id: 'case-1', title: 'Before / after 14 days', description: 'Patient P., 52 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'},
+        {id: 'case-2', title: 'Before / after 14 days', description: 'Patient K., 62 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'},
+        {id: 'case-3', title: 'Before / after 14 days', description: 'Patient Sh., 46 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'}
       ]
     },
     reviews: {
