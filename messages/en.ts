@@ -160,8 +160,9 @@ const en = {
       title: 'Real daily care snapshots',
       subtitle: 'Photos provided by users with consent.',
       items: [
-        {id: 'case-1', label: 'Before care', description: 'Dry plaques with visible scaling on elbows before 14 days of use.'},
-        {id: 'case-2', label: 'After 14 days', description: 'Smoother appearance and reduced flaking after twice-daily application.'}
+        {id: 'case-1', title: 'Before / after 14 days', description: 'Patient P., 52 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'},
+        {id: 'case-2', title: 'Before / after 14 days', description: 'Patient K., 62 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'},
+        {id: 'case-3', title: 'Before / after 14 days', description: 'Patient Sh., 46 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'}
       ],
       disclaimer: 'Visual materials are illustrative. Individual progress can differ.'
     },
@@ -433,11 +434,12 @@ cards: [
       subtitle: 'Realistic expectations and moderated community feedback.'
     },
     beforeAfter: {
-      title: 'Before & after gallery',
-      description: 'Uploaded with user consent. Lighting, daily care adherence and additional treatments influence outcomes.',
+      title: 'Before/After',
+      description: 'Photos are published with user consent. Results vary due to lighting, care routine and additional remedies.',
       items: [
-        {id: 'ba1', title: 'Elbows — 2 weeks', description: 'Reduced flaking and smoother texture.'},
-        {id: 'ba2', title: 'Knees — 1 month', description: 'Less visible dryness and improved flexibility.'}
+        {id: 'case-1', title: 'Before / after 14 days', description: 'Patient P., 52 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'},
+        {id: 'case-2', title: 'Before / after 14 days', description: 'Patient K., 62 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'},
+        {id: 'case-3', title: 'Before / after 14 days', description: 'Patient Sh., 46 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'}
       ]
     },
     reviews: {
