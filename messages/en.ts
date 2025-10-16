@@ -160,8 +160,9 @@ const en = {
       title: 'Real daily care snapshots',
       subtitle: 'Photos provided by users with consent.',
       items: [
-        {id: 'case-1', label: 'Before care', description: 'Dry plaques with visible scaling on elbows before 14 days of use.'},
-        {id: 'case-2', label: 'After 14 days', description: 'Smoother appearance and reduced flaking after twice-daily application.'}
+        {id: 'case-1', title: 'Before / after 14 days', description: 'Patient P., 52 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'},
+        {id: 'case-2', title: 'Before / after 14 days', description: 'Patient K., 62 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'},
+        {id: 'case-3', title: 'Before / after 14 days', description: 'Patient Sh., 46 y.o., diagnosis: widespread psoriasis, large-plaque type, stationary stage.'}
       ],
       disclaimer: 'Visual materials are illustrative. Individual progress can differ.'
     },

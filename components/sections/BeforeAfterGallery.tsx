@@ -1,6 +1,6 @@
 'use client'
 
-import {useState} from 'react'
+import {useCallback, useMemo, useState} from 'react'
 import Image from 'next/image'
 
 export type BeforeAfterItem = {
@@ -21,8 +21,20 @@ export function BeforeAfterGallery({
   disclaimer?: string
   items: BeforeAfterItem[]
 }) {
-  const [activeId, setActiveId] = useState(items[0]?.id)
-  const activeItem = items.find((item) => item.id === activeId) ?? items[0]
+  const [index, setIndex] = useState(0)
+
+  const safeItems = items?.length ? items : []
+  const activeItem = useMemo(() => safeItems[Math.max(0, Math.min(index, safeItems.length - 1))], [safeItems, index])
+
+  const goPrev = useCallback(() => {
+    setIndex((i) => (safeItems.length ? (i - 1 + safeItems.length) % safeItems.length : 0))
+  }, [safeItems.length])
+
+  const goNext = useCallback(() => {
+    setIndex((i) => (safeItems.length ? (i + 1) % safeItems.length : 0))
+  }, [safeItems.length])
+
+  if (!safeItems.length) return null
 
   return (
     <section className="section">
@@ -31,33 +43,54 @@ export function BeforeAfterGallery({
           <h2 className="text-3xl font-semibold text-neutral-900 md:text-4xl">{title}</h2>
           {subtitle ? <p className="text-sm text-neutral-500">{subtitle}</p> : null}
         </div>
-        <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr]">
-          <div className="space-y-6">
-            <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-white shadow-soft">
-              <Image src="/placeholder.svg" alt={activeItem?.label ?? 'Placeholder'} width={720} height={480} className="h-full w-full object-cover" />
-              <div className="absolute bottom-4 left-4 right-4 rounded-2xl bg-white/90 px-4 py-3 text-sm shadow-soft">
-                <p className="font-semibold text-brand">{activeItem?.label}</p>
-                <p className="text-xs text-neutral-600">{activeItem?.description}</p>
-              </div>
+
+        {/* IMAGE with arrows */}
+        <div className="space-y-4">
+          <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-white shadow-soft">
+            <Image
+              src={`/images/results/${activeItem?.id}-1200.webp`}
+              alt={activeItem?.label ?? 'before/after photo'}
+              sizes="(max-width: 768px) 100vw, 960px"
+              width={1200}
+              height={800}
+              className="h-full w-full object-cover"
+              priority={false}
+            />
+
+            {/* arrows */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-between">
+              <button
+                type="button"
+                aria-label="Previous"
+                onClick={goPrev}
+                className="pointer-events-auto m-3 inline-flex h-11 w-11 items-center justify-center rounded-full border border-brand/30 bg-white/90 text-brand shadow-soft backdrop-blur transition hover:bg-white"
+              >
+                {/* left chevron */}
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label="Next"
+                onClick={goNext}
+                className="pointer-events-auto m-3 inline-flex h-11 w-11 items-center justify-center rounded-full border border-brand/30 bg-white/90 text-brand shadow-soft backdrop-blur transition hover:bg-white"
+              >
+                {/* right chevron */}
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
-            {disclaimer ? <p className="text-xs text-neutral-400">{disclaimer}</p> : null}
           </div>
-          <div className="space-y-3">
-            {items.map((item) => {
-              const isActive = item.id === activeId
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setActiveId(item.id)}
-                  className={`w-full rounded-2xl border px-5 py-4 text-left transition ${isActive ? 'border-brand bg-brand-muted/70 text-brand' : 'border-brand/20 bg-white hover:border-brand/60'}`}
-                >
-                  <p className="text-sm font-semibold">{item.title ?? item.label}</p>
-                  <p className="text-xs text-neutral-600">{item.description}</p>
-                </button>
-              )
-            })}
+
+          {/* info card UNDER the photo (no overlay) */}
+          <div className="rounded-2xl border border-brand/30 bg-white px-5 py-4 shadow-soft">
+            <p className="font-semibold text-brand">{activeItem?.title ?? activeItem?.label}</p>
+            <p className="mt-1 text-sm text-neutral-600">{activeItem?.description}</p>
           </div>
+
+          {disclaimer ? <p className="text-xs text-neutral-400">{disclaimer}</p> : null}
         </div>
       </div>
     </section>
