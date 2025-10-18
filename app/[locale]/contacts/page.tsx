@@ -1,5 +1,6 @@
 import {getTranslations} from 'next-intl/server'
 import type {Locale} from '@/i18n'
+import { BrandIcon } from "@/components/ui/BrandIcon"
 
 export async function generateMetadata({params}: {params: {locale: Locale}}) {
   const tCommon = await getTranslations({locale: params.locale, namespace: 'common'})
@@ -13,6 +14,7 @@ export async function generateMetadata({params}: {params: {locale: Locale}}) {
 export default async function ContactsPage({params}: {params: {locale: Locale}}) {
   const locale = params.locale
   const tPage = await getTranslations({locale, namespace: 'contacts'})
+  const contactPersonLabel = (await getTranslations({locale, namespace: 'contacts'}))('contactPersonLabel').catch?.(() => 'Контактное лицо —')
   const hero = tPage.raw('hero') as {title: string; subtitle: string}
   const channels = tPage.raw('channels') as Array<{type: string; label: string; value: string}>
   const schedule = tPage('schedule')
@@ -34,8 +36,40 @@ export default async function ContactsPage({params}: {params: {locale: Locale}})
               <a href={`mailto:psoriatynin@gmail.com?subject=Вопрос%20о%20Псориатинин&body=Здравствуйте%2C%20хочу%20уточнить...`} className="text-sm text-brand underline">
                 {channel.value}
               </a>
-            ) : channel.type === 'telegram' ? (<p className="text-sm text-neutral-600 flex flex-wrap gap-3"><a href="tg://resolve?phone=380667213166">Telegram</a><span>·</span><a href="https://wa.me/380667213166">WhatsApp</a><span>·</span><a href="viber://chat?number=%2B380667213166">Viber</a></p>) : (
-              <>{channel.type === 'telegram' ? (<p className="text-sm text-neutral-600 flex flex-wrap gap-3"><a href="tg://resolve?phone=380667213166">Telegram</a><span>·</span><a href="https://wa.me/380667213166">WhatsApp</a><span>·</span><a href="viber://chat?number=%2B380667213166">Viber</a></p>) : (<p className="text-sm text-neutral-600">{channel.value}</p>)}</>
+            ) : channel.type === 'telegram' ? (<p className="text-sm text-neutral-600 flex flex-wrap gap-3"><a href="tg://resolve?phone=380667213166"><BrandIcon brand="telegram" className="inline-block align-[-2px]" />
+<span className="sr-only">Telegram</span></a><span>·</span><a href="https://wa.me/380667213166"><BrandIcon brand="whatsapp" className="inline-block align-[-2px]" />
+<span className="sr-only">WhatsApp</span></a><span>·</span><a href="viber://chat?number=%2B380667213166"><BrandIcon brand="viber" className="inline-block align-[-2px]" />
+<span className="sr-only">Viber</span></a></p>) : (
+              <>{channel.type === 'telegram' ? (<p className="text-sm text-neutral-600 flex flex-wrap gap-3"><a href="tg://resolve?phone=380667213166"><BrandIcon brand="telegram" className="inline-block align-[-2px]" />
+<span className="sr-only">Telegram</span></a><span>·</span><a href="https://wa.me/380667213166"><BrandIcon brand="whatsapp" className="inline-block align-[-2px]" />
+<span className="sr-only">WhatsApp</span></a><span>·</span><a href="viber://chat?number=%2B380667213166"><BrandIcon brand="viber" className="inline-block align-[-2px]" />
+<span className="sr-only">Viber</span></a></p>
+            ) : channel.type === 'representative' ? (
+              (() => {
+                const rep = tPage.raw('representative') as {
+                  person: string;
+                  phones: string[];
+                  shop: { label: string; url: string };
+                };
+                return (
+                  <div className="space-y-1 text-sm text-neutral-600">
+                    <p>
+                      {rep.phones.map((ph, i) => (
+                        <span key={ph}>
+                          <a href={`tel:${ph.replace(/\s|\(|\)|-/g, '')}`} className="text-brand underline">{ph}</a>
+                          {i < rep.phones.length - 1 ? <span className="mx-2">·</span> : null}
+                        </span>
+                      ))}
+                    </p>
+                    <p>{tPage('contactPersonLabel')} {rep.person}</p>
+                    <p>
+                      <a href={rep.shop.url} target="_blank" rel="noopener noreferrer" className="text-brand underline">{rep.shop.label}</a>
+                    </p>
+                  </div>
+                );
+              })()
+            
+            ) : (<p className="text-sm text-neutral-600">{channel.value}</p>)}</>
             )}
           </article>
         ))}

@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import {useLocale, useTranslations} from 'next-intl'
+import { BrandIcon } from "@/components/ui/BrandIcon"
 
 export default function Footer() {
   const tCommon = useTranslations('common')
@@ -25,7 +26,10 @@ export default function Footer() {
           <h3 className="text-sm font-semibold uppercase tracking-wide text-neutral-700">{tFooter('socialTitle')}</h3>
           <ul className="mt-4 space-y-2 text-sm text-neutral-600">
             <li>
-              <a href="tg://resolve?phone=380667213166">Telegram</a><span className="mx-2">·</span><a href="https://wa.me/380667213166">WhatsApp</a><span className="mx-2">·</span><a href="viber://chat?number=%2B380667213166">Viber</a>
+              <a href="tg://resolve?phone=380667213166"><BrandIcon brand="telegram" className="inline-block align-[-2px]" />
+<span className="sr-only">Telegram</span></a><span className="mx-2">·</span><a href="https://wa.me/380667213166"><BrandIcon brand="whatsapp" className="inline-block align-[-2px]" />
+<span className="sr-only">WhatsApp</span></a><span className="mx-2">·</span><a href="viber://chat?number=%2B380667213166"><BrandIcon brand="viber" className="inline-block align-[-2px]" />
+<span className="sr-only">Viber</span></a>
             </li>
             <li>
               <a href={`mailto:${contacts.email}`} className="transition hover:text-brand">

@@ -551,17 +551,23 @@ cards: [
       payment: 'Оплата: за реквізитами (передоплата) або післяплатою під час отримання. Тарифи перевізника за послугу післяплати оплачуються окремо.'
     }
   },
-  contacts: {
+    contacts: {
     hero: {
       title: 'Контакти та підтримка',
       subtitle: 'Ми відповімо на запитання про косметичний догляд.'
     },
+    contactPersonLabel: 'Контактна особа —',
     channels: [
       {type: 'phone', label: 'Гаряча лінія', value: '+380667213166'},
       {type: 'email', label: 'Email', value: 'psoriatynin@gmail.com'},
       {type: 'telegram', label: 'Telegram / WhatsApp / Viber', value: '+380667213166'},
-      {type: 'address', label: 'Офіс', value: 'Харків, Україна'}
+      {type: 'representative', label: 'Наш представник', value: ''}
     ],
+    representative: {
+      person: 'Олена',
+      phones: ['+380663144249', '+380633363072'],
+      shop: { label: 'Інтернет-магазин', url: 'https://internet-magazin-dlya-eleny.prom.ua/ua/p1054977168-krem-psoriaza-ekzemy.html' }
+    },
     schedule: 'Графік підтримки: Пн–Пт 10:00–18:00 (UTC+2).',
     note: 'У разі невідкладних медичних питань зверніться до свого лікаря.'
   },
