@@ -550,17 +550,23 @@ cards: [
       payment: 'Payment: by bank transfer (prepayment) or cash on delivery. Carrier COD fees are paid per carrier rates.'
     }
   },
-  contacts: {
+    contacts: {
     hero: {
-      title: 'Contacts & support',
-      subtitle: 'We are here to answer questions about the cosmetic daily care.'
+      title: 'Contacts and support',
+      subtitle: 'We will answer questions about cosmetic care.'
     },
+    contactPersonLabel: 'Contact person —',
     channels: [
       {type: 'phone', label: 'Hotline', value: '+380667213166'},
       {type: 'email', label: 'Email', value: 'psoriatynin@gmail.com'},
       {type: 'telegram', label: 'Telegram / WhatsApp / Viber', value: '+380667213166'},
-      {type: 'address', label: 'Office', value: 'Kharkiv, Ukraine'}
+      {type: 'representative', label: 'Our representative', value: ''}
     ],
+    representative: {
+      person: 'Olena',
+      phones: ['+380663144249', '+380633363072'],
+      shop: { label: 'Online shop', url: 'https://internet-magazin-dlya-eleny.prom.ua/ua/p1054977168-krem-psoriaza-ekzemy.html' }
+    },
     schedule: 'Support hours: Monday–Friday 10:00–18:00 (UTC+2).',
     note: 'For urgent medical questions, contact your healthcare provider.'
   },
