@@ -560,7 +560,7 @@ cards: [
       {type: 'phone', label: 'Горячая линия', value: '+380667213166'},
       {type: 'email', label: 'Email', value: 'psoriatynin@gmail.com'},
       {type: 'telegram', label: 'Telegram / WhatsApp / Viber', value: '+380667213166'},
-      {type: 'representative', label: 'Наша представителя', value: ''}
+      {type: 'representative', label: 'Наш представитель', value: ''}
     ],
     representative: {
       person: 'Елена',

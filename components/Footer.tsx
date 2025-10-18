@@ -32,9 +32,10 @@ export default function Footer() {
 <span className="sr-only">Viber</span></a>
             </li>
             <li>
-              <a href={`mailto:${contacts.email}`} className="transition hover:text-brand">
-                Email
-              </a>
+              <div className="flex items-center gap-2">
+                <span>Email:</span>
+                <a href={`mailto:${contacts.email}`} className="transition hover:text-brand">{contacts.email}</a>
+              </div>
             </li>
            
           </ul>
