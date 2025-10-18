@@ -24,6 +24,38 @@ export function BeforeAfterGallery({ title, subtitle, disclaimer, items, priorit
     setIndex((i) => (safeItems.length ? (i + 1) % safeItems.length : 0))
   }, [safeItems.length])
 
+  // Swipe on mobile/touch: simple pointer-based detection
+  let swipeActive = false
+  let startX = 0
+  let moved = 0
+  const onPointerDown = (e: any) => {
+    // Ignore pointer if started on overlay controls (e.g., arrows)
+    const target = e.target as HTMLElement
+    if (target && (target.closest('button') || target.closest('[data-no-swipe]'))) {
+      swipeActive = false
+      return
+    }
+    swipeActive = true
+    startX = e.clientX
+    moved = 0
+    ;(e.currentTarget as HTMLDivElement).setPointerCapture(e.pointerId)
+  }
+  const onPointerMove = (e: any) => {
+    if (!swipeActive) return
+    moved = e.clientX - startX
+  }
+  const onPointerUp = (e: any) => {
+    if (!swipeActive) return
+    swipeActive = false
+    const threshold = 50
+    if (moved <= -threshold) { // swipe left -> next
+      goNext()
+    } else if (moved >= threshold) { // swipe right -> prev
+      goPrev()
+    }
+  }
+
+
   if (!safeItems.length) return null
 
   return (
@@ -36,7 +68,7 @@ export function BeforeAfterGallery({ title, subtitle, disclaimer, items, priorit
 
         {/* IMAGE with arrows */}
         <div className="space-y-4">
-          <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-white shadow-soft">
+          <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-white shadow-soft" onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={onPointerUp} style={{touchAction: 'pan-y'}}>
             <Image
               src={`/images/results/${activeItem?.id}-1200.webp`}
               alt={activeItem?.label ?? 'before/after photo'}
@@ -49,7 +81,7 @@ export function BeforeAfterGallery({ title, subtitle, disclaimer, items, priorit
             />
 
             {/* arrows */}
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-between">
+            <div className="pointer-events-none absolute inset-0 hidden items-center justify-between md:flex" data-no-swipe>
               <button
                 type="button"
                 aria-label="Previous"
