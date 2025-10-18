@@ -174,7 +174,28 @@ const en = {
         {name: 'Ivan, 41', location: 'Dnipro', text: 'Use it between doctor visits. Helps keep elbows softer and more comfortable.'},
         {name: 'Maria, 29', location: 'Kyiv', text: 'The Cool version is great during hot weather. It calms the skin without a sticky finish.'}
       ],
-      invitation: 'Share your experience — it helps others build realistic expectations.'
+      invitation: 'Share your experience — it helps others build realistic expectations.',
+    
+      prev: 'Previous',
+      next: 'Next',
+      form: {
+        title: 'Leave a review',
+        name: 'Name',
+        age: 'Age',
+        city: 'City',
+        versionLabel: 'Product version',
+        versionOriginal: 'Original version',
+        versionCool: 'Cool version',
+        ratingLabel: 'Rating',
+        ratingOption: 'Rating: {value}/5',
+        textPlaceholder: 'Your review (what you liked, how you use it, what changes you noticed)',
+        consent: 'I confirm that the review complies with the publishing rules and agree to moderation.',
+        cancel: 'Cancel',
+        submit: 'Submit',
+        sending: 'Sending…',
+        success: 'Thank you! Your review has been sent and will appear after moderation.',
+        error: 'Failed to send. Please try again or contact us.',
+      },
     },
     faq: {
       title: 'Frequently asked questions',

@@ -254,3 +254,8 @@ body {
   right: auto !important;
   display: none !important;
 }
+
+
+/* Hide scrollbar for slider containers */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
