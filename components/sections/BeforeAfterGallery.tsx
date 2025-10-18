@@ -13,7 +13,7 @@ export type BeforeAfterItem = {
 export function BeforeAfterGallery({ title, subtitle, disclaimer, items, priority = false }: { title: string; subtitle?: string; disclaimer?: string; items: BeforeAfterItem[]; priority?: boolean }) {
   const [index, setIndex] = useState(0)
 
-  const safeItems = items?.length ? items : []
+  const safeItems = useMemo(() => (items?.length ? items : []), [items])
   const activeItem = useMemo(() => safeItems[Math.max(0, Math.min(index, safeItems.length - 1))], [safeItems, index])
 
   const goPrev = useCallback(() => {
