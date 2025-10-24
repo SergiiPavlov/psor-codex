@@ -8,6 +8,7 @@ const en = {
     disclaimer: 'Information on the site does not replace a consultation with a doctor. Individual results vary.',
     nonMedical: 'Psoriatynin is a cosmetic product, not a medicine.',
     cta: {
+      description: 'Description',
       buy: 'Buy now',
       order: 'Place an order',
       explore: 'Discover more',
@@ -276,7 +277,7 @@ const en = {
         ]
       },
       application: {
-        title: 'Application ritual',
+        title: 'How to use',
         steps: [
           {title: 'Patch test', description: 'Apply a small amount on the inner forearm for 24 hours before first use.'},
           {title: 'Daily use', description: 'Spread a thin layer over affected areas twice a day or as recommended.'},
@@ -295,7 +296,7 @@ const en = {
         keyIngredients: [{ name: 'Chelidonium, Calendula, Bidens extracts', description: 'Keratolytic, softening care for thick plaques.' },{ name: 'Menthol & Eucalyptus', description: 'Cooling comfort.' },{ name: 'Glycerin & emollients (petrolatum)', description: 'Hydration and protective occlusion.' }]
       },
       faq: [
-        {question: 'Can I use Psoriatynin Cream on the face?', answer: 'Yes, apply carefully avoiding the eye area. Start with a small amount and consult your dermatologist for personal recommendations.'},
+        {question: 'Can I use Psoriatynin Cream on the face?', answer: 'Yes, carefully avoiding contact with mucous membranes.Start with a small amount and consult your dermatologist for personal recommendations.'},
         {question: 'Is it safe during pregnancy or breastfeeding?', answer: 'There are no specific contraindications, but we advise consulting your healthcare provider before use.'},
         {question: 'Does it stain clothing?', answer: 'The cream absorbs quickly and does not leave greasy traces when used as directed.'}
       ],
@@ -356,7 +357,7 @@ const en = {
         ]
       },
       application: {
-        title: 'Application ritual',
+        title: 'How to use',
         steps: [
           {title: 'Patch test', description: 'Test on a small area 24 hours before first full use.'},
           {title: 'Daytime relief', description: 'Apply in the morning or whenever skin feels overheated.'},
@@ -377,7 +378,7 @@ const en = {
       faq: [
         {question: 'How strong is the cooling effect?', answer: 'It is a subtle, refreshing sensation designed for sensitive skin. There is no strong menthol scent.'},
         {question: 'Can I use it in winter?', answer: 'Yes. The cooling feel is delicate and can be used year-round.'},
-        {question: 'Is it suitable for the scalp?', answer: 'We recommend using on body areas. For scalp use consult your dermatologist.'}
+        {question: 'Is it suitable for the scalp?', answer: 'Yes, but if you have long, thick hair, the cream may be difficult to apply.'}
       ],
       reviews: [
         {name: 'Andrii', text: 'Helps during workouts when skin feels hot. Cooling effect lasts around 20 minutes.'},

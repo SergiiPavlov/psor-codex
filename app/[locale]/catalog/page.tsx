@@ -14,6 +14,9 @@ export async function generateMetadata({params}: {params: {locale: Locale}}) {
 export default async function CatalogPage({params}: {params: {locale: Locale}}) {
   const locale = params.locale
   const tCatalog = await getTranslations({locale, namespace: 'catalog'})
+  const tCommon = await getTranslations({locale, namespace: 'common'})
+  const ctaPrimaryLabel = tCommon('cta.description')
+  const ctaOrderLabel = tCommon('cta.order')
   const products = tCatalog.raw('products') as Array<{
     slug: string
     name: string
@@ -34,7 +37,7 @@ export default async function CatalogPage({params}: {params: {locale: Locale}}) 
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {products.map((product) => (
-            <CatalogCard key={product.slug} locale={locale} product={product} ctaLabel={ctaLabel} />
+            <CatalogCard key={product.slug} locale={locale} product={product} primaryCtaLabel={ctaPrimaryLabel} secondaryCtaLabel={ctaOrderLabel} />
           ))}
         </div>
       </div>

@@ -7,7 +7,6 @@ import {ProductGallery} from '@/components/product/ProductGallery'
 import {FeatureGrid} from '@/components/sections/FeatureGrid'
 import {HowItWorks as HowItWorksSection} from '@/components/sections/HowItWorks'
 import {ApplicationGuide} from '@/components/sections/ApplicationGuide'
-import {ProductVariants} from '@/components/product/ProductVariants'
 import {ProductComposition} from '@/components/product/ProductComposition'
 import {ReviewsSection} from '@/components/sections/ReviewsSection'
 import {FAQSection} from '@/components/sections/FAQSection'
@@ -114,7 +113,6 @@ export default async function ProductPage({params}: {params: {locale: Locale; sl
       <ProductHero name={product.name} label={product.hero.label} description={product.hero.description} badges={product.hero.badges} />
       <ProductSummary title={product.summary.title} points={product.summary.points} />
       <ProductGallery items={product.gallery} />
-      <ProductVariants title={product.variantsTitle ?? cta('title')} variants={product.variants} />
       <FeatureGrid title={product.highlights.title} items={product.highlights.items} />
       <HowItWorksSection title={product.howItWorks.title} steps={product.howItWorks.items} />
       <ApplicationGuide
