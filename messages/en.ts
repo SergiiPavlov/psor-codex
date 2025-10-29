@@ -110,7 +110,8 @@ const en = {
       checklist: [
         'Clinically tested at the Kharkiv Institute of Dermatology and venereology',
         'Keratolytic + emollient complex for daily maintenance',
-        'Cooling option for instant comfort during flare-ups'
+        'The first expected effect is seen after 2 weeks',
+        'Contains no hormones'
       ]
     },
     benefits: {
